@@ -127,3 +127,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+/* ADDITIONAL */
+
+.custom-polygon-shape{
+  position: relative;
+}
+
+
+.custom-polygon-shape:before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    right: 0;
+    border-top: 10px solid black;
+    border-left: 10px solid transparent;
+}
