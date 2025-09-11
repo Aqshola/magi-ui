@@ -131,16 +131,96 @@
 
 /* ADDITIONAL */
 
-.custom-polygon-shape{
+.custom-polygon-shape {
   position: relative;
 }
 
 
 .custom-polygon-shape:before {
-    content: '';
-    position: absolute;
-    top: 0; 
-    right: 0;
-    border-top: 10px solid black;
-    border-left: 10px solid transparent;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 10px solid black;
+  border-left: 10px solid transparent;
+}
+
+
+.alert-box-default {
+  position: relative;
+   /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  position: relative;
+   background-color: black;
+}
+
+
+.alert-box-default::before{
+   content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  z-index: -1;
+
+  background: repeating-linear-gradient(45deg, 
+            #000000 0, 
+            #000000 10px, 
+            #EC6F1C 10px, 
+            #EC6F1C 20px,
+             #000000 20px, 
+            #000000 30px,
+             
+            #EC6F1C 30px, 
+            #EC6F1C 40px);
+  
+  animation: anime 10s linear infinite;
+  border: 1px solid #EC6F1C;
+}
+
+.alert-box-destructive {
+  position: relative;
+   /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  position: relative;
+   background-color: black;
+}
+
+
+.alert-box-destructive::before{
+   content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  z-index: -1;
+
+  background: repeating-linear-gradient(45deg, 
+            #000000 0, 
+            #000000 10px, 
+            #F30505 10px, 
+            #F30505 20px,
+             #000000 20px, 
+            #000000 30px,
+             
+            #F30505 30px, 
+            #F30505 40px);
+  
+  animation: anime 10s linear infinite;
+
+  border: 1px solid #F30505;
+}
+
+
+@keyframes anime {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 489px;
+  }
 }

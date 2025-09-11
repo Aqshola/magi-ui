@@ -2,12 +2,12 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function AlertShowCase() {
     return <>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5 max-w-lg mx-auto">
 
             <Alert>
-                <AlertTitle>Success! Your changes have been saved</AlertTitle>
+                <AlertTitle>TEST ALERT</AlertTitle>
                 <AlertDescription>
-                    This is an alert with icon, title and description.
+                    TEST ALERT DESCRIPTION
                 </AlertDescription>
             </Alert>
             <Alert>
@@ -16,14 +16,9 @@ export default function AlertShowCase() {
                 </AlertTitle>
             </Alert>
             <Alert variant="destructive">
-                <AlertTitle>Unable to process your payment.</AlertTitle>
+                <AlertTitle>ERROR</AlertTitle>
                 <AlertDescription>
-                    <p>Please verify your billing information and try again.</p>
-                    <ul className="list-inside list-disc text-sm">
-                        <li>Check your card details</li>
-                        <li>Ensure sufficient funds</li>
-                        <li>Verify billing address</li>
-                    </ul>
+                    FINAL GATE/LOCKED
                 </AlertDescription>
             </Alert>
         </div>
