@@ -4,6 +4,7 @@ import './index.css'
 import ButtonShowCase from './show/button-showcase'
 import AlertShowCase from './show/alert-showcase'
 import InputShowcase from './show/input-showcase'
+import SelectShowCase from './show/select-showcase'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
       <ButtonShowCase />
       <AlertShowCase />
       <InputShowcase/>
+      <SelectShowCase/>
     </div>
 
   </StrictMode>,
