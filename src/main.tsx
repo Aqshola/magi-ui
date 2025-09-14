@@ -8,7 +8,7 @@ import InputShowcase from './show/input-showcase'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <div className='flex flex-col gap-3'>
-      <div>
+      <div className='mx-auto'>
         MAGI
       </div>
       <ButtonShowCase />
