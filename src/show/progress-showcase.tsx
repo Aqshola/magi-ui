@@ -10,10 +10,8 @@ export default function ProgressShowcase() {
     }, [])
     return (
         <div className="mx-auto mb-5">
-            daddadadad
             <Progress value={progress} className="w-500px" />
             <CustomProgressBar value={59}/>
-
         </div>
     )
 }

@@ -6,6 +6,7 @@ import AlertShowCase from './show/alert-showcase'
 import InputShowcase from './show/input-showcase'
 import SelectShowCase from './show/select-showcase'
 import ProgressShowcase from './show/progress-showcase'
+import AlertDialogShowcase from './show/alert-dialog-showcase'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
       <InputShowcase/>
       <SelectShowCase/>
       <ProgressShowcase/>
+      <AlertDialogShowcase/>
     </div>
 
   </StrictMode>,
