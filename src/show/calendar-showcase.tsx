@@ -11,5 +11,13 @@ export default function CalendarShowcase() {
             onSelect={setDate}
             className="rounded-lg border"
         />
+
+        <Calendar
+            mode="single"
+            disabled={(date) =>
+                date > new Date() || date < new Date("1900-01-01")
+            }
+            captionLayout="dropdown"
+        />
     </div>
 }
