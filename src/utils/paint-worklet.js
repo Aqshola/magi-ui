@@ -1,9 +1,9 @@
 /*
  * CSS Paint API Worklet for Polygon Borders
- * 
+ *
  * This worklet creates custom polygon shapes with borders using the CSS Paint API.
  * It's registered as 'polygon-border' and can be used in CSS with paint(polygon-border).
- * 
+ *
  * The CSS Paint API allows us to programmatically generate images/graphics
  * that can be used as CSS backgrounds, borders, etc.
  */
@@ -22,7 +22,7 @@ registerPaint('polygon-border', class {
 
     /*
      * paint: The main function that draws the polygon
-     * 
+     *
      * @param {CanvasRenderingContext2D} ctx - Canvas 2D drawing context
      * @param {Object} size - Object with width and height of the element
      * @param {StylePropertyMapReadOnly} properties - CSS custom properties
@@ -32,7 +32,7 @@ registerPaint('polygon-border', class {
         const pathString = properties.get('--polygon-path').toString().trim();
         const borderWidth = parseFloat(properties.get('--polygon-border-width').toString()) || 2;
         const borderColor = properties.get('--polygon-border-color').toString() || '#EC6F1C';
-        
+
         // Get the actual dimensions of the element
         const w = size.width;
         const h = size.height;
@@ -40,7 +40,7 @@ registerPaint('polygon-border', class {
         // If no path is provided, use a default angled button shape
         if (!pathString || pathString === '') {
             // Default polygon path for the angled button shape
-            const defaultPath = '0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 0 100%';
+            const defaultPath = '0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%';
             this.drawPolygon(ctx, defaultPath, w, h, borderWidth, borderColor);
             return;
         }
@@ -51,7 +51,7 @@ registerPaint('polygon-border', class {
 
     /*
      * drawPolygon: Parses the polygon path and draws it on the canvas
-     * 
+     *
      * @param {CanvasRenderingContext2D} ctx - Canvas drawing context
      * @param {string} pathString - Polygon path (e.g., "0 0, 100% 0, 100% 100%, 0 100%")
      * @param {number} w - Width of the element
@@ -66,21 +66,21 @@ registerPaint('polygon-border', class {
          * Split by commas to get individual coordinate pairs
          */
         const points = pathString.split(',').map(point => point.trim());
-        
+
         // A polygon needs at least 3 points
         if (points.length < 3) return;
 
         /*
          * convertCoordinate: Converts CSS coordinate values to pixel values
          * Handles percentages, pixels, and calc() expressions
-         * 
+         *
          * @param {string} coord - Coordinate value (e.g., "100%", "25px", "calc(100% - 25px)")
          * @param {number} dimension - Reference dimension (width or height)
          * @returns {number} - Pixel value
          */
         const convertCoordinate = (coord, dimension) => {
             coord = coord.trim();
-            
+
             if (coord.includes('calc(')) {
                 // Handle CSS calc() expressions
                 const calcMatch = coord.match(/calc\((.+)\)/);
@@ -122,12 +122,12 @@ registerPaint('polygon-border', class {
          */
         ctx.beginPath();                                    // Start a new path
         ctx.moveTo(coordinates[0][0], coordinates[0][1]);   // Move to first point
-        
+
         // Draw lines to all other points
         for (let i = 1; i < coordinates.length; i++) {
             ctx.lineTo(coordinates[i][0], coordinates[i][1]);
         }
-        
+
         ctx.closePath();                // Close the path (connects last point to first)
         ctx.lineWidth = borderWidth;    // Set border thickness
         ctx.strokeStyle = borderColor;  // Set border color

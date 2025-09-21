@@ -54,10 +54,11 @@ function Button({
   initButtonPaint()
 
   function initButtonPaint() {
-      CSS.paintWorklet.addModule(workletURL);
+    CSS.paintWorklet.addModule(workletURL);
   }
   return (
     <Comp
+
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
