@@ -185,6 +185,7 @@ function CalendarDayButton({
 
   return (
     <Button
+      isCustomPolygon={false}
       ref={ref}
       variant="ghost"
       size="icon"

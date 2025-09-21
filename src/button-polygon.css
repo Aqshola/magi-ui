@@ -23,7 +23,7 @@
     --polygon-border-width: 2;
 
     /* Border color for the paint worklet (orange color) */
-    --polygon-border-color: #EC6F1C;
+    /* --polygon-border-color: #EC6F1C; */
 
     /* 
      * clip-path: Actually cuts the button into the polygon shape
@@ -58,13 +58,13 @@
 
 /* Destructive buttons (danger/error actions) - Red border */
 .custom-polygon-button.destructive {
-    --polygon-border-color: #F30505;
+    /* --polygon-border-color: #F30505; */
     /* Red color for destructive actions */
 }
 
 /* Outline buttons (secondary actions) - Orange border with transparent background */
 .custom-polygon-button.outline {
-    --polygon-border-color: #EC6F1C;
+    --polygon-border-color: white;
     /* Orange border */
     background: transparent;
     /* No background fill */
@@ -72,7 +72,6 @@
 
 /* Secondary buttons - Different color scheme */
 .custom-polygon-button.secondary {
-    --polygon-border-color: #8901;
     /* Different color for secondary actions */
 }
 
@@ -80,32 +79,3 @@
  * Shadow Effect using ::after pseudo-element
  * Creates a drop shadow behind the button for depth
  */
-.custom-polygon-button::after {
-    content: '';
-    /* Required for pseudo-element to appear */
-    position: absolute;
-    /* Position relative to the button */
-
-    /* 
-     * Shadow positioning:
-     * - top: 2px, left: 2px: Offset the shadow slightly down and right
-     * - right: -23px: Extend shadow to account for the angled cut
-     * - bottom: -2px: Extend shadow slightly below
-     */
-    top: 2px;
-    left: 2px;
-    right: -23px;
-    bottom: -2px;
-
-    /* Semi-transparent black for shadow effect */
-    background: rgba(0, 0, 0, 0.2);
-
-    /* 
-     * Apply the same polygon clip-path to the shadow
-     * This ensures the shadow has the same angled shape as the button
-     */
-    clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 0 100%);
-
-    /* Place shadow behind the button content */
-    z-index: -1;
-}

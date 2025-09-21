@@ -31,8 +31,8 @@ export function CardShowcase() {
             <p className="text-sm text-destructive">Anomalous pattern detected in sector 7. Immediate investigation required.</p>
           </CardContent>
           <CardFooter className="flex justify-between">
-            <Button variant="outline" size="sm">DISMISS</Button>
-            <Button size="sm">INVESTIGATE</Button>
+            <Button isCustomPolygon={false} variant="outline" size="sm">DISMISS</Button>
+            <Button isCustomPolygon={false} size="sm">INVESTIGATE</Button>
           </CardFooter>
         </Card>
 
@@ -57,7 +57,7 @@ export function CardShowcase() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" className="w-full">VIEW DETAILS</Button>
+            <Button isCustomPolygon={false} variant="outline" className="w-full">VIEW DETAILS</Button>
           </CardFooter>
         </Card>
 
@@ -67,7 +67,7 @@ export function CardShowcase() {
             <div className="text-center space-y-2">
               <CardTitle className="text-lg">ANGEL DETECTED</CardTitle>
               <p className="text-destructive font-mono text-sm">PATTERN BLUE</p>
-              <Button className="w-full mt-4">ACTIVATE AT FIELD</Button>
+              <Button isCustomPolygon={false} className="w-full mt-4">ACTIVATE AT FIELD</Button>
             </div>
           </CardContent>
         </Card>
@@ -95,7 +95,7 @@ export function CardShowcase() {
             <p className="text-sm">EVA Unit 01 has exceeded operational limits. Emergency shutdown initiated.</p>
           </CardContent>
           <CardFooter>
-            <Button variant="destructive" className="w-full">EMERGENCY PROTOCOL</Button>
+            <Button isCustomPolygon={false} variant="destructive" className="w-full">EMERGENCY PROTOCOL</Button>
           </CardFooter>
         </Card>
       </div>

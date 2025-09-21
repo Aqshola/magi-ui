@@ -31,7 +31,7 @@ registerPaint('polygon-border', class {
         // Extract CSS custom properties and provide defaults
         const pathString = properties.get('--polygon-path').toString().trim();
         const borderWidth = parseFloat(properties.get('--polygon-border-width').toString()) || 2;
-        const borderColor = properties.get('--polygon-border-color').toString() || '#EC6F1C';
+        const borderColor = properties.get('--polygon-border-color').toString();
 
         // Get the actual dimensions of the element
         const w = size.width;
@@ -137,7 +137,7 @@ registerPaint('polygon-border', class {
          * Optional: Fill the polygon area with a subtle color
          * This helps with visibility and can be customized or removed
          */
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Very subtle dark fill
-        ctx.fill();
+
+
     }
 })

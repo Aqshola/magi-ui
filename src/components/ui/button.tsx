@@ -6,7 +6,7 @@ import workletURL from '@/utils/paint-worklet.js?url'
 import "@/button-polygon.css"
 
 const buttonVariants = cva(
-  "cursor-pointer uppercase custom-polygon-button inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semi-bold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "cursor-pointer uppercase inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semi-bold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
       variant: {
@@ -15,11 +15,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white shadow-xs focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border txt bg-background shadow-xs dark:bg-input/30 dark:border-input",
+          "bg-background shadow-xs dark:bg-input/30",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs",
         ghost:
-          "text-primary  dark:text-accent-foreground",
+          "text-primary dark:text-accent-foreground",
         link:
           "text-primary underline-offset-4",
       },
@@ -37,30 +37,49 @@ const buttonVariants = cva(
   }
 )
 
-
-
 function Button({
   className,
   variant,
   size,
   asChild = false,
+  isCustomPolygon = true,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    isCustomPolygon?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
 
-  initButtonPaint()
+  if (isCustomPolygon) {
+    initButtonPaint()
+  }
 
   function initButtonPaint() {
-    CSS.paintWorklet.addModule(workletURL);
+    if ("paintWorklet" in CSS) {
+      CSS.paintWorklet.addModule(workletURL)
+    }
   }
+
+  const borderColors: Record<string, string> = {
+    default: "#EC6F1C", // orange
+    destructive: "#F30505", // red
+    outline: "white",
+    secondary: "", // e.g. blue, change to your theme
+    ghost: "", // gray
+    link: "", // green
+  }
+
   return (
     <Comp
-
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(
+        buttonVariants({ variant, size, className }),
+        isCustomPolygon && "custom-polygon-button"
+      )}
+      style={{
+        ["--polygon-border-color" as any]: borderColors[variant ?? "default"],
+      }}
       {...props}
     />
   )
