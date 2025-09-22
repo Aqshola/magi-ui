@@ -15,7 +15,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white shadow-xs focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "bg-background shadow-xs dark:bg-input/30",
+          "border bg-background shadow-xs dark:bg-input/30",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs",
         ghost:
@@ -43,6 +43,7 @@ function Button({
   size,
   asChild = false,
   isCustomPolygon = true,
+  style,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -75,10 +76,13 @@ function Button({
       data-slot="button"
       className={cn(
         buttonVariants({ variant, size, className }),
-        isCustomPolygon && "custom-polygon-button"
+        isCustomPolygon && variant!='outline'  && "custom-polygon-button",
+        isCustomPolygon  && variant=='outline' && "custom-polygon-button-outline"
       )}
       style={{
         ["--polygon-border-color" as any]: borderColors[variant ?? "default"],
+        ["--mode" as any]: variant != "outline" ? "filled" : "outlined",
+        ...style,
       }}
       {...props}
     />

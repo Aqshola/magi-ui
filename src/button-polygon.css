@@ -1,81 +1,16 @@
 .custom-polygon-button {
-    /* 
-     * CSS Custom Properties (CSS Variables) for the polygon shape
-     * These variables are passed to the CSS Paint API worklet
-     */
+    /* clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
+    --polygon-border-width: 2; */
 
-    /* 
-     * --polygon-path: Defines the polygon coordinates
-     * Format: x1 y1, x2 y2, x3 y3, x4 y4, x5 y5
-     * 
-     * Breaking down the path:
-     * - 0 0: Start at top-left corner
-     * - calc(100% - 25px) 0: Go to top-right minus 25px (creates space for the cut)
-     * - 100% 25px: Create the diagonal cut by going to the right edge, 25px down
-     * - 100% 100%: Go to bottom-right corner
-     * - 0 100%: Return to bottom-left corner
-     * 
-     * This creates a rectangle with an angled cut on the top-right corner
-     */
-    clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
-
-    /* Border width for the paint worklet (in pixels) */
-    --polygon-border-width: 2;
-
-    /* Border color for the paint worklet (orange color) */
-    /* --polygon-border-color: #EC6F1C; */
-
-    /* 
-     * clip-path: Actually cuts the button into the polygon shape
-     * This is what makes the button physically have the angled corner
-     * Must match the --polygon-path above for consistency
-     */
-
-    clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
-
-    /* 
-     * background-image: Uses the CSS Paint API worklet
-     * The 'polygon-border' worklet draws custom border effects
-     * It reads the CSS variables defined above
-     */
-    background-image: paint(polygon-border);
-
-    /* 
-     * Positioning and overflow settings
-     * - relative: Allows positioning of pseudo-elements
-     * - overflow: hidden: Ensures content doesn't spill outside the clipped shape
-     */
-    /* position: relative; */
-    /* overflow: hidden; */
+    --corner-radius: 0 10 0 0;
+    mask: paint(polygon-border);
 }
 
+.custom-polygon-button-outline {
+    /* clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
+    --polygon-border-width: 2; */
 
+    --corner-radius: 0 10 0 0;
 
-/* 
- * Button Variant Styles
- * These override the default border color for different button types
- */
-
-/* Destructive buttons (danger/error actions) - Red border */
-.custom-polygon-button.destructive {
-    /* --polygon-border-color: #F30505; */
-    /* Red color for destructive actions */
+    border-image: paint(polygon-border) 0 fill !important;
 }
-
-/* Outline buttons (secondary actions) - Orange border with transparent background */
-.custom-polygon-button.outline {
-    --polygon-border-color: white;
-    /* Orange border */
-    background: transparent;
-    /* No background fill */
-}
-
-/* Secondary buttons - Different color scheme */
-.custom-polygon-button.secondary {
-    /* Different color for secondary actions */
-}
-
-/* 
- * Shadow Effect using ::after pseudo-element
- * Creates a drop shadow behind the button for depth
- */
