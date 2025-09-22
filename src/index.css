@@ -58,12 +58,12 @@
   --secondary-foreground: oklch(0 0 0);
   --muted: oklch(0 0 0);
   --muted-foreground: oklch(0.6806 0.1762 47.74/0.7);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0 0 0);
+  --accent-foreground: oklch(0.6806 0.1762 47.74);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.6806 0.1762 47.74);
-  --ring:  oklch(0.6806 0.1762 60);
+  --ring: oklch(0.6806 0.1762 60);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -136,16 +136,16 @@
 
 .alert-box-default {
   position: relative;
-   /* display: flex; */
+  /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
   position: relative;
-   background-color: black;
+  background-color: black;
 }
 
 
-.alert-box-default::before{
-   content: '';
+.alert-box-default::before {
+  content: '';
   position: absolute;
   top: -5px;
   right: -5px;
@@ -153,33 +153,33 @@
   left: -5px;
   z-index: -1;
 
-  background: repeating-linear-gradient(45deg, 
-            #000000 0, 
-            #000000 10px, 
-            #EC6F1C 10px, 
-            #EC6F1C 20px,
-             #000000 20px, 
-            #000000 30px,
-             
-            #EC6F1C 30px, 
-            #EC6F1C 40px);
-  
+  background: repeating-linear-gradient(45deg,
+      #000000 0,
+      #000000 10px,
+      #EC6F1C 10px,
+      #EC6F1C 20px,
+      #000000 20px,
+      #000000 30px,
+
+      #EC6F1C 30px,
+      #EC6F1C 40px);
+
   animation: anime 10s linear infinite;
   border: 1px solid #EC6F1C;
 }
 
 .alert-box-destructive {
   position: relative;
-   /* display: flex; */
+  /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
   position: relative;
-   background-color: black;
+  background-color: black;
 }
 
 
-.alert-box-destructive::before{
-   content: '';
+.alert-box-destructive::before {
+  content: '';
   position: absolute;
   top: -5px;
   right: -5px;
@@ -187,17 +187,17 @@
   left: -5px;
   z-index: -1;
 
-  background: repeating-linear-gradient(45deg, 
-            #000000 0, 
-            #000000 10px, 
-            #F30505 10px, 
-            #F30505 20px,
-             #000000 20px, 
-            #000000 30px,
-             
-            #F30505 30px, 
-            #F30505 40px);
-  
+  background: repeating-linear-gradient(45deg,
+      #000000 0,
+      #000000 10px,
+      #F30505 10px,
+      #F30505 20px,
+      #000000 20px,
+      #000000 30px,
+
+      #F30505 30px,
+      #F30505 40px);
+
   animation: anime 10s linear infinite;
 
   border: 1px solid #F30505;
@@ -208,6 +208,7 @@
   0% {
     background-position: 0;
   }
+
   100% {
     background-position: 489px;
   }
