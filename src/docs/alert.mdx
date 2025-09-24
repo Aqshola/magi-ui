@@ -1,0 +1,350 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { AlertTriangle, Info, CheckCircle, XCircle, Terminal, Zap } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Alert"
+  description="Display important messages and notifications to users with various severity levels and customizable content."
+  category="Feedback Component"
+>
+
+## Overview
+
+The Alert component provides a way to display important information, warnings, errors, or success messages to users. It supports different variants and can include icons, titles, and descriptions.
+
+## Features
+
+- **Multiple Variants**: Default, destructive, and custom styling options
+- **Icon Support**: Built-in icon placement with customizable icons
+- **Flexible Content**: Support for titles, descriptions, and custom content
+- **Accessibility**: Full ARIA support and keyboard navigation
+- **Responsive Design**: Adapts to different screen sizes and containers
+- **Semantic HTML**: Uses appropriate semantic elements for better accessibility
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Alert"
+  description="Simple alert with description"
+  code={`import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Info } from 'lucide-react'
+
+function Example() {
+  return (
+    <Alert>
+      <Info className="h-4 w-4" />
+      <AlertDescription>
+        MAGI system is operating within normal parameters.
+      </AlertDescription>
+    </Alert>
+  )
+}`}
+>
+  <Alert>
+    <Info className="h-4 w-4" />
+    <AlertDescription>
+      MAGI system is operating within normal parameters.
+    </AlertDescription>
+  </Alert>
+</ComponentPreview>
+
+## Alert Variants
+
+<ComponentPreview
+  title="Alert Variants"
+  description="Different alert variants for various message types"
+  code={`import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Info, AlertTriangle, CheckCircle, XCircle } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Alert>
+        <Info className="h-4 w-4" />
+        <AlertTitle>Information</AlertTitle>
+        <AlertDescription>
+          System diagnostics completed successfully.
+        </AlertDescription>
+      </Alert>
+      
+      <Alert variant="destructive">
+        <XCircle className="h-4 w-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          Critical system failure detected. Immediate attention required.
+        </AlertDescription>
+      </Alert>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <Alert>
+      <Info className="h-4 w-4" />
+      <AlertTitle>Information</AlertTitle>
+      <AlertDescription>
+        System diagnostics completed successfully.
+      </AlertDescription>
+    </Alert>
+    
+    <Alert variant="destructive">
+      <XCircle className="h-4 w-4" />
+      <AlertTitle>Error</AlertTitle>
+      <AlertDescription>
+        Critical system failure detected. Immediate attention required.
+      </AlertDescription>
+    </Alert>
+  </div>
+</ComponentPreview>
+
+## With Different Icons
+
+<ComponentPreview
+  title="Alert with Different Icons"
+  description="Alerts with various icons for different contexts"
+  code={`import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { CheckCircle, AlertTriangle, Terminal, Zap } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Alert className="border-green-200 bg-green-50 text-green-800">
+        <CheckCircle className="h-4 w-4 text-green-600" />
+        <AlertTitle>Success</AlertTitle>
+        <AlertDescription>
+          Eva Unit-01 synchronization rate: 98.7%
+        </AlertDescription>
+      </Alert>
+      
+      <Alert className="border-yellow-200 bg-yellow-50 text-yellow-800">
+        <AlertTriangle className="h-4 w-4 text-yellow-600" />
+        <AlertTitle>Warning</AlertTitle>
+        <AlertDescription>
+          AT Field fluctuations detected. Monitor closely.
+        </AlertDescription>
+      </Alert>
+      
+      <Alert className="border-blue-200 bg-blue-50 text-blue-800">
+        <Terminal className="h-4 w-4 text-blue-600" />
+        <AlertTitle>System Update</AlertTitle>
+        <AlertDescription>
+          MAGI firmware update available. Install during next maintenance window.
+        </AlertDescription>
+      </Alert>
+      
+      <Alert className="border-purple-200 bg-purple-50 text-purple-800">
+        <Zap className="h-4 w-4 text-purple-600" />
+        <AlertTitle>Power Status</AlertTitle>
+        <AlertDescription>
+          Emergency power activated. Battery level: 67%
+        </AlertDescription>
+      </Alert>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <Alert className="border-green-200 bg-green-50 text-green-800">
+      <CheckCircle className="h-4 w-4 text-green-600" />
+      <AlertTitle>Success</AlertTitle>
+      <AlertDescription>
+        Eva Unit-01 synchronization rate: 98.7%
+      </AlertDescription>
+    </Alert>
+    
+    <Alert className="border-yellow-200 bg-yellow-50 text-yellow-800">
+      <AlertTriangle className="h-4 w-4 text-yellow-600" />
+      <AlertTitle>Warning</AlertTitle>
+      <AlertDescription>
+        AT Field fluctuations detected. Monitor closely.
+      </AlertDescription>
+    </Alert>
+    
+    <Alert className="border-blue-200 bg-blue-50 text-blue-800">
+      <Terminal className="h-4 w-4 text-blue-600" />
+      <AlertTitle>System Update</AlertTitle>
+      <AlertDescription>
+        MAGI firmware update available. Install during next maintenance window.
+      </AlertDescription>
+    </Alert>
+    
+    <Alert className="border-purple-200 bg-purple-50 text-purple-800">
+      <Zap className="h-4 w-4 text-purple-600" />
+      <AlertTitle>Power Status</AlertTitle>
+      <AlertDescription>
+        Emergency power activated. Battery level: 67%
+      </AlertDescription>
+    </Alert>
+  </div>
+</ComponentPreview>
+
+## Description Only
+
+<ComponentPreview
+  title="Description Only Alert"
+  description="Simple alerts with just descriptions"
+  code={`import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Info, AlertTriangle } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <Alert>
+        <Info className="h-4 w-4" />
+        <AlertDescription>
+          All systems operational. No action required.
+        </AlertDescription>
+      </Alert>
+      
+      <Alert variant="destructive">
+        <AlertTriangle className="h-4 w-4" />
+        <AlertDescription>
+          Connection to Central Dogma lost. Attempting to reconnect...
+        </AlertDescription>
+      </Alert>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <Alert>
+      <Info className="h-4 w-4" />
+      <AlertDescription>
+        All systems operational. No action required.
+      </AlertDescription>
+    </Alert>
+    
+    <Alert variant="destructive">
+      <AlertTriangle className="h-4 w-4" />
+      <AlertDescription>
+        Connection to Central Dogma lost. Attempting to reconnect...
+      </AlertDescription>
+    </Alert>
+  </div>
+</ComponentPreview>
+
+## Complex Content
+
+<ComponentPreview
+  title="Alert with Complex Content"
+  description="Alerts containing multiple elements and rich content"
+  code={`import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { AlertTriangle } from 'lucide-react'
+
+function Example() {
+  return (
+    <Alert variant="destructive">
+      <AlertTriangle className="h-4 w-4" />
+      <AlertTitle>Critical System Alert</AlertTitle>
+      <AlertDescription className="mt-2">
+        <div className="space-y-2">
+          <p>Multiple system anomalies detected:</p>
+          <ul className="list-disc list-inside space-y-1 text-sm">
+            <li>Eva Unit-01 neural link unstable</li>
+            <li>MAGI Casper showing calculation errors</li>
+            <li>AT Field generator operating at 45% capacity</li>
+          </ul>
+          <p className="text-sm font-medium">
+            Recommended action: Initiate emergency protocols immediately.
+          </p>
+        </div>
+      </AlertDescription>
+    </Alert>
+  )
+}`}
+>
+  <Alert variant="destructive">
+    <AlertTriangle className="h-4 w-4" />
+    <AlertTitle>Critical System Alert</AlertTitle>
+    <AlertDescription className="mt-2">
+      <div className="space-y-2">
+        <p>Multiple system anomalies detected:</p>
+        <ul className="list-disc list-inside space-y-1 text-sm">
+          <li>Eva Unit-01 neural link unstable</li>
+          <li>MAGI Casper showing calculation errors</li>
+          <li>AT Field generator operating at 45% capacity</li>
+        </ul>
+        <p className="text-sm font-medium">
+          Recommended action: Initiate emergency protocols immediately.
+        </p>
+      </div>
+    </AlertDescription>
+  </Alert>
+</ComponentPreview>
+
+## API Reference
+
+### Alert Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "destructive"` | `"default"` | Alert variant style |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Alert content |
+
+### AlertTitle Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Title content |
+
+### AlertDescription Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Description content |
+
+## Design Tokens
+
+```css
+/* Alert base styles */
+.alert {
+  position: relative;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  padding: 1rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.alert-destructive {
+  border-color: hsl(var(--destructive) / 0.5);
+  color: hsl(var(--destructive));
+  background-color: hsl(var(--destructive) / 0.1);
+}
+
+.alert-title {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.alert-description {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+```
+
+## Accessibility
+
+- **Semantic HTML**: Uses appropriate ARIA roles and attributes
+- **Screen Readers**: Proper announcement of alert content and severity
+- **Keyboard Navigation**: Focusable when containing interactive elements
+- **Color Contrast**: Meets WCAG guidelines for text contrast
+- **Live Regions**: Automatically announced when dynamically added
+
+## Best Practices
+
+1. **Use appropriate variants**: Choose the right variant for the message type
+2. **Include meaningful icons**: Use icons that reinforce the message context
+3. **Keep content concise**: Write clear, actionable messages
+4. **Provide context**: Include enough information for users to understand and act
+5. **Consider placement**: Position alerts where users expect to see them
+6. **Test accessibility**: Ensure alerts work with screen readers and keyboard navigation
+
+</ComponentDocsLayout>

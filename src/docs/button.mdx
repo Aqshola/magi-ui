@@ -1,0 +1,286 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Download, Mail, Plus, Settings, ArrowRight, Loader2 } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Button"
+  description="A versatile button component with multiple variants, sizes, and states. Built on Radix UI primitives with full accessibility support."
+  category="Core Component"
+>
+
+## Overview
+
+The Button component is a fundamental interactive element in the MAGI-UI system. It provides consistent styling, behavior, and accessibility features across different variants and use cases.
+
+## Features
+
+- **Multiple Variants**: Default, destructive, outline, secondary, ghost, and link styles
+- **Size Options**: Small, default, large, and icon sizes
+- **Loading States**: Built-in loading spinner support
+- **Icon Support**: Leading and trailing icon placement
+- **Accessibility**: Full keyboard navigation and screen reader support
+- **Polymorphic**: Can render as button, link, or custom elements
+
+## Basic Usage
+
+<ComponentPreview
+  title="Default Button"
+  description="The primary button variant with solid background"
+  code={`import { Button } from '@/components/ui/button'
+
+function Example() {
+  return (
+    <Button>
+      Execute Command
+    </Button>
+  )
+}`}
+>
+  <Button>Execute Command</Button>
+</ComponentPreview>
+
+## Variants
+
+<ComponentPreview
+  title="Button Variants"
+  description="Different visual styles for various use cases"
+  code={`import { Button } from '@/components/ui/button'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button variant="default">Default</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="link">Link</Button>
+    </div>
+  )
+}`}
+>
+  <div className="flex flex-wrap gap-4">
+    <Button variant="default">Default</Button>
+    <Button variant="destructive">Destructive</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="link">Link</Button>
+  </div>
+</ComponentPreview>
+
+## Sizes
+
+<ComponentPreview
+  title="Button Sizes"
+  description="Different sizes for various interface contexts"
+  code={`import { Button } from '@/components/ui/button'
+
+function Example() {
+  return (
+    <div className="flex items-center gap-4">
+      <Button size="sm">Small</Button>
+      <Button size="default">Default</Button>
+      <Button size="lg">Large</Button>
+      <Button size="icon">
+        <Settings className="h-4 w-4" />
+      </Button>
+    </div>
+  )
+}`}
+>
+  <div className="flex items-center gap-4">
+    <Button size="sm">Small</Button>
+    <Button size="default">Default</Button>
+    <Button size="lg">Large</Button>
+    <Button size="icon">
+      <Settings className="h-4 w-4" />
+    </Button>
+  </div>
+</ComponentPreview>
+
+## With Icons
+
+<ComponentPreview
+  title="Buttons with Icons"
+  description="Buttons enhanced with leading or trailing icons"
+  code={`import { Button } from '@/components/ui/button'
+import { Download, Mail, Plus, ArrowRight } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-4">
+      <Button>
+        <Download className="mr-2 h-4 w-4" />
+        Download
+      </Button>
+      <Button variant="outline">
+        <Mail className="mr-2 h-4 w-4" />
+        Send Email
+      </Button>
+      <Button variant="secondary">
+        <Plus className="mr-2 h-4 w-4" />
+        Add Item
+      </Button>
+      <Button variant="ghost">
+        Continue
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+    </div>
+  )
+}`}
+>
+  <div className="flex flex-wrap gap-4">
+    <Button>
+      <Download className="mr-2 h-4 w-4" />
+      Download
+    </Button>
+    <Button variant="outline">
+      <Mail className="mr-2 h-4 w-4" />
+      Send Email
+    </Button>
+    <Button variant="secondary">
+      <Plus className="mr-2 h-4 w-4" />
+      Add Item
+    </Button>
+    <Button variant="ghost">
+      Continue
+      <ArrowRight className="ml-2 h-4 w-4" />
+    </Button>
+  </div>
+</ComponentPreview>
+
+## Loading State
+
+<ComponentPreview
+  title="Loading Button"
+  description="Button with loading spinner and disabled state"
+  code={`import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="flex gap-4">
+      <Button disabled>
+        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        Processing...
+      </Button>
+      <Button variant="outline" disabled>
+        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        Loading
+      </Button>
+    </div>
+  )
+}`}
+>
+  <div className="flex gap-4">
+    <Button disabled>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Processing...
+    </Button>
+    <Button variant="outline" disabled>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Loading
+    </Button>
+  </div>
+</ComponentPreview>
+
+## As Link
+
+<ComponentPreview
+  title="Button as Link"
+  description="Button component rendered as an anchor element"
+  code={`import { Button } from '@/components/ui/button'
+
+function Example() {
+  return (
+    <div className="flex gap-4">
+      <Button asChild>
+        <a href="#" target="_blank">
+          External Link
+        </a>
+      </Button>
+      <Button variant="outline" asChild>
+        <a href="#documentation">
+          Internal Link
+        </a>
+      </Button>
+    </div>
+  )
+}`}
+>
+  <div className="flex gap-4">
+    <Button asChild>
+      <a href="#" target="_blank">
+        External Link
+      </a>
+    </Button>
+    <Button variant="outline" asChild>
+      <a href="#documentation">
+        Internal Link
+      </a>
+    </Button>
+  </div>
+</ComponentPreview>
+
+## API Reference
+
+### Button Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "destructive" \| "outline" \| "secondary" \| "ghost" \| "link"` | `"default"` | Visual style variant |
+| `size` | `"default" \| "sm" \| "lg" \| "icon"` | `"default"` | Size of the button |
+| `asChild` | `boolean` | `false` | Render as child element (polymorphic) |
+| `disabled` | `boolean` | `false` | Disable button interaction |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Button content |
+
+### Variant Descriptions
+
+- **default**: Primary button with solid background
+- **destructive**: Red variant for dangerous actions
+- **outline**: Transparent background with border
+- **secondary**: Muted background for secondary actions
+- **ghost**: Minimal styling, transparent background
+- **link**: Styled as a text link
+
+## Design Tokens
+
+```css
+/* Button base styles */
+.button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: colors 0.2s;
+}
+
+/* Size variants */
+.button-sm { height: 2.25rem; padding: 0 0.75rem; }
+.button-default { height: 2.5rem; padding: 0 1rem; }
+.button-lg { height: 2.75rem; padding: 0 2rem; }
+.button-icon { height: 2.5rem; width: 2.5rem; }
+```
+
+## Accessibility
+
+- **Keyboard Navigation**: Full support for Tab, Enter, and Space keys
+- **Screen Readers**: Proper button semantics and ARIA attributes
+- **Focus Management**: Visible focus indicators and logical tab order
+- **Disabled State**: Proper disabled semantics and visual feedback
+
+## Best Practices
+
+1. **Use semantic variants**: Choose variants that match the action's importance
+2. **Include loading states**: Show feedback during async operations
+3. **Provide clear labels**: Use descriptive text that explains the action
+4. **Consider icon placement**: Use icons to enhance, not replace, text labels
+5. **Test accessibility**: Ensure buttons work with keyboard and screen readers
+
+</ComponentDocsLayout>

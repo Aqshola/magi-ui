@@ -1,0 +1,391 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Progress } from '@/components/ui/progress'
+import { Bell, Settings, User, Calendar, Clock, Star } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Card"
+  description="A flexible container component for grouping related content with consistent spacing and visual hierarchy."
+  category="Layout Component"
+>
+
+## Overview
+
+The Card component provides a structured container for organizing related content. It follows a modular composition pattern with separate components for header, content, and footer sections.
+
+## Features
+
+- **Modular Composition**: Separate components for different card sections
+- **Flexible Layout**: Adaptable to various content types and layouts
+- **Consistent Spacing**: Predefined padding and spacing patterns
+- **Semantic Structure**: Proper HTML semantics for accessibility
+- **Responsive Design**: Works seamlessly across different screen sizes
+
+## Basic Usage
+
+<ComponentPreview
+  title="Simple Card"
+  description="Basic card with header, content, and footer"
+  code={`import { 
+  Card, 
+  CardHeader, 
+  CardTitle, 
+  CardDescription, 
+  CardContent, 
+  CardFooter 
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+
+function Example() {
+  return (
+    <Card className="w-96">
+      <CardHeader>
+        <CardTitle>MAGI System Status</CardTitle>
+        <CardDescription>
+          Current operational parameters and system health
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p>All systems operating within normal parameters. 
+        No anomalies detected in the current cycle.</p>
+      </CardContent>
+      <CardFooter>
+        <Button>View Details</Button>
+      </CardFooter>
+    </Card>
+  )
+}`}
+>
+  <Card className="w-96">
+    <CardHeader>
+      <CardTitle>MAGI System Status</CardTitle>
+      <CardDescription>
+        Current operational parameters and system health
+      </CardDescription>
+    </CardHeader>
+    <CardContent>
+      <p>All systems operating within normal parameters. 
+      No anomalies detected in the current cycle.</p>
+    </CardContent>
+    <CardFooter>
+      <Button>View Details</Button>
+    </CardFooter>
+  </Card>
+</ComponentPreview>
+
+## Content Variations
+
+<ComponentPreview
+  title="Card with Progress"
+  description="Card displaying progress information"
+  code={`import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Progress } from '@/components/ui/progress'
+import { Badge } from '@/components/ui/badge'
+
+function Example() {
+  return (
+    <Card className="w-96">
+      <CardHeader className="pb-3">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-base">Synchronization Rate</CardTitle>
+          <Badge variant="secondary">Active</Badge>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Unit-01</span>
+            <span>87.3%</span>
+          </div>
+          <Progress value={87.3} />
+        </div>
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Unit-02</span>
+            <span>92.1%</span>
+          </div>
+          <Progress value={92.1} />
+        </div>
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Unit-00</span>
+            <span>78.9%</span>
+          </div>
+          <Progress value={78.9} />
+        </div>
+      </CardContent>
+    </Card>
+  )
+}`}
+>
+  <Card className="w-96">
+    <CardHeader className="pb-3">
+      <div className="flex items-center justify-between">
+        <CardTitle className="text-base">Synchronization Rate</CardTitle>
+        <Badge variant="secondary">Active</Badge>
+      </div>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>Unit-01</span>
+          <span>87.3%</span>
+        </div>
+        <Progress value={87.3} />
+      </div>
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>Unit-02</span>
+          <span>92.1%</span>
+        </div>
+        <Progress value={92.1} />
+      </div>
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>Unit-00</span>
+          <span>78.9%</span>
+        </div>
+        <Progress value={78.9} />
+      </div>
+    </CardContent>
+  </Card>
+</ComponentPreview>
+
+## Interactive Card
+
+<ComponentPreview
+  title="Interactive Card"
+  description="Card with hover effects and clickable actions"
+  code={`import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Bell, Settings, Calendar } from 'lucide-react'
+
+function Example() {
+  return (
+    <Card className="w-96 hover:shadow-lg transition-shadow cursor-pointer">
+      <CardHeader>
+        <div className="flex items-start justify-between">
+          <div className="space-y-1">
+            <CardTitle className="flex items-center gap-2">
+              <Bell className="h-4 w-4" />
+              System Alert
+            </CardTitle>
+            <CardDescription>
+              Anomalous pattern detected in sector 7
+            </CardDescription>
+          </div>
+          <Badge variant="destructive">High</Badge>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Calendar className="h-4 w-4" />
+          <span>2024-01-15 14:32:07</span>
+        </div>
+      </CardContent>
+      <CardFooter className="flex gap-2">
+        <Button size="sm" variant="outline">
+          <Settings className="h-4 w-4 mr-2" />
+          Configure
+        </Button>
+        <Button size="sm">
+          Investigate
+        </Button>
+      </CardFooter>
+    </Card>
+  )
+}`}
+>
+  <Card className="w-96 hover:shadow-lg transition-shadow cursor-pointer">
+    <CardHeader>
+      <div className="flex items-start justify-between">
+        <div className="space-y-1">
+          <CardTitle className="flex items-center gap-2">
+            <Bell className="h-4 w-4" />
+            System Alert
+          </CardTitle>
+          <CardDescription>
+            Anomalous pattern detected in sector 7
+          </CardDescription>
+        </div>
+        <Badge variant="destructive">High</Badge>
+      </div>
+    </CardHeader>
+    <CardContent>
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <Calendar className="h-4 w-4" />
+        <span>2024-01-15 14:32:07</span>
+      </div>
+    </CardContent>
+    <CardFooter className="flex gap-2">
+      <Button size="sm" variant="outline">
+        <Settings className="h-4 w-4 mr-2" />
+        Configure
+      </Button>
+      <Button size="sm">
+        Investigate
+      </Button>
+    </CardFooter>
+  </Card>
+</ComponentPreview>
+
+## Grid Layout
+
+<ComponentPreview
+  title="Card Grid"
+  description="Multiple cards in a responsive grid layout"
+  code={`import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { User, Clock, Star } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-base">
+            <User className="h-4 w-4" />
+            Pilots
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">3</div>
+          <p className="text-sm text-muted-foreground">Active pilots</p>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Clock className="h-4 w-4" />
+            Uptime
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">99.7%</div>
+          <p className="text-sm text-muted-foreground">System availability</p>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Star className="h-4 w-4" />
+            Rating
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">A+</div>
+          <p className="text-sm text-muted-foreground">Performance grade</p>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}`}
+>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <Card>
+      <CardHeader className="pb-3">
+        <CardTitle className="flex items-center gap-2 text-base">
+          <User className="h-4 w-4" />
+          Pilots
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold">3</div>
+        <p className="text-sm text-muted-foreground">Active pilots</p>
+      </CardContent>
+    </Card>
+    
+    <Card>
+      <CardHeader className="pb-3">
+        <CardTitle className="flex items-center gap-2 text-base">
+          <Clock className="h-4 w-4" />
+          Uptime
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold">99.7%</div>
+        <p className="text-sm text-muted-foreground">System availability</p>
+      </CardContent>
+    </Card>
+    
+    <Card>
+      <CardHeader className="pb-3">
+        <CardTitle className="flex items-center gap-2 text-base">
+          <Star className="h-4 w-4" />
+          Rating
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold">A+</div>
+        <p className="text-sm text-muted-foreground">Performance grade</p>
+      </CardContent>
+    </Card>
+  </div>
+</ComponentPreview>
+
+## API Reference
+
+### Card Components
+
+| Component | Description |
+|-----------|-------------|
+| `Card` | Root container with border and background |
+| `CardHeader` | Header section with consistent padding |
+| `CardTitle` | Primary heading with appropriate typography |
+| `CardDescription` | Secondary text with muted styling |
+| `CardContent` | Main content area with flexible layout |
+| `CardFooter` | Footer section for actions or metadata |
+
+### Card Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Card content |
+
+All card components accept standard HTML div props and can be customized with additional classes.
+
+## Design Tokens
+
+```css
+/* Card base styles */
+.card {
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+/* Card sections */
+.card-header { padding: 1.5rem 1.5rem 0; }
+.card-content { padding: 1.5rem; }
+.card-footer { 
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+```
+
+## Accessibility
+
+- **Semantic Structure**: Uses proper heading hierarchy and landmarks
+- **Keyboard Navigation**: Focusable elements maintain logical tab order
+- **Screen Readers**: Clear content structure and meaningful headings
+- **Color Contrast**: Meets WCAG guidelines for text and background contrast
+
+## Best Practices
+
+1. **Use semantic headings**: Maintain proper heading hierarchy with CardTitle
+2. **Group related content**: Keep logically related information together
+3. **Provide clear actions**: Use CardFooter for primary actions
+4. **Consider responsive design**: Test cards across different screen sizes
+5. **Maintain consistency**: Use consistent spacing and typography patterns
+
+</ComponentDocsLayout>

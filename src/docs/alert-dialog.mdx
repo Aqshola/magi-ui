@@ -1,0 +1,310 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog'
+import { Button } from '@/components/ui/button'
+import { AlertTriangle, Trash2, Power, Shield } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="AlertDialog"
+  description="A modal dialog that interrupts the user with important content and expects a response."
+  category="Feedback Component"
+>
+
+## Overview
+
+The AlertDialog component provides a critical interruption mechanism for user workflows, requiring explicit user action before proceeding. Essential for destructive actions and system-critical confirmations.
+
+## Features
+
+- **Modal Interruption**: Blocks user interaction until resolved
+- **Accessible Design**: Full keyboard navigation and screen reader support
+- **Flexible Content**: Supports custom titles, descriptions, and actions
+- **Action Buttons**: Configurable confirm/cancel button combinations
+- **Focus Management**: Automatic focus handling and restoration
+- **Escape Handling**: Dismissible via ESC key or backdrop click
+
+## Basic Usage
+
+<ComponentPreview
+  title="Destructive Action"
+  description="Standard alert dialog for destructive operations"
+  code={`import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog'
+import { Button } from '@/components/ui/button'
+
+function Example() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive">Delete Eva Unit</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Confirm Unit Deletion</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. The Eva Unit will be permanently 
+            removed from MAGI system records.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Delete Unit</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}`}
+>
+  <AlertDialog>
+    <AlertDialogTrigger asChild>
+      <Button variant="destructive">Delete Eva Unit</Button>
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle>Confirm Unit Deletion</AlertDialogTitle>
+        <AlertDialogDescription>
+          This action cannot be undone. The Eva Unit will be permanently 
+          removed from MAGI system records.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogAction>Delete Unit</AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
+</ComponentPreview>
+
+## System Warning Dialog
+
+<ComponentPreview
+  title="System Warning"
+  description="Alert dialog for system-critical warnings"
+  code={`function SystemWarning() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="outline" className="gap-2">
+          <AlertTriangle className="h-4 w-4" />
+          System Override
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5 text-yellow-500" />
+            MAGI System Override Warning
+          </AlertDialogTitle>
+          <AlertDialogDescription>
+            You are about to override critical MAGI system parameters. 
+            This action requires administrator privileges and may affect 
+            system stability. Proceed with caution.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Abort Override</AlertDialogCancel>
+          <AlertDialogAction className="bg-yellow-600 hover:bg-yellow-700">
+            Proceed with Override
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}`}
+>
+  <AlertDialog>
+    <AlertDialogTrigger asChild>
+      <Button variant="outline" className="gap-2">
+        <AlertTriangle className="h-4 w-4" />
+        System Override
+      </Button>
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle className="flex items-center gap-2">
+          <AlertTriangle className="h-5 w-5 text-yellow-500" />
+          MAGI System Override Warning
+        </AlertDialogTitle>
+        <AlertDialogDescription>
+          You are about to override critical MAGI system parameters. 
+          This action requires administrator privileges and may affect 
+          system stability. Proceed with caution.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Abort Override</AlertDialogCancel>
+        <AlertDialogAction className="bg-yellow-600 hover:bg-yellow-700">
+          Proceed with Override
+        </AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
+</ComponentPreview>
+
+## Emergency Shutdown
+
+<ComponentPreview
+  title="Emergency Actions"
+  description="Critical system shutdown confirmation"
+  code={`function EmergencyShutdown() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive" className="gap-2">
+          <Power className="h-4 w-4" />
+          Emergency Shutdown
+        </Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle className="text-red-600">
+            Emergency System Shutdown
+          </AlertDialogTitle>
+          <AlertDialogDescription>
+            This will immediately terminate all MAGI operations and 
+            Eva Unit connections. All unsaved data will be lost. 
+            This action should only be used in critical emergencies.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel Shutdown</AlertDialogCancel>
+          <AlertDialogAction className="bg-red-600 hover:bg-red-700">
+            Confirm Emergency Shutdown
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}`}
+>
+  <AlertDialog>
+    <AlertDialogTrigger asChild>
+      <Button variant="destructive" className="gap-2">
+        <Power className="h-4 w-4" />
+        Emergency Shutdown
+      </Button>
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+      <AlertDialogHeader>
+        <AlertDialogTitle className="text-red-600">
+          Emergency System Shutdown
+        </AlertDialogTitle>
+        <AlertDialogDescription>
+          This will immediately terminate all MAGI operations and 
+          Eva Unit connections. All unsaved data will be lost. 
+          This action should only be used in critical emergencies.
+        </AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCancel>Cancel Shutdown</AlertDialogCancel>
+        <AlertDialogAction className="bg-red-600 hover:bg-red-700">
+          Confirm Emergency Shutdown
+        </AlertDialogAction>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialog>
+</ComponentPreview>
+
+## API Reference
+
+### AlertDialog
+
+The root container for the alert dialog.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | `undefined` | Controls the open state |
+| `onOpenChange` | `(open: boolean) => void` | `undefined` | Callback when open state changes |
+
+### AlertDialogTrigger
+
+The button that opens the alert dialog.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `asChild` | `boolean` | `false` | Render as child element |
+
+### AlertDialogContent
+
+The modal content container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### AlertDialogHeader
+
+Container for title and description.
+
+### AlertDialogTitle
+
+The dialog title heading.
+
+### AlertDialogDescription
+
+The dialog description text.
+
+### AlertDialogFooter
+
+Container for action buttons.
+
+### AlertDialogAction
+
+The primary action button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### AlertDialogCancel
+
+The cancel/dismiss button.
+
+## Design Tokens
+
+```css
+/* AlertDialog Variables */
+--alert-dialog-overlay: hsl(var(--background) / 0.8);
+--alert-dialog-content: hsl(var(--background));
+--alert-dialog-border: hsl(var(--border));
+--alert-dialog-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+--alert-dialog-radius: calc(var(--radius) - 2px);
+```
+
+## Accessibility
+
+- **Keyboard Navigation**: Full keyboard support with Tab/Shift+Tab
+- **Focus Management**: Automatic focus trapping and restoration
+- **Screen Readers**: Proper ARIA labels and descriptions
+- **Escape Key**: Dismissible via ESC key
+- **Backdrop Click**: Optional dismissal via backdrop interaction
+
+## Best Practices
+
+1. **Use Sparingly**: Reserve for truly critical interruptions
+2. **Clear Actions**: Make action buttons clearly labeled
+3. **Destructive Styling**: Use appropriate colors for destructive actions
+4. **Concise Content**: Keep descriptions brief but informative
+5. **Consistent Patterns**: Maintain consistent button ordering
+6. **Error Prevention**: Provide clear consequences of actions
+
+</ComponentDocsLayout>

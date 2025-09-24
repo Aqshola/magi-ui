@@ -1,0 +1,413 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { CheckCircle, AlertTriangle, Clock, Zap, Shield, Activity } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Badge"
+  description="Small status indicators and labels for displaying metadata, categories, or status information."
+  category="Display Component"
+>
+
+## Overview
+
+The Badge component provides a compact way to display status information, categories, or metadata. It supports multiple variants and can be used to highlight important information or categorize content.
+
+## Features
+
+- **Multiple Variants**: Default, secondary, destructive, and outline styles
+- **Flexible Content**: Support for text, numbers, and icons
+- **Responsive Design**: Adapts to different screen sizes and containers
+- **Semantic HTML**: Uses appropriate semantic elements
+- **Customizable**: Easy to extend with custom styles and variants
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Badge"
+  description="Simple badge with text content"
+  code={`import { Badge } from '@/components/ui/badge'
+
+function Example() {
+  return (
+    <Badge>Active</Badge>
+  )
+}`}
+>
+  <Badge>Active</Badge>
+</ComponentPreview>
+
+## Badge Variants
+
+<ComponentPreview
+  title="Badge Variants"
+  description="Different badge variants for various contexts"
+  code={`import { Badge } from '@/components/ui/badge'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Badge variant="default">Default</Badge>
+      <Badge variant="secondary">Secondary</Badge>
+      <Badge variant="destructive">Destructive</Badge>
+      <Badge variant="outline">Outline</Badge>
+    </div>
+  )
+}`}
+>
+  <div className="flex flex-wrap gap-2">
+    <Badge variant="default">Default</Badge>
+    <Badge variant="secondary">Secondary</Badge>
+    <Badge variant="destructive">Destructive</Badge>
+    <Badge variant="outline">Outline</Badge>
+  </div>
+</ComponentPreview>
+
+## Status Badges
+
+<ComponentPreview
+  title="Status Badges"
+  description="Badges representing different system states"
+  code={`import { Badge } from '@/components/ui/badge'
+import { CheckCircle, AlertTriangle, Clock, Zap } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Badge className="bg-green-100 text-green-800 border-green-200">
+        <CheckCircle className="w-3 h-3 mr-1" />
+        Online
+      </Badge>
+      
+      <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+        <Clock className="w-3 h-3 mr-1" />
+        Pending
+      </Badge>
+      
+      <Badge className="bg-red-100 text-red-800 border-red-200">
+        <AlertTriangle className="w-3 h-3 mr-1" />
+        Critical
+      </Badge>
+      
+      <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+        <Zap className="w-3 h-3 mr-1" />
+        Charging
+      </Badge>
+    </div>
+  )
+}`}
+>
+  <div className="flex flex-wrap gap-2">
+    <Badge className="bg-green-100 text-green-800 border-green-200">
+      <CheckCircle className="w-3 h-3 mr-1" />
+      Online
+    </Badge>
+    
+    <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+      <Clock className="w-3 h-3 mr-1" />
+      Pending
+    </Badge>
+    
+    <Badge className="bg-red-100 text-red-800 border-red-200">
+      <AlertTriangle className="w-3 h-3 mr-1" />
+      Critical
+    </Badge>
+    
+    <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+      <Zap className="w-3 h-3 mr-1" />
+      Charging
+    </Badge>
+  </div>
+</ComponentPreview>
+
+## Numeric Badges
+
+<ComponentPreview
+  title="Numeric Badges"
+  description="Badges displaying numeric values and counts"
+  code={`import { Badge } from '@/components/ui/badge'
+
+function Example() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Badge variant="secondary">12</Badge>
+      <Badge variant="destructive">99+</Badge>
+      <Badge variant="outline">Level 5</Badge>
+      <Badge className="bg-purple-100 text-purple-800">v2.4.1</Badge>
+    </div>
+  )
+}`}
+>
+  <div className="flex flex-wrap gap-2">
+    <Badge variant="secondary">12</Badge>
+    <Badge variant="destructive">99+</Badge>
+    <Badge variant="outline">Level 5</Badge>
+    <Badge className="bg-purple-100 text-purple-800">v2.4.1</Badge>
+  </div>
+</ComponentPreview>
+
+## Eva Unit Status
+
+<ComponentPreview
+  title="Eva Unit Status"
+  description="MAGI system status badges for Eva units"
+  code={`import { Badge } from '@/components/ui/badge'
+import { Shield, Activity, AlertTriangle } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-medium">Eva Unit-01:</span>
+        <Badge className="bg-green-100 text-green-800 border-green-200">
+          <Shield className="w-3 h-3 mr-1" />
+          Operational
+        </Badge>
+        <Badge variant="outline">Sync: 98.7%</Badge>
+      </div>
+      
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-medium">Eva Unit-02:</span>
+        <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+          <Activity className="w-3 h-3 mr-1" />
+          Standby
+        </Badge>
+        <Badge variant="outline">Sync: 76.2%</Badge>
+      </div>
+      
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-medium">Eva Unit-00:</span>
+        <Badge className="bg-red-100 text-red-800 border-red-200">
+          <AlertTriangle className="w-3 h-3 mr-1" />
+          Maintenance
+        </Badge>
+        <Badge variant="outline">Sync: --</Badge>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-medium">Eva Unit-01:</span>
+      <Badge className="bg-green-100 text-green-800 border-green-200">
+        <Shield className="w-3 h-3 mr-1" />
+        Operational
+      </Badge>
+      <Badge variant="outline">Sync: 98.7%</Badge>
+    </div>
+    
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-medium">Eva Unit-02:</span>
+      <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+        <Activity className="w-3 h-3 mr-1" />
+        Standby
+      </Badge>
+      <Badge variant="outline">Sync: 76.2%</Badge>
+    </div>
+    
+    <div className="flex items-center gap-2">
+      <span className="text-sm font-medium">Eva Unit-00:</span>
+      <Badge className="bg-red-100 text-red-800 border-red-200">
+        <AlertTriangle className="w-3 h-3 mr-1" />
+        Maintenance
+      </Badge>
+      <Badge variant="outline">Sync: --</Badge>
+    </div>
+  </div>
+</ComponentPreview>
+
+## In Cards
+
+<ComponentPreview
+  title="Badges in Cards"
+  description="Using badges within card components for status display"
+  code={`import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { CheckCircle, AlertTriangle, Clock } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <Card>
+        <CardHeader className="pb-2">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-sm">MAGI Melchior</CardTitle>
+            <Badge className="bg-green-100 text-green-800 border-green-200">
+              <CheckCircle className="w-3 h-3 mr-1" />
+              Active
+            </Badge>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Primary calculation core operating normally
+          </p>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardHeader className="pb-2">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-sm">MAGI Balthasar</CardTitle>
+            <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+              <Clock className="w-3 h-3 mr-1" />
+              Updating
+            </Badge>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Installing security patches
+          </p>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardHeader className="pb-2">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-sm">MAGI Casper</CardTitle>
+            <Badge className="bg-red-100 text-red-800 border-red-200">
+              <AlertTriangle className="w-3 h-3 mr-1" />
+              Error
+            </Badge>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Memory allocation failure detected
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}`}
+>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <Card>
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-sm">MAGI Melchior</CardTitle>
+          <Badge className="bg-green-100 text-green-800 border-green-200">
+            <CheckCircle className="w-3 h-3 mr-1" />
+            Active
+          </Badge>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-muted-foreground">
+          Primary calculation core operating normally
+        </p>
+      </CardContent>
+    </Card>
+    
+    <Card>
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-sm">MAGI Balthasar</CardTitle>
+          <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">
+            <Clock className="w-3 h-3 mr-1" />
+            Updating
+          </Badge>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-muted-foreground">
+          Installing security patches
+        </p>
+      </CardContent>
+    </Card>
+    
+    <Card>
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-sm">MAGI Casper</CardTitle>
+          <Badge className="bg-red-100 text-red-800 border-red-200">
+            <AlertTriangle className="w-3 h-3 mr-1" />
+            Error
+          </Badge>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-muted-foreground">
+          Memory allocation failure detected
+        </p>
+      </CardContent>
+    </Card>
+  </div>
+</ComponentPreview>
+
+## API Reference
+
+### Badge Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline"` | `"default"` | Badge variant style |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Badge content |
+
+### Variant Descriptions
+
+- **default**: Primary badge style with solid background
+- **secondary**: Muted badge style for less prominent information
+- **destructive**: Red badge style for errors or critical states
+- **outline**: Bordered badge style with transparent background
+
+## Design Tokens
+
+```css
+/* Badge base styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.badge-default {
+  border: 1px solid transparent;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.badge-secondary {
+  border: 1px solid transparent;
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.badge-destructive {
+  border: 1px solid transparent;
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+.badge-outline {
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+```
+
+## Accessibility
+
+- **Semantic HTML**: Uses appropriate semantic elements
+- **Screen Readers**: Properly announced by assistive technologies
+- **Color Contrast**: Meets WCAG guidelines for text contrast
+- **Focus States**: Focusable when containing interactive content
+
+## Best Practices
+
+1. **Use appropriate variants**: Choose variants that match the semantic meaning
+2. **Keep content concise**: Use short, descriptive text
+3. **Consider context**: Place badges where they provide meaningful information
+4. **Maintain consistency**: Use consistent badge styles throughout your application
+5. **Test accessibility**: Ensure badges are readable and accessible
+6. **Avoid overuse**: Don't overwhelm interfaces with too many badges
+
+</ComponentDocsLayout>

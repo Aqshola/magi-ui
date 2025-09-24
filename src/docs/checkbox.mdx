@@ -1,0 +1,433 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Label } from '@/components/ui/label'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { useState } from 'react'
+
+<ComponentDocsLayout
+  title="Checkbox"
+  description="A control that allows users to toggle between checked and unchecked states."
+  category="Form Component"
+>
+
+## Overview
+
+The Checkbox component provides a binary choice control for forms and interactive interfaces. Built with accessibility in mind and supporting indeterminate states for complex selection scenarios.
+
+## Features
+
+- **Binary Selection**: Clear checked/unchecked states
+- **Indeterminate State**: Support for partial selection scenarios
+- **Keyboard Navigation**: Full keyboard accessibility
+- **Label Association**: Semantic label integration
+- **Form Integration**: Works with form libraries and validation
+- **Custom Styling**: Flexible appearance customization
+
+## Basic Usage
+
+<ComponentPreview
+  title="Simple Checkbox"
+  description="Basic checkbox with label"
+  code={`import { Checkbox } from '@/components/ui/checkbox'
+import { Label } from '@/components/ui/label'
+
+function Example() {
+  return (
+    <div className="flex items-center space-x-2">
+      <Checkbox id="terms" />
+      <Label htmlFor="terms">Accept MAGI system terms</Label>
+    </div>
+  )
+}`}
+>
+  <div className="flex items-center space-x-2">
+    <Checkbox id="terms" />
+    <Label htmlFor="terms">Accept MAGI system terms</Label>
+  </div>
+</ComponentPreview>
+
+## Checkbox States
+
+<ComponentPreview
+  title="Different States"
+  description="Checkbox in various states"
+  code={`function CheckboxStates() {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center space-x-2">
+        <Checkbox id="unchecked" />
+        <Label htmlFor="unchecked">Unchecked state</Label>
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Checkbox id="checked" defaultChecked />
+        <Label htmlFor="checked">Checked state</Label>
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Checkbox id="disabled" disabled />
+        <Label htmlFor="disabled" className="text-muted-foreground">
+          Disabled state
+        </Label>
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Checkbox id="disabled-checked" disabled defaultChecked />
+        <Label htmlFor="disabled-checked" className="text-muted-foreground">
+          Disabled checked
+        </Label>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <div className="flex items-center space-x-2">
+      <Checkbox id="unchecked" />
+      <Label htmlFor="unchecked">Unchecked state</Label>
+    </div>
+    
+    <div className="flex items-center space-x-2">
+      <Checkbox id="checked" defaultChecked />
+      <Label htmlFor="checked">Checked state</Label>
+    </div>
+    
+    <div className="flex items-center space-x-2">
+      <Checkbox id="disabled" disabled />
+      <Label htmlFor="disabled" className="text-muted-foreground">
+        Disabled state
+      </Label>
+    </div>
+    
+    <div className="flex items-center space-x-2">
+      <Checkbox id="disabled-checked" disabled defaultChecked />
+      <Label htmlFor="disabled-checked" className="text-muted-foreground">
+        Disabled checked
+      </Label>
+    </div>
+  </div>
+</ComponentPreview>
+
+## Eva Unit Selection
+
+<ComponentPreview
+  title="Eva Unit Configuration"
+  description="Multiple checkbox selection for Eva units"
+  code={`function EvaUnitSelection() {
+  const [selectedUnits, setSelectedUnits] = useState([])
+  
+  const units = [
+    { id: 'eva-01', name: 'Eva Unit-01', pilot: 'Shinji Ikari', status: 'Active' },
+    { id: 'eva-02', name: 'Eva Unit-02', pilot: 'Asuka Langley', status: 'Active' },
+    { id: 'eva-00', name: 'Eva Unit-00', pilot: 'Rei Ayanami', status: 'Standby' },
+    { id: 'eva-03', name: 'Eva Unit-03', pilot: 'Toji Suzuhara', status: 'Inactive' }
+  ]
+  
+  const handleUnitToggle = (unitId, checked) => {
+    if (checked) {
+      setSelectedUnits([...selectedUnits, unitId])
+    } else {
+      setSelectedUnits(selectedUnits.filter(id => id !== unitId))
+    }
+  }
+  
+  return (
+    <Card className="w-96">
+      <CardHeader>
+        <CardTitle>Eva Unit Deployment</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {units.map((unit) => (
+          <div key={unit.id} className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Checkbox 
+                id={unit.id}
+                checked={selectedUnits.includes(unit.id)}
+                onCheckedChange={(checked) => handleUnitToggle(unit.id, checked)}
+                disabled={unit.status === 'Inactive'}
+              />
+              <div>
+                <Label htmlFor={unit.id} className="font-medium">
+                  {unit.name}
+                </Label>
+                <p className="text-sm text-muted-foreground">
+                  Pilot: {unit.pilot}
+                </p>
+              </div>
+            </div>
+            <Badge variant={unit.status === 'Active' ? 'default' : 'secondary'}>
+              {unit.status}
+            </Badge>
+          </div>
+        ))}
+        
+        {selectedUnits.length > 0 && (
+          <div className="pt-4 border-t">
+            <p className="text-sm font-medium">
+              Selected Units: {selectedUnits.length}
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  )
+}`}
+>
+  {(() => {
+    const [selectedUnits, setSelectedUnits] = useState([])
+    
+    const units = [
+      { id: 'eva-01', name: 'Eva Unit-01', pilot: 'Shinji Ikari', status: 'Active' },
+      { id: 'eva-02', name: 'Eva Unit-02', pilot: 'Asuka Langley', status: 'Active' },
+      { id: 'eva-00', name: 'Eva Unit-00', pilot: 'Rei Ayanami', status: 'Standby' },
+      { id: 'eva-03', name: 'Eva Unit-03', pilot: 'Toji Suzuhara', status: 'Inactive' }
+    ]
+    
+    const handleUnitToggle = (unitId, checked) => {
+      if (checked) {
+        setSelectedUnits([...selectedUnits, unitId])
+      } else {
+        setSelectedUnits(selectedUnits.filter(id => id !== unitId))
+      }
+    }
+    
+    return (
+      <Card className="w-96">
+        <CardHeader>
+          <CardTitle>Eva Unit Deployment</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {units.map((unit) => (
+            <div key={unit.id} className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <Checkbox 
+                  id={unit.id}
+                  checked={selectedUnits.includes(unit.id)}
+                  onCheckedChange={(checked) => handleUnitToggle(unit.id, checked)}
+                  disabled={unit.status === 'Inactive'}
+                />
+                <div>
+                  <Label htmlFor={unit.id} className="font-medium">
+                    {unit.name}
+                  </Label>
+                  <p className="text-sm text-muted-foreground">
+                    Pilot: {unit.pilot}
+                  </p>
+                </div>
+              </div>
+              <Badge variant={unit.status === 'Active' ? 'default' : 'secondary'}>
+                {unit.status}
+              </Badge>
+            </div>
+          ))}
+          
+          {selectedUnits.length > 0 && (
+            <div className="pt-4 border-t">
+              <p className="text-sm font-medium">
+                Selected Units: {selectedUnits.length}
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    )
+  })()}
+</ComponentPreview>
+
+## System Permissions
+
+<ComponentPreview
+  title="Permission Settings"
+  description="Checkbox group for system permissions"
+  code={`function SystemPermissions() {
+  const [permissions, setPermissions] = useState({
+    readAccess: true,
+    writeAccess: false,
+    adminAccess: false,
+    emergencyOverride: false
+  })
+  
+  const handlePermissionChange = (permission, checked) => {
+    setPermissions(prev => ({
+      ...prev,
+      [permission]: checked
+    }))
+  }
+  
+  return (
+    <Card className="w-80">
+      <CardHeader>
+        <CardTitle>MAGI Access Permissions</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="space-y-3">
+          <div className="flex items-center space-x-2">
+            <Checkbox 
+              id="read-access"
+              checked={permissions.readAccess}
+              onCheckedChange={(checked) => handlePermissionChange('readAccess', checked)}
+            />
+            <Label htmlFor="read-access">Read Access</Label>
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <Checkbox 
+              id="write-access"
+              checked={permissions.writeAccess}
+              onCheckedChange={(checked) => handlePermissionChange('writeAccess', checked)}
+            />
+            <Label htmlFor="write-access">Write Access</Label>
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <Checkbox 
+              id="admin-access"
+              checked={permissions.adminAccess}
+              onCheckedChange={(checked) => handlePermissionChange('adminAccess', checked)}
+            />
+            <Label htmlFor="admin-access">Administrator Access</Label>
+          </div>
+          
+          <div className="flex items-center space-x-2">
+            <Checkbox 
+              id="emergency-override"
+              checked={permissions.emergencyOverride}
+              onCheckedChange={(checked) => handlePermissionChange('emergencyOverride', checked)}
+            />
+            <Label htmlFor="emergency-override" className="text-red-600">
+              Emergency Override
+            </Label>
+          </div>
+        </div>
+        
+        <div className="pt-4 border-t text-sm text-muted-foreground">
+          Active permissions: {Object.values(permissions).filter(Boolean).length} of 4
+        </div>
+      </CardContent>
+    </Card>
+  )
+}`}
+>
+  {(() => {
+    const [permissions, setPermissions] = useState({
+      readAccess: true,
+      writeAccess: false,
+      adminAccess: false,
+      emergencyOverride: false
+    })
+    
+    const handlePermissionChange = (permission, checked) => {
+      setPermissions(prev => ({
+        ...prev,
+        [permission]: checked
+      }))
+    }
+    
+    return (
+      <Card className="w-80">
+        <CardHeader>
+          <CardTitle>MAGI Access Permissions</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-3">
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="read-access"
+                checked={permissions.readAccess}
+                onCheckedChange={(checked) => handlePermissionChange('readAccess', checked)}
+              />
+              <Label htmlFor="read-access">Read Access</Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="write-access"
+                checked={permissions.writeAccess}
+                onCheckedChange={(checked) => handlePermissionChange('writeAccess', checked)}
+              />
+              <Label htmlFor="write-access">Write Access</Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="admin-access"
+                checked={permissions.adminAccess}
+                onCheckedChange={(checked) => handlePermissionChange('adminAccess', checked)}
+              />
+              <Label htmlFor="admin-access">Administrator Access</Label>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <Checkbox 
+                id="emergency-override"
+                checked={permissions.emergencyOverride}
+                onCheckedChange={(checked) => handlePermissionChange('emergencyOverride', checked)}
+              />
+              <Label htmlFor="emergency-override" className="text-red-600">
+                Emergency Override
+              </Label>
+            </div>
+          </div>
+          
+          <div className="pt-4 border-t text-sm text-muted-foreground">
+            Active permissions: {Object.values(permissions).filter(Boolean).length} of 4
+          </div>
+        </CardContent>
+      </Card>
+    )
+  })()}
+</ComponentPreview>
+
+## API Reference
+
+### Checkbox
+
+The main checkbox component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `checked` | `boolean \| "indeterminate"` | `undefined` | Controlled checked state |
+| `defaultChecked` | `boolean` | `false` | Default checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | `undefined` | Callback when checked state changes |
+| `disabled` | `boolean` | `false` | Whether the checkbox is disabled |
+| `required` | `boolean` | `false` | Whether the checkbox is required |
+| `name` | `string` | `undefined` | Name attribute for forms |
+| `value` | `string` | `undefined` | Value attribute for forms |
+| `id` | `string` | `undefined` | ID for label association |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+## Design Tokens
+
+```css
+/* Checkbox Variables */
+--checkbox-size: 1rem;
+--checkbox-border: hsl(var(--border));
+--checkbox-background: hsl(var(--background));
+--checkbox-checked: hsl(var(--primary));
+--checkbox-checked-foreground: hsl(var(--primary-foreground));
+--checkbox-disabled: hsl(var(--muted));
+--checkbox-focus: hsl(var(--ring));
+--checkbox-radius: calc(var(--radius) - 2px);
+```
+
+## Accessibility
+
+- **Keyboard Navigation**: Space key toggles state
+- **Focus Indicators**: Clear focus ring styling
+- **Screen Readers**: Proper ARIA attributes and state announcements
+- **Label Association**: Semantic label linking via htmlFor/id
+- **Required State**: Support for required form validation
+- **Disabled State**: Proper disabled styling and behavior
+
+## Best Practices
+
+1. **Always Use Labels**: Associate checkboxes with descriptive labels
+2. **Group Related Options**: Use fieldsets for related checkbox groups
+3. **Clear States**: Ensure checked/unchecked states are visually distinct
+4. **Consistent Spacing**: Maintain consistent spacing in checkbox lists
+5. **Form Integration**: Use proper name/value attributes for forms
+6. **Error Handling**: Provide clear validation feedback when required
+
+</ComponentDocsLayout>

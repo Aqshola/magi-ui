@@ -1,0 +1,420 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Switch } from '@/components/ui/switch'
+import { Textarea } from '@/components/ui/textarea'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+
+<ComponentDocsLayout
+  title="Label"
+  description="Accessible labels for form controls with proper semantic association and styling."
+  category="Form Component"
+>
+
+## Overview
+
+The Label component provides accessible labeling for form controls. It ensures proper semantic association between labels and their corresponding form elements, improving accessibility and user experience.
+
+## Features
+
+- **Semantic Association**: Proper `htmlFor` attribute linking to form controls
+- **Accessibility**: Full screen reader support and keyboard navigation
+- **Flexible Styling**: Customizable appearance with consistent typography
+- **Form Integration**: Works seamlessly with all form components
+- **Required Indicators**: Support for required field indicators
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Label"
+  description="Simple label associated with an input field"
+  code={`import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+
+function Example() {
+  return (
+    <div className="space-y-2">
+      <Label htmlFor="pilot-id">Pilot Identification</Label>
+      <Input id="pilot-id" type="text" placeholder="Enter pilot ID..." />
+    </div>
+  )
+}`}
+>
+  <div className="space-y-2">
+    <Label htmlFor="pilot-id">Pilot Identification</Label>
+    <Input id="pilot-id" type="text" placeholder="Enter pilot ID..." />
+  </div>
+</ComponentPreview>
+
+## Required Fields
+
+<ComponentPreview
+  title="Required Field Labels"
+  description="Labels with required field indicators"
+  code={`import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="required-field">
+          Access Code <span className="text-red-500">*</span>
+        </Label>
+        <Input id="required-field" type="password" placeholder="Enter access code..." />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="optional-field" className="text-muted-foreground">
+          Additional Notes (Optional)
+        </Label>
+        <Input id="optional-field" type="text" placeholder="Enter notes..." />
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <div className="space-y-2">
+      <Label htmlFor="required-field">
+        Access Code <span className="text-red-500">*</span>
+      </Label>
+      <Input id="required-field" type="password" placeholder="Enter access code..." />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="optional-field" className="text-muted-foreground">
+        Additional Notes (Optional)
+      </Label>
+      <Input id="optional-field" type="text" placeholder="Enter notes..." />
+    </div>
+  </div>
+</ComponentPreview>
+
+## With Different Form Controls
+
+<ComponentPreview
+  title="Labels with Various Controls"
+  description="Labels associated with different types of form controls"
+  code={`import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Switch } from '@/components/ui/switch'
+
+function Example() {
+  return (
+    <div className="space-y-6 max-w-md">
+      <div className="space-y-2">
+        <Label htmlFor="text-input">System Name</Label>
+        <Input id="text-input" type="text" placeholder="MAGI Melchior" />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="description">System Description</Label>
+        <Textarea 
+          id="description" 
+          placeholder="Enter system description..."
+          rows={3}
+        />
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Checkbox id="enable-monitoring" />
+        <Label htmlFor="enable-monitoring">Enable continuous monitoring</Label>
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Switch id="auto-backup" />
+        <Label htmlFor="auto-backup">Automatic backup</Label>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-6 max-w-md">
+    <div className="space-y-2">
+      <Label htmlFor="text-input">System Name</Label>
+      <Input id="text-input" type="text" placeholder="MAGI Melchior" />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="description">System Description</Label>
+      <Textarea 
+        id="description" 
+        placeholder="Enter system description..."
+        rows={3}
+      />
+    </div>
+    
+    <div className="flex items-center space-x-2">
+      <Checkbox id="enable-monitoring" />
+      <Label htmlFor="enable-monitoring">Enable continuous monitoring</Label>
+    </div>
+    
+    <div className="flex items-center space-x-2">
+      <Switch id="auto-backup" />
+      <Label htmlFor="auto-backup">Automatic backup</Label>
+    </div>
+  </div>
+</ComponentPreview>
+
+## Label Variants
+
+<ComponentPreview
+  title="Label Styling Variants"
+  description="Different label styles for various contexts"
+  code={`import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+
+function Example() {
+  return (
+    <div className="space-y-4 max-w-md">
+      <div className="space-y-2">
+        <Label htmlFor="default" className="text-sm font-medium">
+          Default Label
+        </Label>
+        <Input id="default" type="text" placeholder="Default styling" />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="large" className="text-base font-semibold">
+          Large Label
+        </Label>
+        <Input id="large" type="text" placeholder="Larger label text" />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="muted" className="text-sm text-muted-foreground">
+          Muted Label
+        </Label>
+        <Input id="muted" type="text" placeholder="Muted label styling" />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="error" className="text-sm font-medium text-red-600">
+          Error Label
+        </Label>
+        <Input 
+          id="error" 
+          type="text" 
+          placeholder="Error state" 
+          className="border-red-500 focus:border-red-500 focus:ring-red-500"
+        />
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4 max-w-md">
+    <div className="space-y-2">
+      <Label htmlFor="default" className="text-sm font-medium">
+        Default Label
+      </Label>
+      <Input id="default" type="text" placeholder="Default styling" />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="large" className="text-base font-semibold">
+        Large Label
+      </Label>
+      <Input id="large" type="text" placeholder="Larger label text" />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="muted" className="text-sm text-muted-foreground">
+        Muted Label
+      </Label>
+      <Input id="muted" type="text" placeholder="Muted label styling" />
+    </div>
+    
+    <div className="space-y-2">
+      <Label htmlFor="error" className="text-sm font-medium text-red-600">
+        Error Label
+      </Label>
+      <Input 
+        id="error" 
+        type="text" 
+        placeholder="Error state" 
+        className="border-red-500 focus:border-red-500 focus:ring-red-500"
+      />
+    </div>
+  </div>
+</ComponentPreview>
+
+## Form Layout Example
+
+<ComponentPreview
+  title="Complete Form Layout"
+  description="Labels in a comprehensive form layout"
+  code={`import { Label } from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+
+function Example() {
+  return (
+    <Card className="w-full max-w-md">
+      <CardHeader>
+        <CardTitle>Eva Unit Registration</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="unit-number">
+              Unit Number <span className="text-red-500">*</span>
+            </Label>
+            <Input id="unit-number" type="text" placeholder="01" />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="designation">
+              Designation <span className="text-red-500">*</span>
+            </Label>
+            <Input id="designation" type="text" placeholder="Test Type" />
+          </div>
+        </div>
+        
+        <div className="space-y-2">
+          <Label htmlFor="pilot-name">
+            Assigned Pilot <span className="text-red-500">*</span>
+          </Label>
+          <Input id="pilot-name" type="text" placeholder="Enter pilot name" />
+        </div>
+        
+        <div className="space-y-2">
+          <Label htmlFor="sync-rate">
+            Initial Sync Rate
+          </Label>
+          <Input id="sync-rate" type="number" placeholder="0.0" step="0.1" />
+        </div>
+        
+        <div className="space-y-2">
+          <Label htmlFor="notes">
+            Additional Notes
+          </Label>
+          <Textarea 
+            id="notes" 
+            placeholder="Enter any additional information..."
+            rows={3}
+          />
+        </div>
+      </CardContent>
+    </Card>
+  )
+}`}
+>
+  <Card className="w-full max-w-md">
+    <CardHeader>
+      <CardTitle>Eva Unit Registration</CardTitle>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="unit-number">
+            Unit Number <span className="text-red-500">*</span>
+          </Label>
+          <Input id="unit-number" type="text" placeholder="01" />
+        </div>
+        
+        <div className="space-y-2">
+          <Label htmlFor="designation">
+            Designation <span className="text-red-500">*</span>
+          </Label>
+          <Input id="designation" type="text" placeholder="Test Type" />
+        </div>
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="pilot-name">
+          Assigned Pilot <span className="text-red-500">*</span>
+        </Label>
+        <Input id="pilot-name" type="text" placeholder="Enter pilot name" />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="sync-rate">
+          Initial Sync Rate
+        </Label>
+        <Input id="sync-rate" type="number" placeholder="0.0" step="0.1" />
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="notes">
+          Additional Notes
+        </Label>
+        <Textarea 
+          id="notes" 
+          placeholder="Enter any additional information..."
+          rows={3}
+        />
+      </div>
+    </CardContent>
+  </Card>
+</ComponentPreview>
+
+## API Reference
+
+### Label Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `htmlFor` | `string` | - | ID of the associated form control |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Label content |
+
+### HTML Attributes
+
+The Label component accepts all standard HTML `<label>` attributes:
+
+- `htmlFor` - Associates the label with a form control
+- `onClick` - Click event handler
+- `onMouseDown` - Mouse down event handler
+- All other standard HTML label attributes
+
+## Design Tokens
+
+```css
+/* Label base styles */
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+}
+
+.label:hover {
+  color: hsl(var(--foreground) / 0.8);
+}
+
+.label[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.label[data-invalid] {
+  color: hsl(var(--destructive));
+}
+```
+
+## Accessibility
+
+- **Semantic Association**: Uses `htmlFor` attribute to associate with form controls
+- **Screen Readers**: Properly announced by assistive technologies
+- **Keyboard Navigation**: Clicking label focuses associated form control
+- **Focus Management**: Maintains proper focus relationships
+- **ARIA Support**: Works with ARIA attributes on form controls
+
+## Best Practices
+
+1. **Always associate labels**: Use `htmlFor` to link labels with form controls
+2. **Use descriptive text**: Write clear, concise label text
+3. **Indicate required fields**: Use visual indicators for required fields
+4. **Maintain consistency**: Use consistent label styling throughout forms
+5. **Consider accessibility**: Ensure labels work with screen readers
+6. **Test keyboard navigation**: Verify labels work with keyboard-only navigation
+
+</ComponentDocsLayout>
