@@ -1,0 +1,322 @@
+---
+title: Avatar
+description: Display user profile pictures with fallback text and various styling options.
+component: true
+---
+
+import { ComponentPreview } from "@/components/documentation/component-preview"
+import { ComponentDocsLayout } from "@/components/documentation/component-docs-layout"
+
+<ComponentDocsLayout>
+
+# Avatar
+
+An avatar component for displaying user profile pictures with customizable fallback text and MAGI-themed styling variants.
+
+## Features
+
+- **Image Support**: Display user profile pictures with automatic fallback
+- **Size Variants**: Multiple size options from extra small to 2XL
+- **MAGI Themes**: Specialized variants for different system roles and statuses
+- **Accessibility**: Built on Radix UI primitives with proper ARIA support
+- **Responsive Design**: Scales appropriately across different screen sizes
+- **Customizable**: Extensive styling options and custom CSS support
+
+## Basic Usage
+
+### Simple Avatar
+
+<ComponentPreview name="avatar-basic">
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+export default function AvatarBasic() {
+  return (
+    <div className="flex items-center gap-4">
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="/nonexistent.jpg" alt="@user" />
+        <AvatarFallback>RA</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarFallback>MG</AvatarFallback>
+      </Avatar>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Size Variants
+
+<ComponentPreview name="avatar-sizes">
+```tsx
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+export default function AvatarSizes() {
+  return (
+    <div className="flex items-end gap-4">
+      <Avatar size="xs">
+        <AvatarFallback>XS</AvatarFallback>
+      </Avatar>
+      <Avatar size="sm">
+        <AvatarFallback>SM</AvatarFallback>
+      </Avatar>
+      <Avatar size="md">
+        <AvatarFallback>MD</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg">
+        <AvatarFallback>LG</AvatarFallback>
+      </Avatar>
+      <Avatar size="xl">
+        <AvatarFallback>XL</AvatarFallback>
+      </Avatar>
+      <Avatar size="2xl">
+        <AvatarFallback>2XL</AvatarFallback>
+      </Avatar>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### MAGI System Variants
+
+<ComponentPreview name="avatar-variants">
+```tsx
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+export default function AvatarVariants() {
+  return (
+    <div className="flex items-center gap-4">
+      <Avatar variant="default" size="lg">
+        <AvatarFallback variant="default">DF</AvatarFallback>
+      </Avatar>
+      <Avatar variant="magi" size="lg">
+        <AvatarFallback variant="magi">MG</AvatarFallback>
+      </Avatar>
+      <Avatar variant="system" size="lg">
+        <AvatarFallback variant="system">SY</AvatarFallback>
+      </Avatar>
+      <Avatar variant="warning" size="lg">
+        <AvatarFallback variant="warning">WN</AvatarFallback>
+      </Avatar>
+      <Avatar variant="danger" size="lg">
+        <AvatarFallback variant="danger">DN</AvatarFallback>
+      </Avatar>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+## Advanced Examples
+
+### Personnel Directory
+
+<ComponentPreview name="avatar-personnel">
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
+
+export default function AvatarPersonnel() {
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center gap-4 p-4 rounded-lg border bg-card">
+        <Avatar size="lg" variant="magi">
+          <AvatarImage src="/api/placeholder/64/64" alt="Ritsuko Akagi" />
+          <AvatarFallback variant="magi">RA</AvatarFallback>
+        </Avatar>
+        <div className="flex-1">
+          <h3 className="font-semibold">Dr. Ritsuko Akagi</h3>
+          <p className="text-sm text-muted-foreground">Chief Scientist, MAGI Development</p>
+          <div className="flex items-center gap-2 mt-1">
+            <Badge variant="default">Active</Badge>
+            <Badge variant="outline">Level 5 Clearance</Badge>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Avatar Groups
+
+<ComponentPreview name="avatar-groups">
+```tsx
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+export default function AvatarGroups() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h4 className="font-medium text-sm mb-3">Team Members</h4>
+        <div className="flex -space-x-2">
+          <Avatar size="md" variant="magi" className="border-2 border-background">
+            <AvatarFallback variant="magi">RA</AvatarFallback>
+          </Avatar>
+          <Avatar size="md" variant="system" className="border-2 border-background">
+            <AvatarFallback variant="system">MI</AvatarFallback>
+          </Avatar>
+          <Avatar size="md" variant="default" className="border-2 border-background">
+            <AvatarFallback>MH</AvatarFallback>
+          </Avatar>
+          <Avatar size="md" className="border-2 border-background bg-muted">
+            <AvatarFallback className="text-xs">+3</AvatarFallback>
+          </Avatar>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Custom Styling
+
+<ComponentPreview name="avatar-custom">
+```tsx
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+export default function AvatarCustom() {
+  return (
+    <div className="flex items-center gap-6">
+      <Avatar size="lg" className="ring-2 ring-primary ring-offset-2 ring-offset-background">
+        <AvatarFallback variant="magi">RA</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg" className="shadow-lg shadow-primary/25">
+        <AvatarFallback variant="system">MI</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg" className="hover:scale-110 transition-transform cursor-pointer">
+        <AvatarFallback variant="warning">MH</AvatarFallback>
+      </Avatar>
+      <Avatar size="lg" className="opacity-60 grayscale">
+        <AvatarFallback>OFF</AvatarFallback>
+      </Avatar>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+## API Reference
+
+### Avatar
+
+The main avatar container component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Size of the avatar |
+| `variant` | `"default" \| "magi" \| "system" \| "warning" \| "danger"` | `"default"` | Visual variant with themed styling |
+| `className` | `string` | - | Additional CSS classes |
+
+### AvatarImage
+
+Displays the user's profile image.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `src` | `string` | - | Image source URL |
+| `alt` | `string` | - | Alternative text for the image |
+| `className` | `string` | - | Additional CSS classes |
+
+### AvatarFallback
+
+Displays fallback content when the image fails to load.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `"md"` | Size of the fallback text |
+| `variant` | `"default" \| "magi" \| "system" \| "warning" \| "danger"` | `"default"` | Visual variant with themed styling |
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `React.ReactNode` | - | Fallback content (usually initials) |
+
+## Size Reference
+
+| Size | Dimensions | Use Case |
+|------|------------|----------|
+| `xs` | 24px | Small lists, compact layouts |
+| `sm` | 32px | Navigation bars, inline mentions |
+| `md` | 40px | Default size, general use |
+| `lg` | 48px | Profile cards, prominent display |
+| `xl` | 56px | Large profile sections |
+| `2xl` | 64px | Hero sections, main profiles |
+
+## Variant Reference
+
+| Variant | Description | Use Case |
+|---------|-------------|----------|
+| `default` | Standard neutral styling | Regular users, general purpose |
+| `magi` | MAGI system themed with gradient | Core system components, administrators |
+| `system` | System-level styling | System processes, automated accounts |
+| `warning` | Warning state styling | Alert conditions, attention needed |
+| `danger` | Critical/error state styling | Critical alerts, error states |
+
+## Accessibility
+
+The Avatar component is built on Radix UI primitives and includes:
+
+- **Image Loading**: Automatic fallback when images fail to load
+- **Alt Text**: Proper alternative text support for screen readers
+- **Semantic HTML**: Uses appropriate HTML elements for accessibility
+- **Keyboard Navigation**: Supports keyboard interaction when interactive
+- **ARIA Support**: Includes proper ARIA attributes from Radix UI
+
+### Best Practices
+
+1. **Always provide alt text** for avatar images
+2. **Use meaningful fallback text** (usually user initials)
+3. **Choose appropriate sizes** for the context
+4. **Use variants consistently** across your application
+5. **Consider loading states** for dynamic content
+
+## Usage Guidelines
+
+### When to Use
+
+- **User profiles** and account displays
+- **Team member lists** and directories
+- **System status indicators** with personification
+- **Comment sections** and user-generated content
+- **Navigation elements** showing current user
+
+### Best Practices
+
+1. **Consistent Sizing**: Use consistent avatar sizes within the same context
+2. **Meaningful Fallbacks**: Use initials or relevant icons as fallbacks
+3. **Appropriate Variants**: Choose variants that match the user's role or status
+4. **Loading States**: Handle image loading gracefully
+5. **Accessibility**: Always provide proper alt text and fallback content
+
+### Common Patterns
+
+```tsx
+// User profile with status
+<Avatar variant="magi" size="lg">
+  <AvatarImage src={user.avatar} alt={user.name} />
+  <AvatarFallback variant="magi">{user.initials}</AvatarFallback>
+</Avatar>
+
+// System process indicator
+<Avatar variant="system" size="sm">
+  <AvatarFallback variant="system">DB</AvatarFallback>
+</Avatar>
+
+// Team member list
+<div className="flex -space-x-2">
+  {team.map(member => (
+    <Avatar key={member.id} size="md" className="border-2 border-background">
+      <AvatarImage src={member.avatar} alt={member.name} />
+      <AvatarFallback>{member.initials}</AvatarFallback>
+    </Avatar>
+  ))}
+</div>
+```
+
+</ComponentDocsLayout>

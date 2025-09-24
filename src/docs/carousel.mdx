@@ -1,0 +1,497 @@
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { ChevronLeft, ChevronRight, Monitor, Cpu, Activity, Zap, Shield } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Carousel"
+  description="A responsive carousel component for displaying multiple items in a scrollable container. Built with Embla Carousel for smooth performance and accessibility."
+  category="Display Component"
+>
+
+## Overview
+
+The Carousel component provides a flexible way to display multiple items in a horizontal or vertical scrollable container. It's built on top of Embla Carousel and includes navigation controls, keyboard support, and responsive behavior.
+
+## Features
+
+- **Responsive Design**: Automatically adapts to container size
+- **Multiple Orientations**: Horizontal and vertical scrolling support
+- **Navigation Controls**: Previous/next buttons with customizable styling
+- **Keyboard Support**: Arrow key navigation and focus management
+- **Touch/Swipe Support**: Native touch gestures on mobile devices
+- **Customizable Options**: Extensive configuration through Embla Carousel options
+- **Plugin Support**: Compatible with Embla Carousel plugins
+- **Accessibility**: Full ARIA support and keyboard navigation
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Carousel"
+  description="A simple horizontal carousel with navigation controls"
+  code={`import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
+
+function Example() {
+  return (
+    <Carousel className="w-full max-w-xs">
+      <CarouselContent>
+        {Array.from({ length: 5 }, (_, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-4xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}`}
+>
+  <Carousel className="w-full max-w-xs">
+    <CarouselContent>
+      {Array.from({ length: 5 }, (_, index) => (
+        <CarouselItem key={index}>
+          <div className="p-1">
+            <Card>
+              <CardContent className="flex aspect-square items-center justify-center p-6">
+                <span className="text-4xl font-semibold">{index + 1}</span>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+    <CarouselPrevious />
+    <CarouselNext />
+  </Carousel>
+</ComponentPreview>
+
+## Orientation
+
+<ComponentPreview
+  title="Vertical Carousel"
+  description="Carousel with vertical orientation for vertical scrolling"
+  code={`import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
+
+function Example() {
+  return (
+    <Carousel
+      orientation="vertical"
+      className="w-full max-w-xs"
+    >
+      <CarouselContent className="-mt-1 h-[200px]">
+        {Array.from({ length: 5 }, (_, index) => (
+          <CarouselItem key={index} className="pt-1 md:basis-1/2">
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex items-center justify-center p-6">
+                  <span className="text-3xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}`}
+>
+  <Carousel
+    orientation="vertical"
+    className="w-full max-w-xs"
+  >
+    <CarouselContent className="-mt-1 h-[200px]">
+      {Array.from({ length: 5 }, (_, index) => (
+        <CarouselItem key={index} className="pt-1 md:basis-1/2">
+          <div className="p-1">
+            <Card>
+              <CardContent className="flex items-center justify-center p-6">
+                <span className="text-3xl font-semibold">{index + 1}</span>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+    <CarouselPrevious />
+    <CarouselNext />
+  </Carousel>
+</ComponentPreview>
+
+## Multiple Items
+
+<ComponentPreview
+  title="Multiple Items Per View"
+  description="Display multiple items simultaneously with responsive breakpoints"
+  code={`import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
+
+function Example() {
+  return (
+    <Carousel className="w-full max-w-sm">
+      <CarouselContent className="-ml-1">
+        {Array.from({ length: 10 }, (_, index) => (
+          <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-2xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}`}
+>
+  <Carousel className="w-full max-w-sm">
+    <CarouselContent className="-ml-1">
+      {Array.from({ length: 10 }, (_, index) => (
+        <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
+          <div className="p-1">
+            <Card>
+              <CardContent className="flex aspect-square items-center justify-center p-6">
+                <span className="text-2xl font-semibold">{index + 1}</span>
+              </CardContent>
+            </Card>
+          </div>
+        </CarouselItem>
+      ))}
+    </CarouselContent>
+    <CarouselPrevious />
+    <CarouselNext />
+  </Carousel>
+</ComponentPreview>
+
+## Custom Content
+
+<ComponentPreview
+  title="MAGI System Units"
+  description="Carousel showcasing different system components with rich content"
+  code={`import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Monitor, Cpu, Activity, Zap, Shield } from 'lucide-react'
+
+const systemUnits = [
+  {
+    name: "MAGI-01",
+    type: "Primary Core",
+    status: "Online",
+    icon: Monitor,
+    color: "bg-blue-500"
+  },
+  {
+    name: "MAGI-02", 
+    type: "Processing Unit",
+    status: "Active",
+    icon: Cpu,
+    color: "bg-green-500"
+  },
+  {
+    name: "MAGI-03",
+    type: "Analysis Core",
+    status: "Monitoring",
+    icon: Activity,
+    color: "bg-orange-500"
+  },
+  {
+    name: "Power Grid",
+    type: "Energy System",
+    status: "Stable",
+    icon: Zap,
+    color: "bg-yellow-500"
+  },
+  {
+    name: "Security Layer",
+    type: "Protection",
+    status: "Armed",
+    icon: Shield,
+    color: "bg-red-500"
+  }
+]
+
+function Example() {
+  return (
+    <Carousel className="w-full max-w-lg">
+      <CarouselContent>
+        {systemUnits.map((unit, index) => {
+          const IconComponent = unit.icon
+          return (
+            <CarouselItem key={index}>
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4">
+                    <div className={\`p-3 rounded-lg \${unit.color}\`}>
+                      <IconComponent className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-lg">{unit.name}</h3>
+                      <p className="text-muted-foreground">{unit.type}</p>
+                      <Badge variant="secondary" className="mt-2">
+                        {unit.status}
+                      </Badge>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          )
+        })}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}`}
+>
+  <Carousel className="w-full max-w-lg">
+    <CarouselContent>
+      {[
+        {
+          name: "MAGI-01",
+          type: "Primary Core",
+          status: "Online",
+          icon: Monitor,
+          color: "bg-blue-500"
+        },
+        {
+          name: "MAGI-02", 
+          type: "Processing Unit",
+          status: "Active",
+          icon: Cpu,
+          color: "bg-green-500"
+        },
+        {
+          name: "MAGI-03",
+          type: "Analysis Core",
+          status: "Monitoring",
+          icon: Activity,
+          color: "bg-orange-500"
+        },
+        {
+          name: "Power Grid",
+          type: "Energy System",
+          status: "Stable",
+          icon: Zap,
+          color: "bg-yellow-500"
+        },
+        {
+          name: "Security Layer",
+          type: "Protection",
+          status: "Armed",
+          icon: Shield,
+          color: "bg-red-500"
+        }
+      ].map((unit, index) => {
+        const IconComponent = unit.icon
+        return (
+          <CarouselItem key={index}>
+            <Card className="border-2">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-4">
+                  <div className={`p-3 rounded-lg ${unit.color}`}>
+                    <IconComponent className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-lg">{unit.name}</h3>
+                    <p className="text-muted-foreground">{unit.type}</p>
+                    <Badge variant="secondary" className="mt-2">
+                      {unit.status}
+                    </Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </CarouselItem>
+        )
+      })}
+    </CarouselContent>
+    <CarouselPrevious />
+    <CarouselNext />
+  </Carousel>
+</ComponentPreview>
+
+## API Reference
+
+### Carousel
+
+The main carousel container component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the carousel |
+| `opts` | `EmblaOptionsType` | `{}` | Embla Carousel options for customization |
+| `plugins` | `EmblaPluginType[]` | `[]` | Array of Embla Carousel plugins |
+| `setApi` | `(api: CarouselApi) => void` | - | Callback to access the carousel API |
+| `className` | `string` | - | Additional CSS classes |
+
+### CarouselContent
+
+Container for carousel items with proper spacing and layout.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### CarouselItem
+
+Individual carousel item wrapper.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### CarouselPrevious
+
+Previous navigation button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `variant` | `ButtonVariant` | `"outline"` | Button variant |
+| `size` | `ButtonSize` | `"icon"` | Button size |
+
+### CarouselNext
+
+Next navigation button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `variant` | `ButtonVariant` | `"outline"` | Button variant |
+| `size` | `ButtonSize` | `"icon"` | Button size |
+
+## Embla Carousel Options
+
+The carousel accepts all Embla Carousel options through the `opts` prop:
+
+```tsx
+<Carousel
+  opts={{
+    align: "start",
+    loop: true,
+    skipSnaps: false,
+    dragFree: true,
+  }}
+>
+  {/* content */}
+</Carousel>
+```
+
+Common options include:
+- `align`: Alignment of slides ("start", "center", "end")
+- `loop`: Enable infinite looping
+- `skipSnaps`: Skip snap points when dragging
+- `dragFree`: Enable free dragging without snap points
+- `containScroll`: Contain scroll within bounds
+
+## Accessibility
+
+The Carousel component includes comprehensive accessibility features:
+
+- **Keyboard Navigation**: Arrow keys for navigation, Tab for focus management
+- **ARIA Labels**: Proper labeling for screen readers
+- **Focus Management**: Logical focus order and visible focus indicators
+- **Screen Reader Support**: Announces current slide and total count
+
+## Examples
+
+### Auto-play Carousel
+
+```tsx
+import { Carousel } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+
+function AutoplayCarousel() {
+  return (
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+    >
+      {/* content */}
+    </Carousel>
+  )
+}
+```
+
+### Carousel with API Access
+
+```tsx
+import { Carousel } from '@/components/ui/carousel'
+import { useCallback, useEffect, useState } from 'react'
+
+function CarouselWithAPI() {
+  const [api, setApi] = useState()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!api) return
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
+
+  return (
+    <div>
+      <Carousel setApi={setApi}>
+        {/* content */}
+      </Carousel>
+      <div className="py-2 text-center text-sm text-muted-foreground">
+        Slide {current} of {count}
+      </div>
+    </div>
+  )
+}
+```
+
+</ComponentDocsLayout>

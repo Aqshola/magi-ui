@@ -24,6 +24,10 @@ import { TabsShowcase } from './show/tabs-showcase'
 import { TextareaShowcase } from './show/textarea-showcase'
 import { TooltipShowcase } from './show/tooltip-showcase'
 import { SonnerShowcase } from './show/sonner-showcase'
+import AvatarShowcase from './show/avatar-showcase'
+import CarouselShowcase from './show/carousel-showcase'
+import SeparatorShowcase from './show/separator-showcase'
+import SheetShowcase from './show/sheet-showcase'
 import { Toaster } from './components/ui/sonner'
 
 // MDX Documentation imports
@@ -36,6 +40,10 @@ import BadgeDocs from './docs/badge.mdx'
 import LabelDocs from './docs/label.mdx'
 import AlertDialogDocs from './docs/alert-dialog.mdx'
 import CheckboxDocs from './docs/checkbox.mdx'
+import AvatarDocs from './docs/avatar.mdx'
+import CarouselDocs from './docs/carousel.mdx'
+import SeparatorDocs from './docs/separator.mdx'
+import SheetDocs from './docs/sheet.mdx'
 
 function Navigation() {
   const location = useLocation()
@@ -103,6 +111,10 @@ function ShowcasePage() {
       <TextareaShowcase />
       <TooltipShowcase />
       <SonnerShowcase />
+      <AvatarShowcase />
+      <CarouselShowcase />
+      <SeparatorShowcase />
+      <SheetShowcase />
     </div>
   )
 }
@@ -173,6 +185,14 @@ function DocsNavigation() {
         <ul className="space-y-2">
           <li>
             <Link 
+              to="/docs/avatar" 
+              className="text-sm hover:text-primary transition-colors block py-1"
+            >
+              Avatar
+            </Link>
+          </li>
+          <li>
+            <Link 
               to="/docs/card" 
               className="text-sm hover:text-primary transition-colors block py-1"
             >
@@ -185,6 +205,38 @@ function DocsNavigation() {
               className="text-sm hover:text-primary transition-colors block py-1"
             >
               Badge
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/docs/carousel" 
+              className="text-sm hover:text-primary transition-colors block py-1"
+            >
+              Carousel
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/docs/separator" 
+              className="text-sm hover:text-primary transition-colors block py-1"
+            >
+              Separator
+            </Link>
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
+          Layout Components
+        </h3>
+        <ul className="space-y-2">
+          <li>
+            <Link 
+              to="/docs/sheet" 
+              className="text-sm hover:text-primary transition-colors block py-1"
+            >
+              Sheet
             </Link>
           </li>
         </ul>
@@ -279,6 +331,26 @@ function App() {
           <Route path="/docs/checkbox" element={
             <DocsLayout>
               <CheckboxDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/avatar" element={
+            <DocsLayout>
+              <AvatarDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/carousel" element={
+            <DocsLayout>
+              <CarouselDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/separator" element={
+            <DocsLayout>
+              <SeparatorDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/sheet" element={
+            <DocsLayout>
+              <SheetDocs />
             </DocsLayout>
           } />
         </Routes>

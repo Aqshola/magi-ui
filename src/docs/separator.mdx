@@ -1,0 +1,505 @@
+import { ComponentPreview } from "@/components/documentation/component-preview";
+import { ComponentDocsLayout } from "@/components/documentation/component-docs-layout";
+import { Separator } from '@/components/ui/separator'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Bell, Settings, User, Activity, Cpu, Monitor, Shield, Zap } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Separator"
+  description="A visual divider component for separating content sections. Built on Radix UI Separator primitive with customizable orientation and styling."
+  category="Layout Component"
+>
+
+## Overview
+
+The Separator component provides a clean visual division between content sections. It's built on Radix UI's Separator primitive and supports both horizontal and vertical orientations with semantic meaning for screen readers.
+
+## Features
+
+- **Dual Orientation**: Horizontal and vertical separator support
+- **Semantic HTML**: Proper ARIA roles for accessibility
+- **Decorative Option**: Can be marked as decorative for screen readers
+- **Flexible Styling**: Customizable appearance with CSS classes
+- **Responsive Design**: Adapts to container dimensions
+- **Accessibility**: Full screen reader support with proper semantics
+
+## Basic Usage
+
+<ComponentPreview
+  title="Horizontal Separator"
+  description="Default horizontal separator for dividing content vertically"
+  code={`import { Separator } from '@/components/ui/separator'
+
+function Example() {
+  return (
+    <div className="space-y-4">
+      <div>
+        <h3 className="text-lg font-medium">System Status</h3>
+        <p className="text-sm text-muted-foreground">
+          Current operational parameters and metrics
+        </p>
+      </div>
+      <Separator />
+      <div>
+        <h3 className="text-lg font-medium">Performance Metrics</h3>
+        <p className="text-sm text-muted-foreground">
+          Real-time system performance data
+        </p>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-4">
+    <div>
+      <h3 className="text-lg font-medium">System Status</h3>
+      <p className="text-sm text-muted-foreground">
+        Current operational parameters and metrics
+      </p>
+    </div>
+    <Separator />
+    <div>
+      <h3 className="text-lg font-medium">Performance Metrics</h3>
+      <p className="text-sm text-muted-foreground">
+        Real-time system performance data
+      </p>
+    </div>
+  </div>
+</ComponentPreview>
+
+## Orientation
+
+<ComponentPreview
+  title="Vertical Separator"
+  description="Vertical separator for dividing content horizontally"
+  code={`import { Separator } from '@/components/ui/separator'
+
+function Example() {
+  return (
+    <div className="flex h-20 items-center space-x-4">
+      <div className="text-center">
+        <div className="text-2xl font-bold">98.7%</div>
+        <div className="text-sm text-muted-foreground">Uptime</div>
+      </div>
+      <Separator orientation="vertical" />
+      <div className="text-center">
+        <div className="text-2xl font-bold">2.4ms</div>
+        <div className="text-sm text-muted-foreground">Response</div>
+      </div>
+      <Separator orientation="vertical" />
+      <div className="text-center">
+        <div className="text-2xl font-bold">156</div>
+        <div className="text-sm text-muted-foreground">Active Users</div>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="flex h-20 items-center space-x-4">
+    <div className="text-center">
+      <div className="text-2xl font-bold">98.7%</div>
+      <div className="text-sm text-muted-foreground">Uptime</div>
+    </div>
+    <Separator orientation="vertical" />
+    <div className="text-center">
+      <div className="text-2xl font-bold">2.4ms</div>
+      <div className="text-sm text-muted-foreground">Response</div>
+    </div>
+    <Separator orientation="vertical" />
+    <div className="text-center">
+      <div className="text-2xl font-bold">156</div>
+      <div className="text-sm text-muted-foreground">Active Users</div>
+    </div>
+  </div>
+</ComponentPreview>
+
+## In Cards and Layouts
+
+<ComponentPreview
+  title="Card with Separators"
+  description="Using separators to organize content within cards"
+  code={`import { Separator } from '@/components/ui/separator'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Activity, Cpu, Monitor, Shield } from 'lucide-react'
+
+function Example() {
+  return (
+    <Card className="w-full max-w-md">
+      <CardHeader>
+        <CardTitle>MAGI System Status</CardTitle>
+        <CardDescription>Real-time operational metrics</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Monitor className="h-4 w-4" />
+            <span>Primary Core</span>
+          </div>
+          <Badge variant="secondary">Online</Badge>
+        </div>
+        
+        <Separator />
+        
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Cpu className="h-4 w-4" />
+            <span>Processing Unit</span>
+          </div>
+          <Badge variant="secondary">Active</Badge>
+        </div>
+        
+        <Separator />
+        
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Activity className="h-4 w-4" />
+            <span>Analysis Core</span>
+          </div>
+          <Badge variant="secondary">Monitoring</Badge>
+        </div>
+        
+        <Separator />
+        
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Shield className="h-4 w-4" />
+            <span>Security Layer</span>
+          </div>
+          <Badge variant="destructive">Alert</Badge>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}`}
+>
+  <Card className="w-full max-w-md">
+    <CardHeader>
+      <CardTitle>MAGI System Status</CardTitle>
+      <CardDescription>Real-time operational metrics</CardDescription>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Monitor className="h-4 w-4" />
+          <span>Primary Core</span>
+        </div>
+        <Badge variant="secondary">Online</Badge>
+      </div>
+      
+      <Separator />
+      
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Cpu className="h-4 w-4" />
+          <span>Processing Unit</span>
+        </div>
+        <Badge variant="secondary">Active</Badge>
+      </div>
+      
+      <Separator />
+      
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Activity className="h-4 w-4" />
+          <span>Analysis Core</span>
+        </div>
+        <Badge variant="secondary">Monitoring</Badge>
+      </div>
+      
+      <Separator />
+      
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Shield className="h-4 w-4" />
+          <span>Security Layer</span>
+        </div>
+        <Badge variant="destructive">Alert</Badge>
+      </div>
+    </CardContent>
+  </Card>
+</ComponentPreview>
+
+## Complex Layouts
+
+<ComponentPreview
+  title="Dashboard Layout"
+  description="Complex layout combining horizontal and vertical separators"
+  code={`import { Separator } from '@/components/ui/separator'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Settings, Bell, User } from 'lucide-react'
+
+function Example() {
+  return (
+    <div className="w-full max-w-2xl space-y-6">
+      {/* Header Section */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-bold">MAGI Control Panel</h2>
+          <p className="text-muted-foreground">System administration interface</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="icon">
+            <Bell className="h-4 w-4" />
+          </Button>
+          <Separator orientation="vertical" className="h-6" />
+          <Button variant="outline" size="icon">
+            <Settings className="h-4 w-4" />
+          </Button>
+          <Separator orientation="vertical" className="h-6" />
+          <Button variant="outline" size="icon">
+            <User className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+      
+      <Separator />
+      
+      {/* Content Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-green-600">Online</div>
+            <div className="text-sm text-muted-foreground">System Status</div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-blue-600">67%</div>
+            <div className="text-sm text-muted-foreground">CPU Usage</div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-orange-600">2.4ms</div>
+            <div className="text-sm text-muted-foreground">Response Time</div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <Separator />
+      
+      {/* Footer Actions */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Badge variant="secondary">v2.4.1</Badge>
+          <Separator orientation="vertical" className="h-4" />
+          <span className="text-sm text-muted-foreground">Last updated: 2 minutes ago</span>
+        </div>
+        <Button>Refresh Data</Button>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="w-full max-w-2xl space-y-6">
+    {/* Header Section */}
+    <div className="flex items-center justify-between">
+      <div>
+        <h2 className="text-2xl font-bold">MAGI Control Panel</h2>
+        <p className="text-muted-foreground">System administration interface</p>
+      </div>
+      <div className="flex items-center gap-2">
+        <Button variant="outline" size="icon">
+          <Bell className="h-4 w-4" />
+        </Button>
+        <Separator orientation="vertical" className="h-6" />
+        <Button variant="outline" size="icon">
+          <Settings className="h-4 w-4" />
+        </Button>
+        <Separator orientation="vertical" className="h-6" />
+        <Button variant="outline" size="icon">
+          <User className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+    
+    <Separator />
+    
+    {/* Content Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card>
+        <CardContent className="p-4 text-center">
+          <div className="text-2xl font-bold text-green-600">Online</div>
+          <div className="text-sm text-muted-foreground">System Status</div>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardContent className="p-4 text-center">
+          <div className="text-2xl font-bold text-blue-600">67%</div>
+          <div className="text-sm text-muted-foreground">CPU Usage</div>
+        </CardContent>
+      </Card>
+      
+      <Card>
+        <CardContent className="p-4 text-center">
+          <div className="text-2xl font-bold text-orange-600">2.4ms</div>
+          <div className="text-sm text-muted-foreground">Response Time</div>
+        </CardContent>
+      </Card>
+    </div>
+    
+    <Separator />
+    
+    {/* Footer Actions */}
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-4">
+        <Badge variant="secondary">v2.4.1</Badge>
+        <Separator orientation="vertical" className="h-4" />
+        <span className="text-sm text-muted-foreground">Last updated: 2 minutes ago</span>
+      </div>
+      <Button>Refresh Data</Button>
+    </div>
+  </div>
+</ComponentPreview>
+
+## Custom Styling
+
+<ComponentPreview
+  title="Custom Styled Separators"
+  description="Separators with custom colors and styling"
+  code={`import { Separator } from '@/components/ui/separator'
+
+function Example() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-lg font-medium">Default Separator</h3>
+        <Separator className="my-4" />
+        <p className="text-sm text-muted-foreground">Standard border styling</p>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-medium">Colored Separator</h3>
+        <Separator className="my-4 bg-blue-500" />
+        <p className="text-sm text-muted-foreground">Blue colored separator</p>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-medium">Thick Separator</h3>
+        <Separator className="my-4 h-1 bg-gradient-to-r from-blue-500 to-purple-500" />
+        <p className="text-sm text-muted-foreground">Gradient thick separator</p>
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-medium">Dashed Separator</h3>
+        <Separator className="my-4 border-dashed border-t-2 bg-transparent" />
+        <p className="text-sm text-muted-foreground">Dashed border style</p>
+      </div>
+    </div>
+  )
+}`}
+>
+  <div className="space-y-6">
+    <div>
+      <h3 className="text-lg font-medium">Default Separator</h3>
+      <Separator className="my-4" />
+      <p className="text-sm text-muted-foreground">Standard border styling</p>
+    </div>
+    
+    <div>
+      <h3 className="text-lg font-medium">Colored Separator</h3>
+      <Separator className="my-4 bg-blue-500" />
+      <p className="text-sm text-muted-foreground">Blue colored separator</p>
+    </div>
+    
+    <div>
+      <h3 className="text-lg font-medium">Thick Separator</h3>
+      <Separator className="my-4 h-1 bg-gradient-to-r from-blue-500 to-purple-500" />
+      <p className="text-sm text-muted-foreground">Gradient thick separator</p>
+    </div>
+    
+    <div>
+      <h3 className="text-lg font-medium">Dashed Separator</h3>
+      <Separator className="my-4 border-dashed border-t-2 bg-transparent" />
+      <p className="text-sm text-muted-foreground">Dashed border style</p>
+    </div>
+  </div>
+</ComponentPreview>
+
+## API Reference
+
+### Separator
+
+The main separator component built on Radix UI Separator primitive.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the separator |
+| `decorative` | `boolean` | `true` | Whether the separator is decorative (no semantic meaning) |
+| `className` | `string` | - | Additional CSS classes |
+
+## Accessibility
+
+The Separator component includes comprehensive accessibility features:
+
+- **Semantic Roles**: Proper ARIA `separator` role when not decorative
+- **Orientation Support**: Correct `aria-orientation` attribute
+- **Decorative Option**: Can be marked as decorative to hide from screen readers
+- **Keyboard Navigation**: Does not interfere with keyboard navigation flow
+
+## Usage Guidelines
+
+### When to Use
+
+- **Content Sections**: Separate different content areas
+- **List Items**: Divide items in lists or menus
+- **Form Sections**: Group related form fields
+- **Navigation**: Separate navigation items
+- **Cards**: Organize content within cards
+
+### When Not to Use
+
+- **Spacing Only**: Use margin/padding instead for pure spacing
+- **Complex Layouts**: Consider using CSS Grid or Flexbox
+- **Interactive Elements**: Separators should not be interactive
+
+## Examples
+
+### Menu with Separators
+
+```tsx
+import { Separator } from '@/components/ui/separator'
+
+function MenuExample() {
+  return (
+    <div className="w-48 p-2">
+      <div className="px-2 py-1 text-sm">File</div>
+      <div className="px-2 py-1 text-sm">Edit</div>
+      <Separator className="my-1" />
+      <div className="px-2 py-1 text-sm">Copy</div>
+      <div className="px-2 py-1 text-sm">Paste</div>
+      <Separator className="my-1" />
+      <div className="px-2 py-1 text-sm">Settings</div>
+    </div>
+  )
+}
+```
+
+### Sidebar with Vertical Separators
+
+```tsx
+import { Separator } from '@/components/ui/separator'
+
+function SidebarExample() {
+  return (
+    <div className="flex h-32 items-center space-x-4">
+      <div className="text-sm">Dashboard</div>
+      <Separator orientation="vertical" />
+      <div className="text-sm">Analytics</div>
+      <Separator orientation="vertical" />
+      <div className="text-sm">Settings</div>
+    </div>
+  )
+}
+```
+
+</ComponentDocsLayout>
