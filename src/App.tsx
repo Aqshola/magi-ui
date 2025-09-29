@@ -75,7 +75,7 @@ function Navigation() {
 
 function ShowcasePage() {
   return (
-    <div className='flex flex-col gap-8 p-8'>
+    <div className='flex flex-col gap-8 p-8 max-w-3xl mx-auto'>
       <div className='text-center space-y-2'>
         <h1 className='text-4xl font-bold text-primary uppercase tracking-wide font-mono'>
           MAGI UI COMPONENT LIBRARY
