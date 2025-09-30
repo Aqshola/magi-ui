@@ -134,38 +134,123 @@ The Accordion component provides a space-efficient way to present multiple secti
 
 The root accordion component.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `"single" \| "multiple"` | - | Whether one or multiple items can be opened |
-| `collapsible` | `boolean` | `false` | Whether items can be collapsed (single type only) |
-| `defaultValue` | `string \| string[]` | - | Default open items |
-| `value` | `string \| string[]` | - | Controlled open items |
-| `onValueChange` | `function` | - | Callback when open items change |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>type</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"single" | "multiple"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether one or multiple items can be opened</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>collapsible</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether items can be collapsed (single type only)</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>defaultValue</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string | string[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Default open items</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string | string[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Controlled open items</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onValueChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Callback when open items change</td>
+    </tr>
+  </tbody>
+</table>
 
 ### AccordionItem
 
 Individual accordion item container.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Unique identifier for the item |
-| `disabled` | `boolean` | `false` | Whether the item is disabled |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Unique identifier for the item</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether the item is disabled</td>
+    </tr>
+  </tbody>
+</table>
 
 ### AccordionTrigger
 
 The clickable trigger that toggles the accordion item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### AccordionContent
 
 The collapsible content area of the accordion item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Examples
 

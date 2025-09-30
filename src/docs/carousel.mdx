@@ -359,49 +359,164 @@ function Example() {
 
 The main carousel container component.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the carousel |
-| `opts` | `EmblaOptionsType` | `{}` | Embla Carousel options for customization |
-| `plugins` | `EmblaPluginType[]` | `[]` | Array of Embla Carousel plugins |
-| `setApi` | `(api: CarouselApi) => void` | - | Callback to access the carousel API |
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>orientation</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"horizontal" | "vertical"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"horizontal"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>The orientation of the carousel</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>opts</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>EmblaOptionsType</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>{}</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Embla Carousel options for customization</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>plugins</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>EmblaPluginType[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Array of Embla Carousel plugins</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>setApi</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(api: CarouselApi) => void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Callback to access the carousel API</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CarouselContent
 
 Container for carousel items with proper spacing and layout.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CarouselItem
 
 Individual carousel item wrapper.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CarouselPrevious
 
 Previous navigation button.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `variant` | `ButtonVariant` | `"outline"` | Button variant |
-| `size` | `ButtonSize` | `"icon"` | Button size |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>variant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ButtonVariant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"outline"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Button variant</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>size</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ButtonSize</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"icon"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Button size</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CarouselNext
 
 Next navigation button.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `variant` | `ButtonVariant` | `"outline"` | Button variant |
-| `size` | `ButtonSize` | `"icon"` | Button size |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>variant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ButtonVariant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"outline"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Button variant</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>size</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ButtonSize</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"icon"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Button size</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Embla Carousel Options
 

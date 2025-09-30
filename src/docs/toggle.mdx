@@ -191,16 +191,66 @@ function SizeVariants() {
 
 ### Toggle
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `pressed` | `boolean` | `undefined` | The pressed state of the toggle (controlled) |
-| `defaultPressed` | `boolean` | `false` | The default pressed state (uncontrolled) |
-| `onPressedChange` | `(pressed: boolean) => void` | `undefined` | Callback fired when the pressed state changes |
-| `disabled` | `boolean` | `false` | Whether the toggle is disabled |
-| `variant` | `"default" \| "outline"` | `"default"` | The visual variant of the toggle |
-| `size` | `"default" \| "sm" \| "lg"` | `"default"` | The size of the toggle |
-| `className` | `string` | `undefined` | Additional CSS classes |
-| `children` | `ReactNode` | `undefined` | The content of the toggle |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>pressed</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>The pressed state of the toggle (controlled)</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>defaultPressed</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>The default pressed state (uncontrolled)</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onPressedChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(pressed: boolean) =&gt; void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Callback fired when the pressed state changes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether the toggle is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>variant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"default" | "outline"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"default"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>The visual variant of the toggle</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>size</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"default" | "sm" | "lg"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"default"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>The size of the toggle</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>The content of the toggle</td>
+    </tr>
+  </tbody>
+</table>
 
 The Toggle component also accepts all standard button HTML attributes.
 

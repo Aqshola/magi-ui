@@ -194,87 +194,292 @@ The Command component provides a powerful search interface with fuzzy matching a
 
 The root command container.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `shouldFilter` | `boolean` | `true` | Whether to filter items based on search |
-| `filter` | `function` | - | Custom filter function |
-| `defaultValue` | `string` | - | Default selected value |
-| `value` | `string` | - | Controlled selected value |
-| `onValueChange` | `function` | - | Callback when value changes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>shouldFilter</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>true</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether to filter items based on search</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>filter</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Custom filter function</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>defaultValue</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default selected value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Controlled selected value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>onValueChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Callback when value changes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandInput
 
 Search input for filtering commands.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `placeholder` | `string` | - | Input placeholder text |
-| `value` | `string` | - | Controlled input value |
-| `onValueChange` | `function` | - | Callback when input changes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>placeholder</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Input placeholder text</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Controlled input value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>onValueChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Callback when input changes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandList
 
 Container for command items with scrolling.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandEmpty
 
 Displayed when no items match the search.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandGroup
 
 Groups related command items with optional heading.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `heading` | `string` | - | Group heading text |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>heading</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Group heading text</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandItem
 
 Individual command item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `value` | `string` | - | Item value for selection |
-| `disabled` | `boolean` | `false` | Whether the item is disabled |
-| `onSelect` | `function` | - | Callback when item is selected |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Item value for selection</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether the item is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>onSelect</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Callback when item is selected</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandSeparator
 
 Visual separator between groups.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandShortcut
 
 Displays keyboard shortcuts for commands.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CommandDialog
 
 Command interface in a dialog modal.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `open` | `boolean` | `false` | Whether the dialog is open |
-| `onOpenChange` | `function` | - | Callback when open state changes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>open</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether the dialog is open</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>onOpenChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Callback when open state changes</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Examples
 

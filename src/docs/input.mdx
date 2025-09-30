@@ -403,18 +403,78 @@ function Example() {
 
 ### Input Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `string` | `"text"` | HTML input type |
-| `placeholder` | `string` | - | Placeholder text |
-| `value` | `string` | - | Controlled value |
-| `defaultValue` | `string` | - | Default value for uncontrolled |
-| `disabled` | `boolean` | `false` | Disable input interaction |
-| `required` | `boolean` | `false` | Mark field as required |
-| `className` | `string` | - | Additional CSS classes |
-| `onChange` | `function` | - | Change event handler |
-| `onFocus` | `function` | - | Focus event handler |
-| `onBlur` | `function` | - | Blur event handler |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>type</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"text"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>HTML input type</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>placeholder</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Placeholder text</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Controlled value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>defaultValue</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Default value for uncontrolled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Disable input interaction</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>required</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Mark field as required</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Change event handler</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onFocus</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Focus event handler</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onBlur</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>function</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Blur event handler</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Supported Input Types
 

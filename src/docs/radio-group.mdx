@@ -349,28 +349,123 @@ function AccountTypeSelection() {
 
 ### RadioGroup
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | `undefined` | Controlled value |
-| `defaultValue` | `string` | `undefined` | Default value for uncontrolled usage |
-| `onValueChange` | `(value: string) => void` | `undefined` | Callback when value changes |
-| `disabled` | `boolean` | `false` | Whether the entire group is disabled |
-| `required` | `boolean` | `false` | Whether selection is required |
-| `name` | `string` | `undefined` | Name attribute for form submission |
-| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Layout orientation |
-| `dir` | `"ltr" \| "rtl"` | `undefined` | Text direction |
-| `loop` | `boolean` | `true` | Whether keyboard navigation should loop |
-| `className` | `string` | `undefined` | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Controlled value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>defaultValue</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default value for uncontrolled usage</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>onValueChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>(value: string) => void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Callback when value changes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether the entire group is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>required</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether selection is required</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>name</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Name attribute for form submission</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>orientation</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"horizontal" | "vertical"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"vertical"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Layout orientation</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>dir</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"ltr" | "rtl"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Text direction</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>loop</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>true</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether keyboard navigation should loop</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### RadioGroupItem
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | `undefined` | The value for this radio item |
-| `disabled` | `boolean` | `false` | Whether this item is disabled |
-| `required` | `boolean` | `false` | Whether this item is required |
-| `id` | `string` | `undefined` | ID for label association |
-| `className` | `string` | `undefined` | Additional CSS classes |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>The value for this radio item</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether this item is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>required</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether this item is required</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>id</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>ID for label association</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 Both components accept all standard HTML attributes for their respective elements.
 

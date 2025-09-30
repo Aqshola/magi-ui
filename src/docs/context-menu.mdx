@@ -166,119 +166,384 @@ The Context Menu component provides a way to display contextual actions when use
 
 The root context menu container.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuTrigger
 
 The element that triggers the context menu on right-click.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `asChild` | `boolean` | `false` | Render as child element |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`asChild`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`boolean`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`false`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Render as child element</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuContent
 
 The context menu content container.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `sideOffset` | `number` | `4` | Distance from trigger |
-| `alignOffset` | `number` | `0` | Alignment offset |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`sideOffset`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`number`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`4`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Distance from trigger</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`alignOffset`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`number`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`0`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Alignment offset</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuItem
 
 Individual context menu item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `inset` | `boolean` | `false` | Add left padding for alignment |
-| `variant` | `"default" \| "destructive"` | `"default"` | Visual variant |
-| `disabled` | `boolean` | `false` | Whether the item is disabled |
-| `onSelect` | `() => void` | - | Callback when item is selected |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`inset`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`boolean`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`false`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Add left padding for alignment</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`variant`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`"default" \| "destructive"`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`"default"`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Visual variant</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`disabled`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`boolean`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`false`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Whether the item is disabled</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`onSelect`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`() => void`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Callback when item is selected</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuCheckboxItem
 
 Checkbox menu item with checked state.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `checked` | `boolean` | `false` | Checked state |
-| `onCheckedChange` | `(checked: boolean) => void` | - | Callback when checked state changes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`checked`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`boolean`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`false`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Checked state</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`onCheckedChange`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`(checked: boolean) => void`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Callback when checked state changes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuRadioGroup
 
 Container for radio menu items.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `value` | `string` | - | Selected value |
-| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`value`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Selected value</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`onValueChange`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`(value: string) => void`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Callback when value changes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuRadioItem
 
 Radio menu item within a radio group.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `value` | `string` | - | Item value |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`value`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Item value</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuLabel
 
 Label for grouping menu items.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `inset` | `boolean` | `false` | Add left padding for alignment |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`inset`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`boolean`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`false`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Add left padding for alignment</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuSeparator
 
 Visual separator between menu items.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuShortcut
 
 Displays keyboard shortcuts for menu items.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuSub
 
 Container for submenu functionality.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuSubTrigger
 
 Trigger element for opening submenus.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `inset` | `boolean` | `false` | Add left padding for alignment |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`inset`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`boolean`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`false`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Add left padding for alignment</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ContextMenuSubContent
 
 Content container for submenus.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
+<table style={{border: '1px solid orange', borderCollapse: 'collapse', width: '100%'}}>
+  <thead>
+    <tr>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Prop</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Type</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Default</th>
+      <th style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`className`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>`string`</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>-</td>
+      <td style={{border: '1px solid orange', padding: '8px', textAlign: 'left'}}>Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Examples
 

@@ -182,27 +182,117 @@ function ChartSelector() {
 
 ### ToggleGroup
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `"single" \| "multiple"` | - | Selection mode for the toggle group |
-| `value` | `string \| string[]` | - | Controlled value(s) |
-| `defaultValue` | `string \| string[]` | - | Default value(s) for uncontrolled usage |
-| `onValueChange` | `(value: string \| string[]) => void` | - | Callback when value changes |
-| `disabled` | `boolean` | `false` | Whether the entire group is disabled |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout orientation |
-| `dir` | `"ltr" \| "rtl"` | - | Reading direction |
-| `loop` | `boolean` | `true` | Whether keyboard navigation should loop |
-| `variant` | `"default" \| "outline"` | `"default"` | Visual variant applied to all items |
-| `size` | `"default" \| "sm" \| "lg"` | `"default"` | Size applied to all items |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>type</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"single" | "multiple"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Selection mode for the toggle group</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string | string[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Controlled value(s)</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>defaultValue</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string | string[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default value(s) for uncontrolled usage</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>onValueChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>(value: string | string[]) => void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Callback when value changes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether the entire group is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>orientation</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"horizontal" | "vertical"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"horizontal"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Layout orientation</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>dir</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"ltr" | "rtl"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Reading direction</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>loop</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>true</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether keyboard navigation should loop</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>variant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"default" | "outline"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"default"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Visual variant applied to all items</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>size</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"default" | "sm" | "lg"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"default"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Size applied to all items</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ToggleGroupItem
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Unique value for this toggle item |
-| `disabled` | `boolean` | `false` | Whether this item is disabled |
-| `variant` | `"default" \| "outline"` | - | Override group variant for this item |
-| `size` | `"default" \| "sm" \| "lg"` | - | Override group size for this item |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Unique value for this toggle item</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Whether this item is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>variant</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"default" | "outline"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Override group variant for this item</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>size</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}><code>"default" | "sm" | "lg"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Override group size for this item</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Code Examples
 

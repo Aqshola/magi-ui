@@ -281,22 +281,77 @@ export function ControlledScrollDemo() {
 
 The main scroll area component that wraps content with custom scrollbars.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Content to be scrolled |
-| `type` | `"auto" \| "always" \| "scroll" \| "hover"` | `"hover"` | When to show scrollbars |
-| `scrollHideDelay` | `number` | `600` | Delay before hiding scrollbars (ms) |
-| `dir` | `"ltr" \| "rtl"` | - | Text direction |
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #ff6600;">
+  <thead>
+    <tr style="border: 1px solid #ff6600;">
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Prop</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Type</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Default</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>className</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>string</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Additional CSS classes</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>children</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>ReactNode</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Content to be scrolled</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>type</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>"auto" | "always" | "scroll" | "hover"</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>"hover"</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">When to show scrollbars</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>scrollHideDelay</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>number</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>600</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Delay before hiding scrollbars (ms)</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>dir</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>"ltr" | "rtl"</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Text direction</td>
+    </tr>
+  </tbody>
+</table>
 
 ### ScrollBar
 
 Internal component for rendering custom scrollbars.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Scrollbar orientation |
-| `forceMount` | `boolean` | - | Force mount the scrollbar |
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #ff6600;">
+  <thead>
+    <tr style="border: 1px solid #ff6600;">
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Prop</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Type</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Default</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>orientation</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>"vertical" | "horizontal"</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>"vertical"</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Scrollbar orientation</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>forceMount</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>boolean</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Force mount the scrollbar</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Code Examples
 

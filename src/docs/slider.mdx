@@ -303,20 +303,90 @@ function MultipleValues() {
 
 ### Slider
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number[]` | `undefined` | Controlled value(s) |
-| `defaultValue` | `number[]` | `undefined` | Default value(s) for uncontrolled usage |
-| `onValueChange` | `(value: number[]) => void` | `undefined` | Callback when value changes |
-| `onValueCommit` | `(value: number[]) => void` | `undefined` | Callback when value is committed |
-| `min` | `number` | `0` | Minimum value |
-| `max` | `number` | `100` | Maximum value |
-| `step` | `number` | `1` | Step increment |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation |
-| `disabled` | `boolean` | `false` | Whether the slider is disabled |
-| `inverted` | `boolean` | `false` | Whether to invert the slider |
-| `className` | `string` | `undefined` | Additional CSS classes |
-| `dir` | `"ltr" \| "rtl"` | `undefined` | Text direction |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>value</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>number[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Controlled value(s)</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>defaultValue</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>number[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Default value(s) for uncontrolled usage</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onValueChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(value: number[]) =&gt; void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Callback when value changes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onValueCommit</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(value: number[]) =&gt; void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Callback when value is committed</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>min</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>number</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>0</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Minimum value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>max</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>number</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>100</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Maximum value</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>step</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>number</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>1</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Step increment</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>orientation</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"horizontal" | "vertical"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"horizontal"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Slider orientation</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>disabled</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether the slider is disabled</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>inverted</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether to invert the slider</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>dir</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>"ltr" | "rtl"</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>undefined</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Text direction</td>
+    </tr>
+  </tbody>
+</table>
 
 The Slider component also accepts all standard div HTML attributes.
 

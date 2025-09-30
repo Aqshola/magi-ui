@@ -231,31 +231,106 @@ The Collapsible component provides a way to hide and show content with smooth an
 
 The root collapsible container that manages the open/closed state.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | The controlled open state |
-| `defaultOpen` | `boolean` | `false` | The default open state for uncontrolled usage |
-| `onOpenChange` | `function` | - | Callback fired when the open state changes |
-| `disabled` | `boolean` | `false` | Whether the collapsible is disabled |
-| `className` | `string` | - | Additional CSS classes |
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #ff6600;">
+  <thead>
+    <tr style="border: 1px solid #ff6600;">
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Prop</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Type</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Default</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>open</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>boolean</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">The controlled open state</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>defaultOpen</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>boolean</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>false</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">The default open state for uncontrolled usage</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>onOpenChange</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>function</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Callback fired when the open state changes</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>disabled</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>boolean</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>false</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Whether the collapsible is disabled</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>className</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>string</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CollapsibleTrigger
 
 The trigger element that toggles the collapsible state.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `asChild` | `boolean` | `false` | Render as child element instead of button |
-| `className` | `string` | - | Additional CSS classes |
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #ff6600;">
+  <thead>
+    <tr style="border: 1px solid #ff6600;">
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Prop</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Type</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Default</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>asChild</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>boolean</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>false</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Render as child element instead of button</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>className</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>string</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ### CollapsibleContent
 
 The collapsible content container with smooth animations.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `forceMount` | `boolean` | `false` | Force mount the content even when closed |
-| `className` | `string` | - | Additional CSS classes |
+<table style="border-collapse: collapse; width: 100%; border: 2px solid #ff6600;">
+  <thead>
+    <tr style="border: 1px solid #ff6600;">
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Prop</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Type</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Default</th>
+      <th style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>forceMount</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>boolean</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>false</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Force mount the content even when closed</td>
+    </tr>
+    <tr style="border: 1px solid #ff6600;">
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>className</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;"><code>string</code></td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">-</td>
+      <td style="border: 1px solid #ff6600; padding: 8px; text-align: left;">Additional CSS classes</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Examples
 

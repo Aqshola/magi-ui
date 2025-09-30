@@ -243,78 +243,263 @@ The Drawer component provides a mobile-friendly way to display content that slid
 
 The root drawer component.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | Controls the open state (controlled mode) |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
-| `shouldScaleBackground` | `boolean` | `true` | Whether to scale the background when open |
-| `snapPoints` | `(string \| number)[]` | - | Array of snap points for the drawer |
-| `activeSnapPoint` | `string \| number` | - | Currently active snap point |
-| `setActiveSnapPoint` | `(snapPoint: string \| number) => void` | - | Set the active snap point |
-| `children` | `ReactNode` | - | Drawer content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>open</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Controls the open state (controlled mode)</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>onOpenChange</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(open: boolean) => void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Callback when open state changes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>shouldScaleBackground</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>true</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Whether to scale the background when open</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>snapPoints</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(string | number)[]</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Array of snap points for the drawer</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>activeSnapPoint</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string | number</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Currently active snap point</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>setActiveSnapPoint</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>(snapPoint: string | number) => void</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Set the active snap point</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Drawer content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerTrigger
 
 The trigger button that opens the drawer.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `asChild` | `boolean` | `false` | Render as child element |
-| `children` | `ReactNode` | - | Trigger content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>asChild</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Render as child element</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Trigger content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerContent
 
 The main content container of the drawer.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Drawer content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Drawer content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerHeader
 
 Header section of the drawer, typically containing title and description.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Header content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Header content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerTitle
 
 The title of the drawer.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Title content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Title content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerDescription
 
 The description text of the drawer.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Description content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Description content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerFooter
 
 Footer section of the drawer, typically containing action buttons.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `className` | `string` | - | Additional CSS classes |
-| `children` | `ReactNode` | - | Footer content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>className</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>string</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Additional CSS classes</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Footer content</td>
+    </tr>
+  </tbody>
+</table>
 
 ### DrawerClose
 
 A component that closes the drawer when clicked.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `asChild` | `boolean` | `false` | Render as child element |
-| `children` | `ReactNode` | - | Close trigger content |
+<table style={{ border: '1px solid orange', borderCollapse: 'collapse', width: '100%' }}>
+  <thead>
+    <tr>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Prop</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Type</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Default</th>
+      <th style={{ border: '1px solid orange', padding: '8px', textAlign: 'left' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>asChild</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>boolean</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>false</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Render as child element</td>
+    </tr>
+    <tr>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>children</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}><code>ReactNode</code></td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>-</td>
+      <td style={{ border: '1px solid orange', padding: '8px' }}>Close trigger content</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Code Examples
 
