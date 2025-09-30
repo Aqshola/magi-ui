@@ -186,7 +186,7 @@ function ShowcasePage() {
 
 function DocsNavigation() {
   return (
-    <div className="w-64 border-r bg-muted/10 p-4">
+    <div className="w-64 border-r bg-muted/10 p-4 overflow-y-scroll">
       <h2 className="font-semibold mb-4">Documentation</h2>
       <nav className="space-y-2">
         <Link to="/docs" className="block px-2 py-1 rounded hover:bg-muted">
@@ -319,9 +319,9 @@ function DocsNavigation() {
 
 function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-[90vh] overflow-hidden">
       <DocsNavigation />
-      <div className="flex-1 overflow-auto">
+      <div className="flex-1 overflow-y-scroll h-full">
         {children}
       </div>
     </div>

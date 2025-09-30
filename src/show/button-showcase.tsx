@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 export default function ButtonShowCase() {
     return (
@@ -31,8 +32,8 @@ export default function ButtonShowCase() {
             <div>
                 <h3 className="text-lg font-semibold mb-4">Different Corner Styles</h3>
                 <div className="flex gap-5">
-                    <Button 
-                        variant={"default"} 
+                    <Button
+                        variant={"default"}
                         isCustomPolygon={true}
                         style={{
                             "--corner-radius": "0 20 0 0",
@@ -41,21 +42,26 @@ export default function ButtonShowCase() {
                     >
                         Angled Top-Right
                     </Button>
-                    <Button 
-                        variant={"destructive"} 
+                    <Button
+                        variant={"destructive"}
                         isCustomPolygon={true}
-                        style={{"--corner-radius": "10 10 10 10"} as any}
+                        style={{ "--corner-radius": "10 10 10 10" } as any}
                     >
                         All Corners
                     </Button>
-                    <Button 
-                        variant={"outline"} 
+                    <Button
+                        variant={"outline"}
                         isCustomPolygon={true}
-                        style={{"--corner-radius": "0 30 0 30"} as any}
+                        style={{ "--corner-radius": "0 30 0 30" } as any}
                     >
                         Alternating
                     </Button>
                 </div>
+
+                <Button className='flex align-middle'>
+                    <Download className="mr-2 h-4 w-4" />
+                    Download
+                </Button>
             </div>
         </div>
     );

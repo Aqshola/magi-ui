@@ -58,7 +58,7 @@ const MDXComponents = {
     <h4 className={cn("text-lg font-semibold tracking-tight mt-4 mb-2", className)} {...props} />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className={cn("leading-7 [&:not(:first-child)]:mt-4", className)} {...props} />
+    <p className={cn("leading-7", className)} {...props} />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
