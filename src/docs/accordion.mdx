@@ -1,0 +1,248 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Badge } from '@/components/ui/badge'
+
+<ComponentDocsLayout
+  title="Accordion"
+  description="A vertically stacked set of interactive headings that each reveal a section of content. Built on Radix UI Accordion primitives."
+  category="Layout Component"
+>
+
+## Overview
+
+The Accordion component provides a space-efficient way to present multiple sections of content. Users can expand and collapse sections as needed, making it ideal for FAQs, navigation menus, and content organization.
+
+## Features
+
+- **Collapsible Sections**: Expand and collapse content sections
+- **Single or Multiple**: Support for single or multiple open sections
+- **Keyboard Navigation**: Full keyboard accessibility support
+- **Smooth Animations**: Built-in expand/collapse animations
+- **Customizable**: Easy to style and customize appearance
+- **Accessibility**: ARIA attributes and screen reader support
+
+## Basic Usage
+
+<ComponentPreview
+  title="Single Selection"
+  description="Basic accordion that allows only one section to be open at a time"
+>
+  <Accordion type="single" collapsible className="w-full max-w-md">
+    <AccordionItem value="item-1">
+      <AccordionTrigger>MAGI System Overview</AccordionTrigger>
+      <AccordionContent>
+        The MAGI System consists of three supercomputers that provide 
+        redundant decision-making capabilities for NERV operations.
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+      <AccordionTrigger>Angel Detection Protocol</AccordionTrigger>
+      <AccordionContent>
+        Continuous monitoring for Angel patterns through the city's 
+        sensor network with consensus-based response protocols.
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-3">
+      <AccordionTrigger>Eva Synchronization</AccordionTrigger>
+      <AccordionContent>
+        Real-time synchronization data processing between pilots 
+        and their Eva units for optimal combat effectiveness.
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
+</ComponentPreview>
+
+## Multiple Selection
+
+<ComponentPreview
+  title="Multiple Selection"
+  description="Accordion that allows multiple sections to be open simultaneously"
+>
+  <Accordion type="multiple" className="w-full max-w-md">
+    <AccordionItem value="security">
+      <AccordionTrigger>Security Protocols</AccordionTrigger>
+      <AccordionContent>
+        NERV maintains multiple security clearance levels. Access to MAGI 
+        systems requires Level 8 clearance or higher.
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="maintenance">
+      <AccordionTrigger>System Maintenance</AccordionTrigger>
+      <AccordionContent>
+        Regular maintenance cycles are performed every 72 hours with 
+        one MAGI unit remaining online during procedures.
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="backup">
+      <AccordionTrigger>Backup Procedures</AccordionTrigger>
+      <AccordionContent>
+        Critical data is backed up every 6 hours with 30-minute 
+        restoration capability in case of failure.
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
+</ComponentPreview>
+
+## Styled Accordion
+
+<ComponentPreview
+  title="Custom Styling"
+  description="Accordion with custom styling and enhanced visual presentation"
+>
+  <Accordion type="single" collapsible className="w-full max-w-md border border-border rounded-lg">
+    <AccordionItem value="eva-01" className="border-b border-border last:border-b-0">
+      <AccordionTrigger className="px-4 hover:bg-muted/50">
+        Evangelion Unit-01 Status
+      </AccordionTrigger>
+      <AccordionContent className="px-4 pb-4">
+        <div className="space-y-2">
+          <div className="flex justify-between">
+            <span>Sync Ratio:</span>
+            <span className="text-primary font-mono">98.7%</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Power Level:</span>
+            <span className="text-green-500 font-mono">OPTIMAL</span>
+          </div>
+        </div>
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="eva-00" className="border-b border-border last:border-b-0">
+      <AccordionTrigger className="px-4 hover:bg-muted/50">
+        Evangelion Unit-00 Status
+      </AccordionTrigger>
+      <AccordionContent className="px-4 pb-4">
+        <div className="space-y-2">
+          <div className="flex justify-between">
+            <span>Sync Ratio:</span>
+            <span className="text-primary font-mono">76.3%</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Power Level:</span>
+            <span className="text-yellow-500 font-mono">STANDBY</span>
+          </div>
+        </div>
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
+</ComponentPreview>
+
+## API Reference
+
+### Accordion
+
+The root accordion component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `type` | `"single" \| "multiple"` | - | Whether one or multiple items can be opened |
+| `collapsible` | `boolean` | `false` | Whether items can be collapsed (single type only) |
+| `defaultValue` | `string \| string[]` | - | Default open items |
+| `value` | `string \| string[]` | - | Controlled open items |
+| `onValueChange` | `function` | - | Callback when open items change |
+
+### AccordionItem
+
+Individual accordion item container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Unique identifier for the item |
+| `disabled` | `boolean` | `false` | Whether the item is disabled |
+
+### AccordionTrigger
+
+The clickable trigger that toggles the accordion item.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### AccordionContent
+
+The collapsible content area of the accordion item.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+function BasicAccordion() {
+  return (
+    <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Section 1</AccordionTrigger>
+        <AccordionContent>
+          Content for section 1
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Section 2</AccordionTrigger>
+        <AccordionContent>
+          Content for section 2
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}
+```
+
+### Controlled Accordion
+
+```tsx
+import { useState } from "react"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+function ControlledAccordion() {
+  const [value, setValue] = useState<string>("")
+
+  return (
+    <Accordion 
+      type="single" 
+      value={value} 
+      onValueChange={setValue}
+    >
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Controlled Section</AccordionTrigger>
+        <AccordionContent>
+          This accordion is controlled by state
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}
+```
+
+## Accessibility
+
+- Uses proper ARIA attributes for screen readers
+- Supports keyboard navigation (Enter, Space, Arrow keys)
+- Focus management between accordion items
+- Announces state changes to assistive technologies
+
+## Best Practices
+
+1. **Content Organization**: Use accordions to organize related content into logical sections
+2. **Performance**: Avoid putting heavy content in accordion items that render immediately
+3. **Mobile Friendly**: Accordions work well on mobile devices with limited screen space
+4. **Clear Labels**: Use descriptive trigger text that clearly indicates the content
+5. **Default State**: Consider which sections should be open by default for better UX
+
+</ComponentDocsLayout>

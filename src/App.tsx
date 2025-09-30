@@ -28,6 +28,24 @@ import AvatarShowcase from './show/avatar-showcase'
 import CarouselShowcase from './show/carousel-showcase'
 import SeparatorShowcase from './show/separator-showcase'
 import SheetShowcase from './show/sheet-showcase'
+import AccordionShowcase from './show/accordion-showcase'
+import BreadcrumbShowcase from './show/breadcrumb-showcase'
+import CollapsibleShowcase from './show/collapsible-showcase'
+import CommandShowcase from './show/command-showcase'
+import ContextMenuShowcase from './show/context-menu-showcase'
+import MenubarShowcase from './show/menubar-showcase'
+import NavigationMenuShowcase from './show/navigation-menu-showcase'
+import ResizableShowcase from './show/resizable-showcase'
+import ScrollAreaShowcase from './show/scroll-area-showcase'
+import SkeletonShowcase from './show/skeleton-showcase'
+import SliderShowcase from './show/slider-showcase'
+import ToggleGroupShowcase from './show/toggle-group-showcase'
+import ChartShowcase from './show/chart-showcase'
+import DrawerShowcase from './show/drawer-showcase'
+import PaginationShowcase from './show/pagination-showcase'
+import ToggleShowcase from './show/toggle-showcase'
+import TableShowcase from './show/table-showcase'
+import RadioGroupShowcase from './show/radio-group-showcase'
 import { Toaster } from './components/ui/sonner'
 
 // MDX Documentation imports
@@ -44,6 +62,24 @@ import AvatarDocs from './docs/avatar.mdx'
 import CarouselDocs from './docs/carousel.mdx'
 import SeparatorDocs from './docs/separator.mdx'
 import SheetDocs from './docs/sheet.mdx'
+import AccordionDocs from './docs/accordion.mdx'
+import BreadcrumbDocs from './docs/breadcrumb.mdx'
+import CollapsibleDocs from './docs/collapsible.mdx'
+import CommandDocs from './docs/command.mdx'
+import ContextMenuDocs from './docs/context-menu.mdx'
+import MenubarDocs from './docs/menubar.mdx'
+import NavigationMenuDocs from './docs/navigation-menu.mdx'
+import ResizableDocs from './docs/resizable.mdx'
+import ScrollAreaDocs from './docs/scroll-area.mdx'
+import SkeletonDocs from './docs/skeleton.mdx'
+import SliderDocs from './docs/slider.mdx'
+import ToggleGroupDocs from './docs/toggle-group.mdx'
+import ChartDocs from './docs/chart.mdx'
+import DrawerDocs from './docs/drawer.mdx'
+import PaginationDocs from './docs/pagination.mdx'
+import ToggleDocs from './docs/toggle.mdx'
+import TableDocs from './docs/table.mdx'
+import RadioGroupDocs from './docs/radio-group.mdx'
 
 function Navigation() {
   const location = useLocation()
@@ -93,178 +129,190 @@ function ShowcasePage() {
       
       <Separator />
       
+      {/* Form Components */}
       <ButtonShowCase />
-      <AlertShowCase />
       <InputShowcase/>
       <SelectShowCase/>
-      <ProgressShowcase/>
-      <AlertDialogShowcase/>
-      <BadgeShowcase/>
-      <CalendarShowcase/>
-      <CardShowcase />
       <CheckboxShowcase />
-      <DialogShowcase />
-      <DropdownMenuShowcase />
+      <RadioGroupShowcase />
       <LabelShowcase />
       <SwitchShowcase />
-      <TabsShowcase />
       <TextareaShowcase />
-      <TooltipShowcase />
-      <SonnerShowcase />
-      <AvatarShowcase />
-      <CarouselShowcase />
+      <SliderShowcase />
+      <ToggleShowcase />
+      <ToggleGroupShowcase />
+      
+      {/* Layout Components */}
+      <CardShowcase />
       <SeparatorShowcase />
+      <AccordionShowcase />
+      <CollapsibleShowcase />
+      <ResizableShowcase />
+      <ScrollAreaShowcase />
+      <TabsShowcase />
+      
+      {/* Navigation Components */}
+      <BreadcrumbShowcase />
+      <NavigationMenuShowcase />
+      <MenubarShowcase />
+      <PaginationShowcase />
+      <CommandShowcase />
+      
+      {/* Display Components */}
+      <AlertShowCase />
+      <BadgeShowcase/>
+      <AvatarShowcase />
+      <SkeletonShowcase />
+      <ProgressShowcase/>
+      <CalendarShowcase/>
+      <CarouselShowcase />
+      <TableShowcase />
+      <ChartShowcase />
+      
+      {/* Overlay Components */}
+      <DialogShowcase />
+      <AlertDialogShowcase/>
       <SheetShowcase />
+      <DrawerShowcase />
+      <TooltipShowcase />
+      <DropdownMenuShowcase />
+      <ContextMenuShowcase />
+      
+      {/* Feedback Components */}
+      <SonnerShowcase />
     </div>
   )
 }
 
 function DocsNavigation() {
   return (
-    <div className="w-64 border-r border-border bg-muted/50 p-6 space-y-6">
-      <div>
-        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-          Getting Started
-        </h3>
-        <ul className="space-y-2">
-          <li>
-            <Link 
-              to="/docs" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Introduction
-            </Link>
-          </li>
-        </ul>
-      </div>
-      
-      <div>
-        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-          Form Components
-        </h3>
-        <ul className="space-y-2">
-          <li>
-            <Link 
-              to="/docs/button" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
+    <div className="w-64 border-r bg-muted/10 p-4">
+      <h2 className="font-semibold mb-4">Documentation</h2>
+      <nav className="space-y-2">
+        <Link to="/docs" className="block px-2 py-1 rounded hover:bg-muted">
+          Overview
+        </Link>
+        
+        <div className="mt-4">
+          <h3 className="font-medium text-sm text-muted-foreground mb-2">Form Components</h3>
+          <div className="space-y-1 ml-2">
+            <Link to="/docs/button" className="block px-2 py-1 rounded hover:bg-muted text-sm">
               Button
             </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/input" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
+            <Link to="/docs/input" className="block px-2 py-1 rounded hover:bg-muted text-sm">
               Input
             </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/label" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Label
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/checkbox" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
+            <Link to="/docs/checkbox" className="block px-2 py-1 rounded hover:bg-muted text-sm">
               Checkbox
             </Link>
-          </li>
-        </ul>
-      </div>
-      
-      <div>
-        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-          Display Components
-        </h3>
-        <ul className="space-y-2">
-          <li>
-            <Link 
-              to="/docs/avatar" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Avatar
+            <Link to="/docs/radio-group" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Radio Group
             </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/card" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
+            <Link to="/docs/label" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Label
+            </Link>
+            <Link to="/docs/slider" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Slider
+            </Link>
+            <Link to="/docs/toggle" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Toggle
+            </Link>
+            <Link to="/docs/toggle-group" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Toggle Group
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <h3 className="font-medium text-sm text-muted-foreground mb-2">Navigation Components</h3>
+          <div className="space-y-1 ml-2">
+            <Link to="/docs/breadcrumb" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Breadcrumb
+            </Link>
+            <Link to="/docs/command" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Command
+            </Link>
+            <Link to="/docs/menubar" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Menubar
+            </Link>
+            <Link to="/docs/navigation-menu" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Navigation Menu
+            </Link>
+            <Link to="/docs/pagination" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Pagination
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <h3 className="font-medium text-sm text-muted-foreground mb-2">Display Components</h3>
+          <div className="space-y-1 ml-2">
+            <Link to="/docs/card" className="block px-2 py-1 rounded hover:bg-muted text-sm">
               Card
             </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/badge" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Badge
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/carousel" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Carousel
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/separator" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Separator
-            </Link>
-          </li>
-        </ul>
-      </div>
-      
-      <div>
-        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-          Layout Components
-        </h3>
-        <ul className="space-y-2">
-          <li>
-            <Link 
-              to="/docs/sheet" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              Sheet
-            </Link>
-          </li>
-        </ul>
-      </div>
-      
-      <div>
-        <h3 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground mb-3">
-          Feedback Components
-        </h3>
-        <ul className="space-y-2">
-          <li>
-            <Link 
-              to="/docs/alert" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
+            <Link to="/docs/alert" className="block px-2 py-1 rounded hover:bg-muted text-sm">
               Alert
             </Link>
-          </li>
-          <li>
-            <Link 
-              to="/docs/alert-dialog" 
-              className="text-sm hover:text-primary transition-colors block py-1"
-            >
-              AlertDialog
+            <Link to="/docs/badge" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Badge
             </Link>
-          </li>
-        </ul>
-      </div>
+            <Link to="/docs/avatar" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Avatar
+            </Link>
+            <Link to="/docs/carousel" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Carousel
+            </Link>
+            <Link to="/docs/chart" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Chart
+            </Link>
+            <Link to="/docs/skeleton" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Skeleton
+            </Link>
+            <Link to="/docs/table" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Table
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <h3 className="font-medium text-sm text-muted-foreground mb-2">Layout Components</h3>
+          <div className="space-y-1 ml-2">
+            <Link to="/docs/accordion" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Accordion
+            </Link>
+            <Link to="/docs/collapsible" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Collapsible
+            </Link>
+            <Link to="/docs/resizable" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Resizable
+            </Link>
+            <Link to="/docs/scroll-area" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Scroll Area
+            </Link>
+            <Link to="/docs/separator" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Separator
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <h3 className="font-medium text-sm text-muted-foreground mb-2">Overlay Components</h3>
+          <div className="space-y-1 ml-2">
+            <Link to="/docs/alert-dialog" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Alert Dialog
+            </Link>
+            <Link to="/docs/context-menu" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Context Menu
+            </Link>
+            <Link to="/docs/drawer" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Drawer
+            </Link>
+            <Link to="/docs/sheet" className="block px-2 py-1 rounded hover:bg-muted text-sm">
+              Sheet
+            </Link>
+          </div>
+        </div>
+      </nav>
     </div>
   )
 }
@@ -351,6 +399,96 @@ function App() {
           <Route path="/docs/sheet" element={
             <DocsLayout>
               <SheetDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/accordion" element={
+            <DocsLayout>
+              <AccordionDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/breadcrumb" element={
+            <DocsLayout>
+              <BreadcrumbDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/collapsible" element={
+            <DocsLayout>
+              <CollapsibleDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/command" element={
+            <DocsLayout>
+              <CommandDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/context-menu" element={
+            <DocsLayout>
+              <ContextMenuDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/menubar" element={
+            <DocsLayout>
+              <MenubarDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/navigation-menu" element={
+            <DocsLayout>
+              <NavigationMenuDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/resizable" element={
+            <DocsLayout>
+              <ResizableDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/scroll-area" element={
+            <DocsLayout>
+              <ScrollAreaDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/skeleton" element={
+            <DocsLayout>
+              <SkeletonDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/slider" element={
+            <DocsLayout>
+              <SliderDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/toggle-group" element={
+            <DocsLayout>
+              <ToggleGroupDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/chart" element={
+            <DocsLayout>
+              <ChartDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/drawer" element={
+            <DocsLayout>
+              <DrawerDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/pagination" element={
+            <DocsLayout>
+              <PaginationDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/toggle" element={
+            <DocsLayout>
+              <ToggleDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/table" element={
+            <DocsLayout>
+              <TableDocs />
+            </DocsLayout>
+          } />
+          <Route path="/docs/radio-group" element={
+            <DocsLayout>
+              <RadioGroupDocs />
             </DocsLayout>
           } />
         </Routes>

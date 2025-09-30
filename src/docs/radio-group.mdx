@@ -1,0 +1,562 @@
+import { ComponentDocsLayout } from "@/components/documentation/component-docs-layout"
+import { ComponentPreview } from "@/components/documentation/component-preview"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { 
+  CreditCard, 
+  Smartphone, 
+  Banknote,
+  Truck, 
+  Plane, 
+  Ship,
+  Sun,
+  Moon,
+  Monitor,
+  User,
+  Briefcase,
+  Building,
+  Mail,
+  Phone,
+  MapPin,
+  Settings,
+  Zap,
+  Shield,
+  Activity
+} from "lucide-react"
+import { useState } from "react"
+
+<ComponentDocsLayout
+  title="Radio Group"
+  description="A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time. Perfect for mutually exclusive choices."
+>
+
+## Overview
+
+The Radio Group component allows users to select exactly one option from a set of mutually exclusive choices. Built on top of Radix UI's RadioGroup primitive, it provides excellent accessibility and keyboard navigation support.
+
+## Features
+
+- **Single Selection**: Only one option can be selected at a time
+- **Keyboard Navigation**: Full keyboard accessibility with arrow keys
+- **Flexible Layout**: Support for various layouts and orientations
+- **Rich Content**: Support for icons, descriptions, and complex layouts
+- **Controlled/Uncontrolled**: Both controlled and uncontrolled usage patterns
+- **Disabled State**: Support for disabled options and entire groups
+- **Accessible**: Built-in ARIA attributes and screen reader support
+- **Customizable**: Easy to style and extend with custom designs
+
+## Basic Usage
+
+<ComponentPreview>
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+
+function BasicRadioGroup() {
+  return (
+    <div className="space-y-3">
+      <Label className="text-sm font-medium">Choose your plan</Label>
+      <RadioGroup defaultValue="pro" className="grid grid-cols-1 gap-2">
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="free" id="free" />
+          <Label htmlFor="free" className="text-sm font-normal cursor-pointer">
+            Free - Basic features
+          </Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="pro" id="pro" />
+          <Label htmlFor="pro" className="text-sm font-normal cursor-pointer">
+            Pro - Advanced features
+          </Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="enterprise" id="enterprise" />
+          <Label htmlFor="enterprise" className="text-sm font-normal cursor-pointer">
+            Enterprise - All features
+          </Label>
+        </div>
+      </RadioGroup>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+## Advanced Examples
+
+### Controlled Radio Group with State
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { Badge } from "@/components/ui/badge"
+import { Sun, Moon, Monitor } from "lucide-react"
+
+function ControlledRadioGroup() {
+  const [theme, setTheme] = useState("system")
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <Label className="text-sm font-medium">Theme preference</Label>
+        <Badge variant="outline">{theme}</Badge>
+      </div>
+      <RadioGroup value={theme} onValueChange={setTheme} className="grid grid-cols-1 gap-2">
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="light" id="light" />
+          <Label htmlFor="light" className="text-sm font-normal cursor-pointer flex items-center gap-2">
+            <Sun className="h-4 w-4" />
+            Light mode
+          </Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="dark" id="dark" />
+          <Label htmlFor="dark" className="text-sm font-normal cursor-pointer flex items-center gap-2">
+            <Moon className="h-4 w-4" />
+            Dark mode
+          </Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="system" id="system" />
+          <Label htmlFor="system" className="text-sm font-normal cursor-pointer flex items-center gap-2">
+            <Monitor className="h-4 w-4" />
+            System preference
+          </Label>
+        </div>
+      </RadioGroup>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### NERV System Priority Settings
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Label } from "@/components/ui/label"
+import { Zap, Shield, Activity } from "lucide-react"
+
+function NERVPrioritySettings() {
+  const [priority, setPriority] = useState("medium")
+  const [evaUnit, setEvaUnit] = useState("unit-01")
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center gap-2 mb-4">
+        <Badge variant="outline" className="bg-red-50 dark:bg-red-950">NERV Operations</Badge>
+      </div>
+      
+      <div className="grid gap-6 md:grid-cols-2">
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <Zap className="h-4 w-4" />
+              Alert Priority Level
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <RadioGroup value={priority} onValueChange={setPriority} className="grid grid-cols-1 gap-3">
+              <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                <RadioGroupItem value="low" id="priority-low" />
+                <Label htmlFor="priority-low" className="text-sm font-normal cursor-pointer flex items-center gap-3">
+                  <Shield className="h-4 w-4 text-green-600" />
+                  <div>
+                    <div className="font-medium text-green-700 dark:text-green-400">Low Priority</div>
+                    <div className="text-xs text-green-600 dark:text-green-500">Routine operations</div>
+                  </div>
+                </Label>
+              </div>
+              <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                <RadioGroupItem value="medium" id="priority-medium" />
+                <Label htmlFor="priority-medium" className="text-sm font-normal cursor-pointer flex items-center gap-3">
+                  <Activity className="h-4 w-4 text-yellow-600" />
+                  <div>
+                    <div className="font-medium text-yellow-700 dark:text-yellow-400">Medium Priority</div>
+                    <div className="text-xs text-yellow-600 dark:text-yellow-500">Standard alert level</div>
+                  </div>
+                </Label>
+              </div>
+              <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                <RadioGroupItem value="high" id="priority-high" />
+                <Label htmlFor="priority-high" className="text-sm font-normal cursor-pointer flex items-center gap-3">
+                  <Zap className="h-4 w-4 text-red-600" />
+                  <div>
+                    <div className="font-medium text-red-700 dark:text-red-400">High Priority</div>
+                    <div className="text-xs text-red-600 dark:text-red-500">Angel attack imminent</div>
+                  </div>
+                </Label>
+              </div>
+            </RadioGroup>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm text-red-700 dark:text-red-400">EVA Unit Assignment</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <RadioGroup value={evaUnit} onValueChange={setEvaUnit} className="grid grid-cols-1 gap-3">
+              <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                <RadioGroupItem value="unit-01" id="unit-01" />
+                <Label htmlFor="unit-01" className="text-sm font-normal cursor-pointer flex items-center gap-3">
+                  <div className="h-4 w-4 rounded-full bg-purple-500"></div>
+                  <div>
+                    <div className="font-medium">EVA Unit-01</div>
+                    <div className="text-xs text-muted-foreground">Pilot: Shinji Ikari</div>
+                  </div>
+                </Label>
+              </div>
+              <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                <RadioGroupItem value="unit-00" id="unit-00" />
+                <Label htmlFor="unit-00" className="text-sm font-normal cursor-pointer flex items-center gap-3">
+                  <div className="h-4 w-4 rounded-full bg-blue-500"></div>
+                  <div>
+                    <div className="font-medium">EVA Unit-00</div>
+                    <div className="text-xs text-muted-foreground">Pilot: Rei Ayanami</div>
+                  </div>
+                </Label>
+              </div>
+              <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+                <RadioGroupItem value="unit-02" id="unit-02" />
+                <Label htmlFor="unit-02" className="text-sm font-normal cursor-pointer flex items-center gap-3">
+                  <div className="h-4 w-4 rounded-full bg-red-500"></div>
+                  <div>
+                    <div className="font-medium">EVA Unit-02</div>
+                    <div className="text-xs text-muted-foreground">Pilot: Asuka Langley</div>
+                  </div>
+                </Label>
+              </div>
+            </RadioGroup>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Payment Method Selection
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { CreditCard, Smartphone, Banknote } from "lucide-react"
+
+function PaymentMethodSelection() {
+  const [paymentMethod, setPaymentMethod] = useState("card")
+
+  return (
+    <div className="space-y-4">
+      <Label className="text-sm font-medium">Payment method</Label>
+      <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod} className="grid grid-cols-1 gap-3">
+        <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+          <RadioGroupItem value="card" id="card" />
+          <Label htmlFor="card" className="text-sm font-normal cursor-pointer flex items-center gap-3 flex-1">
+            <CreditCard className="h-5 w-5 text-blue-600" />
+            <div>
+              <div className="font-medium">Credit/Debit Card</div>
+              <div className="text-xs text-muted-foreground">Visa, Mastercard, American Express</div>
+            </div>
+          </Label>
+        </div>
+        <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+          <RadioGroupItem value="paypal" id="paypal" />
+          <Label htmlFor="paypal" className="text-sm font-normal cursor-pointer flex items-center gap-3 flex-1">
+            <Smartphone className="h-5 w-5 text-blue-500" />
+            <div>
+              <div className="font-medium">PayPal</div>
+              <div className="text-xs text-muted-foreground">Pay with your PayPal account</div>
+            </div>
+          </Label>
+        </div>
+        <div className="flex items-center space-x-3 p-3 border rounded-lg hover:bg-muted/50 transition-colors">
+          <RadioGroupItem value="cash" id="cash" />
+          <Label htmlFor="cash" className="text-sm font-normal cursor-pointer flex items-center gap-3 flex-1">
+            <Banknote className="h-5 w-5 text-green-600" />
+            <div>
+              <div className="font-medium">Cash on Delivery</div>
+              <div className="text-xs text-muted-foreground">Pay when you receive your order</div>
+            </div>
+          </Label>
+        </div>
+      </RadioGroup>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Card Layout
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { User, Briefcase, Building } from "lucide-react"
+
+function AccountTypeSelection() {
+  const [accountType, setAccountType] = useState("personal")
+
+  return (
+    <div className="space-y-4">
+      <Label className="text-sm font-medium">Account type</Label>
+      <RadioGroup value={accountType} onValueChange={setAccountType} className="grid grid-cols-3 gap-4">
+        <div className="flex flex-col items-center space-y-2 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+          <RadioGroupItem value="personal" id="personal-account" className="sr-only" />
+          <Label htmlFor="personal-account" className="cursor-pointer text-center">
+            <User className="h-8 w-8 mx-auto mb-2 text-blue-600" />
+            <div className="font-medium">Personal</div>
+            <div className="text-xs text-muted-foreground">For individual use</div>
+          </Label>
+        </div>
+        <div className="flex flex-col items-center space-y-2 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+          <RadioGroupItem value="business" id="business-account" className="sr-only" />
+          <Label htmlFor="business-account" className="cursor-pointer text-center">
+            <Briefcase className="h-8 w-8 mx-auto mb-2 text-green-600" />
+            <div className="font-medium">Business</div>
+            <div className="text-xs text-muted-foreground">For companies</div>
+          </Label>
+        </div>
+        <div className="flex flex-col items-center space-y-2 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+          <RadioGroupItem value="enterprise" id="enterprise-account" className="sr-only" />
+          <Label htmlFor="enterprise-account" className="cursor-pointer text-center">
+            <Building className="h-8 w-8 mx-auto mb-2 text-purple-600" />
+            <div className="font-medium">Enterprise</div>
+            <div className="text-xs text-muted-foreground">For large organizations</div>
+          </Label>
+        </div>
+      </RadioGroup>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+## API Reference
+
+### RadioGroup
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | `undefined` | Controlled value |
+| `defaultValue` | `string` | `undefined` | Default value for uncontrolled usage |
+| `onValueChange` | `(value: string) => void` | `undefined` | Callback when value changes |
+| `disabled` | `boolean` | `false` | Whether the entire group is disabled |
+| `required` | `boolean` | `false` | Whether selection is required |
+| `name` | `string` | `undefined` | Name attribute for form submission |
+| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Layout orientation |
+| `dir` | `"ltr" \| "rtl"` | `undefined` | Text direction |
+| `loop` | `boolean` | `true` | Whether keyboard navigation should loop |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### RadioGroupItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | `undefined` | The value for this radio item |
+| `disabled` | `boolean` | `false` | Whether this item is disabled |
+| `required` | `boolean` | `false` | Whether this item is required |
+| `id` | `string` | `undefined` | ID for label association |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Both components accept all standard HTML attributes for their respective elements.
+
+## Code Examples
+
+### Basic Implementation
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+
+function SimpleRadioGroup() {
+  return (
+    <RadioGroup defaultValue="option1">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option1" id="option1" />
+        <Label htmlFor="option1">Option 1</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option2" id="option2" />
+        <Label htmlFor="option2">Option 2</Label>
+      </div>
+    </RadioGroup>
+  )
+}
+```
+
+### With Form Integration
+
+```tsx
+import { useState } from "react"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+
+function FormWithRadioGroup() {
+  const [selectedOption, setSelectedOption] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log("Selected:", selectedOption)
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-3">
+        <Label className="text-sm font-medium">Choose an option</Label>
+        <RadioGroup value={selectedOption} onValueChange={setSelectedOption}>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option1" id="form-option1" />
+            <Label htmlFor="form-option1">Option 1</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="option2" id="form-option2" />
+            <Label htmlFor="form-option2">Option 2</Label>
+          </div>
+        </RadioGroup>
+      </div>
+      <Button type="submit" disabled={!selectedOption}>
+        Submit
+      </Button>
+    </form>
+  )
+}
+```
+
+### Disabled State
+
+```tsx
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+
+function DisabledRadioGroup() {
+  return (
+    <RadioGroup defaultValue="option1" disabled>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option1" id="disabled-option1" />
+        <Label htmlFor="disabled-option1">Option 1 (Selected)</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="option2" id="disabled-option2" />
+        <Label htmlFor="disabled-option2">Option 2</Label>
+      </div>
+    </RadioGroup>
+  )
+}
+```
+
+## Accessibility
+
+The Radio Group component follows WAI-ARIA guidelines:
+
+- **Keyboard Navigation**: Full keyboard support with arrow keys
+- **Screen Reader**: Proper ARIA attributes and announcements
+- **Focus Management**: Clear focus indicators and logical tab order
+- **Label Association**: Proper label-input relationships
+
+### Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `↓` `→` | Move to next option |
+| `↑` `←` | Move to previous option |
+| `Space` | Select focused option |
+| `Tab` | Move focus to next element |
+| `Shift + Tab` | Move focus to previous element |
+
+### Accessibility Best Practices
+
+```tsx
+// ✅ Good: Proper label association
+<div className="flex items-center space-x-2">
+  <RadioGroupItem value="option1" id="option1" />
+  <Label htmlFor="option1">Option 1</Label>
+</div>
+
+// ✅ Good: Fieldset for grouped options
+<fieldset>
+  <legend>Choose your plan</legend>
+  <RadioGroup defaultValue="pro">
+    {/* Radio options */}
+  </RadioGroup>
+</fieldset>
+
+// ✅ Good: Descriptive labels
+<Label htmlFor="payment-card">
+  Credit Card - Visa, Mastercard, American Express
+</Label>
+
+// ❌ Avoid: Missing labels
+<RadioGroupItem value="option1" />
+
+// ❌ Avoid: Non-descriptive labels
+<Label htmlFor="option1">Option 1</Label>
+```
+
+## Best Practices
+
+### When to Use Radio Groups
+
+- **Single selection**: When users need to select exactly one option
+- **Mutually exclusive choices**: Payment methods, shipping options, settings
+- **Visible options**: When all available options should be visible at once
+- **Immediate feedback**: When selection changes need immediate visual feedback
+- **2-7 options**: Optimal range for radio group usability
+
+### When to Avoid Radio Groups
+
+- **Multiple selection**: Use checkboxes instead
+- **Binary choices**: Use toggle or switch instead
+- **Many options**: Use select dropdown instead
+- **Immediate actions**: Use buttons instead
+- **Obvious defaults**: When the default is rarely changed
+
+### Design Guidelines
+
+- **Clear labels**: Use descriptive, concise labels for each option
+- **Logical ordering**: Order options alphabetically, by popularity, or importance
+- **Consistent formatting**: Maintain consistent styling across all options
+- **Adequate spacing**: Ensure sufficient space between options for easy selection
+- **Visual hierarchy**: Use visual cues to emphasize important options
+
+### Performance Considerations
+
+- **Controlled vs Uncontrolled**: Use uncontrolled for simple forms, controlled for complex state management
+- **Large lists**: Consider virtualization for very large option lists
+- **Form validation**: Validate selection on form submission rather than on every change
+
+```tsx
+// ✅ Good: Uncontrolled for simple cases
+<RadioGroup defaultValue="option1" name="simple-choice">
+  {/* Options */}
+</RadioGroup>
+
+// ✅ Good: Controlled for complex state
+const [selection, setSelection] = useState("")
+<RadioGroup value={selection} onValueChange={setSelection}>
+  {/* Options */}
+</RadioGroup>
+
+// ✅ Good: Proper form integration
+<form onSubmit={handleSubmit}>
+  <RadioGroup name="user-choice" required>
+    {/* Options */}
+  </RadioGroup>
+</form>
+```
+
+</ComponentDocsLayout>

@@ -1,0 +1,395 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarTrigger, MenubarCheckboxItem, MenubarRadioGroup, MenubarRadioItem, MenubarSub, MenubarSubContent, MenubarSubTrigger } from '@/components/ui/menubar'
+import { Badge } from '@/components/ui/badge'
+
+<ComponentDocsLayout
+  title="Menubar"
+  description="A visually persistent menu common in desktop applications that provides access to a consistent set of commands."
+  category="Navigation Component"
+>
+
+## Overview
+
+The Menubar component provides a traditional desktop-style application menu interface. It's perfect for applications that need persistent access to commands and actions, similar to the menu bars found in desktop applications.
+
+## Features
+
+- **Desktop-style Navigation**: Traditional application menubar interface
+- **Keyboard Navigation**: Full keyboard support with arrow key navigation
+- **Nested Submenus**: Support for multi-level menu hierarchies
+- **Checkbox/Radio Items**: Interactive menu items with state
+- **Keyboard Shortcuts**: Display shortcuts for quick access
+- **Customizable**: Flexible styling and theming options
+- **Accessibility**: Full ARIA support and screen reader compatibility
+- **Portal Rendering**: Menus render in portals to avoid z-index issues
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Menubar"
+  description="Simple application menubar with File and Edit menus"
+>
+  <Menubar>
+    <MenubarMenu>
+      <MenubarTrigger>File</MenubarTrigger>
+      <MenubarContent>
+        <MenubarItem>
+          New File <MenubarShortcut>⌘N</MenubarShortcut>
+        </MenubarItem>
+        <MenubarItem>
+          Open File <MenubarShortcut>⌘O</MenubarShortcut>
+        </MenubarItem>
+        <MenubarSeparator />
+        <MenubarItem>
+          Save <MenubarShortcut>⌘S</MenubarShortcut>
+        </MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+    <MenubarMenu>
+      <MenubarTrigger>Edit</MenubarTrigger>
+      <MenubarContent>
+        <MenubarItem>Undo <MenubarShortcut>⌘Z</MenubarShortcut></MenubarItem>
+        <MenubarItem>Redo <MenubarShortcut>⌘Y</MenubarShortcut></MenubarItem>
+        <MenubarSeparator />
+        <MenubarItem>Cut <MenubarShortcut>⌘X</MenubarShortcut></MenubarItem>
+        <MenubarItem>Copy <MenubarShortcut>⌘C</MenubarShortcut></MenubarItem>
+        <MenubarItem>Paste <MenubarShortcut>⌘V</MenubarShortcut></MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>
+</ComponentPreview>
+
+## With Submenus
+
+<ComponentPreview
+  title="Menubar with Submenus"
+  description="Menubar with nested submenu items"
+>
+  <Menubar>
+    <MenubarMenu>
+      <MenubarTrigger>NERV</MenubarTrigger>
+      <MenubarContent>
+        <MenubarItem>Dashboard</MenubarItem>
+        <MenubarSub>
+          <MenubarSubTrigger>MAGI System</MenubarSubTrigger>
+          <MenubarSubContent>
+            <MenubarItem>MAGI-01</MenubarItem>
+            <MenubarItem>MAGI-02</MenubarItem>
+            <MenubarItem>MAGI-03</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem>Sync All</MenubarItem>
+          </MenubarSubContent>
+        </MenubarSub>
+        <MenubarSeparator />
+        <MenubarItem>Settings</MenubarItem>
+      </MenubarContent>
+    </MenubarMenu>
+    <MenubarMenu>
+      <MenubarTrigger>Operations</MenubarTrigger>
+      <MenubarContent>
+        <MenubarItem>Deploy Eva</MenubarItem>
+        <MenubarItem>Angel Detection</MenubarItem>
+        <MenubarSub>
+          <MenubarSubTrigger>AT Field</MenubarSubTrigger>
+          <MenubarSubContent>
+            <MenubarItem>Analyze</MenubarItem>
+            <MenubarItem>Neutralize</MenubarItem>
+            <MenubarItem>Strengthen</MenubarItem>
+          </MenubarSubContent>
+        </MenubarSub>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>
+</ComponentPreview>
+
+## With Checkbox and Radio Items
+
+<ComponentPreview
+  title="Interactive Menu Items"
+  description="Menubar with checkbox and radio group items"
+>
+  <Menubar>
+    <MenubarMenu>
+      <MenubarTrigger>View</MenubarTrigger>
+      <MenubarContent>
+        <MenubarCheckboxItem checked>
+          Show Sidebar
+        </MenubarCheckboxItem>
+        <MenubarCheckboxItem>
+          Show Terminal
+        </MenubarCheckboxItem>
+        <MenubarSeparator />
+        <MenubarRadioGroup value="compact">
+          <MenubarRadioItem value="comfortable">
+            Comfortable
+          </MenubarRadioItem>
+          <MenubarRadioItem value="compact">
+            Compact
+          </MenubarRadioItem>
+          <MenubarRadioItem value="spacious">
+            Spacious
+          </MenubarRadioItem>
+        </MenubarRadioGroup>
+      </MenubarContent>
+    </MenubarMenu>
+  </Menubar>
+</ComponentPreview>
+
+## API Reference
+
+### Menubar
+
+The root menubar container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarMenu
+
+Individual menu within the menubar.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarTrigger
+
+Clickable trigger that opens the menu.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `disabled` | `boolean` | `false` | Whether the trigger is disabled |
+
+### MenubarContent
+
+Container for menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `align` | `"start" \| "center" \| "end"` | `"start"` | Alignment relative to trigger |
+| `sideOffset` | `number` | `4` | Distance from trigger |
+
+### MenubarItem
+
+Individual menu item.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `disabled` | `boolean` | `false` | Whether the item is disabled |
+| `onSelect` | `() => void` | - | Callback when item is selected |
+
+### MenubarCheckboxItem
+
+Menu item with checkbox state.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `checked` | `boolean` | `false` | Whether the item is checked |
+| `onCheckedChange` | `(checked: boolean) => void` | - | Callback when checked state changes |
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarRadioGroup
+
+Container for radio menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Currently selected value |
+| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
+
+### MenubarRadioItem
+
+Radio menu item within a group.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Value of this radio item |
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarSub
+
+Container for submenu.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarSubTrigger
+
+Trigger that opens a submenu.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `disabled` | `boolean` | `false` | Whether the trigger is disabled |
+
+### MenubarSubContent
+
+Container for submenu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarSeparator
+
+Visual separator between menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### MenubarShortcut
+
+Keyboard shortcut display.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+
+function BasicMenubar() {
+  return (
+    <Menubar>
+      <MenubarMenu>
+        <MenubarTrigger>File</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
+            New <MenubarShortcut>⌘N</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            Open <MenubarShortcut>⌘O</MenubarShortcut>
+          </MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem>
+            Save <MenubarShortcut>⌘S</MenubarShortcut>
+          </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+    </Menubar>
+  )
+}
+```
+
+### Application Menubar
+
+```tsx
+import {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+
+function ApplicationMenubar() {
+  return (
+    <Menubar>
+      <MenubarMenu>
+        <MenubarTrigger>File</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
+            New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            New Window <MenubarShortcut>⌘N</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem disabled>
+            New Incognito Window
+          </MenubarItem>
+          <MenubarSeparator />
+          <MenubarSub>
+            <MenubarSubTrigger>Share</MenubarSubTrigger>
+            <MenubarSubContent>
+              <MenubarItem>Email link</MenubarItem>
+              <MenubarItem>Messages</MenubarItem>
+              <MenubarItem>Notes</MenubarItem>
+            </MenubarSubContent>
+          </MenubarSub>
+          <MenubarSeparator />
+          <MenubarItem>
+            Print... <MenubarShortcut>⌘P</MenubarShortcut>
+          </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger>Edit</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
+            Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+          </MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem>
+            Find <MenubarShortcut>⌘F</MenubarShortcut>
+          </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger>View</MenubarTrigger>
+        <MenubarContent>
+          <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
+          <MenubarCheckboxItem checked>
+            Always Show Full URLs
+          </MenubarCheckboxItem>
+          <MenubarSeparator />
+          <MenubarItem inset>
+            Reload <MenubarShortcut>⌘R</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem disabled inset>
+            Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+          </MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem inset>Toggle Fullscreen</MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem inset>Hide Sidebar</MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+    </Menubar>
+  )
+}
+```
+
+## Accessibility
+
+- Full keyboard navigation with arrow keys
+- Proper ARIA attributes for screen readers
+- Focus management between menu items
+- Support for keyboard shortcuts
+
+## Best Practices
+
+1. **Content**: Use clear, descriptive labels for menu items
+2. **Performance**: Avoid complex content in menu items
+3. **User Experience**: Group related items with separators
+
+</ComponentDocsLayout>

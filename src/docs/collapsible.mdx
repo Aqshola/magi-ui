@@ -1,0 +1,419 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { ChevronDown, ChevronRight, Settings, User, Bell, Shield, Database, Monitor, Activity } from 'lucide-react'
+import { useState } from 'react'
+
+<ComponentDocsLayout
+  title="Collapsible"
+  description="A collapsible component that can hide and show content with smooth animations. Built on Radix UI Collapsible primitives with enhanced styling and accessibility."
+  category="Layout Component"
+>
+
+## Overview
+
+The Collapsible component provides a way to hide and show content with smooth animations. It's perfect for creating expandable sections, settings panels, and content that needs to be toggled on demand while maintaining a clean interface.
+
+## Features
+
+- **Smooth Animations**: Built-in expand and collapse animations with CSS transitions
+- **Controlled/Uncontrolled**: Support for both controlled and uncontrolled usage patterns
+- **Keyboard Navigation**: Full keyboard accessibility with Enter and Space key support
+- **Flexible Trigger**: Any element can be used as a trigger with `asChild` prop
+- **Accessibility**: ARIA attributes and screen reader support built-in
+- **Customizable**: Easy to style and extend with additional functionality
+- **Performance**: Optimized animations with minimal layout shifts
+
+## Basic Usage
+
+<ComponentPreview
+  title="Simple Collapsible"
+  description="Basic collapsible with toggle functionality"
+>
+  {() => {
+    const [isOpen, setIsOpen] = useState(false)
+    
+    return (
+      <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full max-w-md">
+        <div className="flex items-center justify-between space-x-4 p-4">
+          <h4 className="text-sm font-semibold">
+            MAGI System Components
+          </h4>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" size="sm" className="w-9 p-0">
+              {isOpen ? (
+                <ChevronDown className="h-4 w-4" />
+              ) : (
+                <ChevronRight className="h-4 w-4" />
+              )}
+              <span className="sr-only">Toggle</span>
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">
+          @magi/core-system
+        </div>
+        <CollapsibleContent className="space-y-2">
+          <div className="rounded-md border px-4 py-3 font-mono text-sm">
+            @magi/melchior
+          </div>
+          <div className="rounded-md border px-4 py-3 font-mono text-sm">
+            @magi/balthasar
+          </div>
+          <div className="rounded-md border px-4 py-3 font-mono text-sm">
+            @magi/casper
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+    )
+  }}
+</ComponentPreview>
+
+## Advanced Settings Panel
+
+<ComponentPreview
+  title="Settings Panel"
+  description="Collapsible settings panel with detailed content"
+>
+  {() => {
+    const [isOpen, setIsOpen] = useState(false)
+    
+    return (
+      <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full max-w-lg">
+        <CollapsibleTrigger asChild>
+          <Button variant="outline" className="w-full justify-between">
+            <span className="flex items-center">
+              <Settings className="mr-2 h-4 w-4" />
+              Advanced NERV Settings
+            </span>
+            {isOpen ? (
+              <ChevronDown className="h-4 w-4" />
+            ) : (
+              <ChevronRight className="h-4 w-4" />
+            )}
+          </Button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="space-y-4 mt-4 p-4 border rounded-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <User className="h-4 w-4" />
+                <span className="text-sm font-medium">Pilot Configuration</span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Configure pilot-specific synchronization settings and neural interface parameters.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Bell className="h-4 w-4" />
+                <span className="text-sm font-medium">Alert System</span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Manage emergency notifications and system alert preferences.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Shield className="h-4 w-4" />
+                <span className="text-sm font-medium">AT Field Settings</span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Configure AT Field detection and analysis parameters.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Database className="h-4 w-4" />
+                <span className="text-sm font-medium">MAGI Integration</span>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Manage MAGI system integration and consensus protocols.
+              </p>
+            </div>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+    )
+  }}
+</ComponentPreview>
+
+## NERV Operations Panel
+
+<ComponentPreview
+  title="NERV Operations"
+  description="Multi-level collapsible for complex operations"
+>
+  {() => {
+    const [mainOpen, setMainOpen] = useState(false)
+    const [evaOpen, setEvaOpen] = useState(false)
+    const [magiOpen, setMagiOpen] = useState(false)
+    
+    return (
+      <div className="w-full max-w-lg space-y-2">
+        <Collapsible open={mainOpen} onOpenChange={setMainOpen}>
+          <CollapsibleTrigger asChild>
+            <Button variant="outline" className="w-full justify-between">
+              <span className="flex items-center">
+                <Activity className="mr-2 h-4 w-4" />
+                NERV Operations Center
+              </span>
+              {mainOpen ? (
+                <ChevronDown className="h-4 w-4" />
+              ) : (
+                <ChevronRight className="h-4 w-4" />
+              )}
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="space-y-2 mt-2 pl-4">
+            <Collapsible open={evaOpen} onOpenChange={setEvaOpen}>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" className="w-full justify-between text-sm">
+                  <span className="flex items-center">
+                    <Monitor className="mr-2 h-3 w-3" />
+                    Eva Unit Operations
+                  </span>
+                  {evaOpen ? (
+                    <ChevronDown className="h-3 w-3" />
+                  ) : (
+                    <ChevronRight className="h-3 w-3" />
+                  )}
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="space-y-1 mt-1 pl-4">
+                <div className="text-xs p-2 bg-muted rounded">Eva Unit-01 Status: Active</div>
+                <div className="text-xs p-2 bg-muted rounded">Eva Unit-02 Status: Standby</div>
+                <div className="text-xs p-2 bg-muted rounded">Eva Unit-00 Status: Maintenance</div>
+              </CollapsibleContent>
+            </Collapsible>
+            
+            <Collapsible open={magiOpen} onOpenChange={setMagiOpen}>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" className="w-full justify-between text-sm">
+                  <span className="flex items-center">
+                    <Database className="mr-2 h-3 w-3" />
+                    MAGI System Status
+                  </span>
+                  {magiOpen ? (
+                    <ChevronDown className="h-3 w-3" />
+                  ) : (
+                    <ChevronRight className="h-3 w-3" />
+                  )}
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="space-y-1 mt-1 pl-4">
+                <div className="text-xs p-2 bg-muted rounded flex items-center justify-between">
+                  <span>MAGI-01 Melchior</span>
+                  <Badge variant="secondary" className="text-xs">Online</Badge>
+                </div>
+                <div className="text-xs p-2 bg-muted rounded flex items-center justify-between">
+                  <span>MAGI-02 Balthasar</span>
+                  <Badge variant="secondary" className="text-xs">Online</Badge>
+                </div>
+                <div className="text-xs p-2 bg-muted rounded flex items-center justify-between">
+                  <span>MAGI-03 Casper</span>
+                  <Badge variant="secondary" className="text-xs">Online</Badge>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </CollapsibleContent>
+        </Collapsible>
+      </div>
+    )
+  }}
+</ComponentPreview>
+
+## API Reference
+
+### Collapsible
+
+The root collapsible container that manages the open/closed state.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | - | The controlled open state |
+| `defaultOpen` | `boolean` | `false` | The default open state for uncontrolled usage |
+| `onOpenChange` | `function` | - | Callback fired when the open state changes |
+| `disabled` | `boolean` | `false` | Whether the collapsible is disabled |
+| `className` | `string` | - | Additional CSS classes |
+
+### CollapsibleTrigger
+
+The trigger element that toggles the collapsible state.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `asChild` | `boolean` | `false` | Render as child element instead of button |
+| `className` | `string` | - | Additional CSS classes |
+
+### CollapsibleContent
+
+The collapsible content container with smooth animations.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `forceMount` | `boolean` | `false` | Force mount the content even when closed |
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { Button } from "@/components/ui/button"
+import { ChevronDown, ChevronRight } from "lucide-react"
+import { useState } from "react"
+
+function BasicCollapsible() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <div className="flex items-center justify-between space-x-4">
+        <h4 className="text-sm font-semibold">
+          System Components
+        </h4>
+        <CollapsibleTrigger asChild>
+          <Button variant="ghost" size="sm" className="w-9 p-0">
+            {isOpen ? (
+              <ChevronDown className="h-4 w-4" />
+            ) : (
+              <ChevronRight className="h-4 w-4" />
+            )}
+            <span className="sr-only">Toggle</span>
+          </Button>
+        </CollapsibleTrigger>
+      </div>
+      <div className="rounded-md border px-4 py-3 font-mono text-sm">
+        @core/system
+      </div>
+      <CollapsibleContent className="space-y-2">
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">
+          @core/components
+        </div>
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">
+          @core/utilities
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+### Uncontrolled Usage
+
+```tsx
+function UncontrolledCollapsible() {
+  return (
+    <Collapsible defaultOpen={false}>
+      <CollapsibleTrigger asChild>
+        <Button variant="outline" className="w-full justify-between">
+          <span>Settings</span>
+          <ChevronDown className="h-4 w-4" />
+        </Button>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="space-y-4 mt-4">
+        <div className="p-4 border rounded-md">
+          <p className="text-sm">Configuration options will appear here.</p>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+### With Custom Trigger
+
+```tsx
+function CustomTriggerCollapsible() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleTrigger asChild>
+        <div className="flex items-center justify-between p-4 cursor-pointer hover:bg-muted rounded-md">
+          <span className="font-medium">Click anywhere to toggle</span>
+          <ChevronDown 
+            className={`h-4 w-4 transition-transform ${
+              isOpen ? 'rotate-180' : ''
+            }`} 
+          />
+        </div>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="px-4 pb-4">
+        <div className="space-y-2">
+          <p className="text-sm text-muted-foreground">
+            This content is revealed when the trigger is activated.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            The entire trigger area is clickable thanks to the asChild prop.
+          </p>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+### Nested Collapsibles
+
+```tsx
+function NestedCollapsibles() {
+  const [parentOpen, setParentOpen] = useState(false)
+  const [childOpen, setChildOpen] = useState(false)
+
+  return (
+    <Collapsible open={parentOpen} onOpenChange={setParentOpen}>
+      <CollapsibleTrigger asChild>
+        <Button variant="outline" className="w-full justify-between">
+          <span>Parent Section</span>
+          <ChevronDown className="h-4 w-4" />
+        </Button>
+      </CollapsibleTrigger>
+      <CollapsibleContent className="space-y-2 mt-2 pl-4">
+        <div className="p-2 bg-muted rounded">
+          Parent content goes here
+        </div>
+        
+        <Collapsible open={childOpen} onOpenChange={setChildOpen}>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" size="sm" className="w-full justify-between">
+              <span>Child Section</span>
+              <ChevronDown className="h-3 w-3" />
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="mt-1 pl-4">
+            <div className="p-2 bg-muted rounded text-sm">
+              Nested content appears here
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+## Accessibility
+
+- Full keyboard navigation with Enter and Space key support
+- Proper ARIA attributes for screen readers (`aria-expanded`, `aria-controls`)
+- Focus management maintains logical tab order
+- Screen reader announcements for state changes
+
+## Best Practices
+
+1. **Clear Triggers**: Use descriptive text and visual indicators for triggers
+2. **Smooth Animations**: Keep animations fast and smooth (avoid overly long transitions)
+3. **Logical Grouping**: Group related content that benefits from being collapsible
+4. **State Indicators**: Provide clear visual feedback for open/closed states
+5. **Accessibility**: Always include screen reader text for icon-only triggers
+
+</ComponentDocsLayout>

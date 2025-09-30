@@ -1,0 +1,487 @@
+import { ComponentDocsLayout } from "@/components/documentation/component-docs-layout"
+import { ComponentPreview } from "@/components/documentation/component-preview"
+import { Slider } from "@/components/ui/slider"
+import { Label } from "@/components/ui/label"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { 
+  Volume2, 
+  VolumeX, 
+  Thermometer, 
+  Zap, 
+  Brain,
+  Activity,
+  Shield,
+  Gauge,
+  Settings
+} from "lucide-react"
+import { useState } from "react"
+
+<ComponentDocsLayout
+  title="Slider"
+  description="An input where the user selects a value from within a given range. Perfect for volume controls, settings, and any numeric input with visual feedback."
+>
+
+## Overview
+
+The Slider component provides an intuitive way for users to select values from a continuous range. Built on top of Radix UI's Slider primitive, it offers excellent accessibility, keyboard navigation, and touch support for mobile devices.
+
+## Features
+
+- **Range Selection**: Support for single values and ranges
+- **Customizable Steps**: Configure step increments for precise control
+- **Multiple Values**: Support for multiple thumbs on a single slider
+- **Keyboard Navigation**: Full keyboard accessibility support
+- **Touch Support**: Optimized for mobile and touch devices
+- **Visual Feedback**: Clear indication of current values and ranges
+- **Disabled State**: Support for read-only display of values
+- **Orientation Support**: Both horizontal and vertical orientations
+
+## Basic Usage
+
+<ComponentPreview>
+```tsx
+import { Slider } from "@/components/ui/slider"
+
+function BasicSlider() {
+  return (
+    <div className="space-y-4">
+      <Label>Volume</Label>
+      <Slider
+        defaultValue={[50]}
+        max={100}
+        step={1}
+        className="w-[60%]"
+      />
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+## Advanced Examples
+
+### Controlled Slider with State
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { Slider } from "@/components/ui/slider"
+import { Label } from "@/components/ui/label"
+import { Badge } from "@/components/ui/badge"
+
+function ControlledSlider() {
+  const [volume, setVolume] = useState([50])
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
+        <Label>Volume Control</Label>
+        <Badge variant="outline">{volume[0]}%</Badge>
+      </div>
+      <Slider
+        value={volume}
+        onValueChange={setVolume}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### NERV System Controls
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { Slider } from "@/components/ui/slider"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Brain, Zap, Shield, Activity } from "lucide-react"
+
+function NERVSystemControls() {
+  const [magiSystem, setMagiSystem] = useState([85])
+  const [evaSync, setEvaSync] = useState([72])
+  const [atField, setATField] = useState([90])
+  const [coreTemp, setCoreTemp] = useState([45])
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center gap-2 mb-4">
+        <Badge variant="outline" className="bg-red-50 dark:bg-red-950">NERV Systems</Badge>
+      </div>
+      
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <Brain className="h-4 w-4" />
+              MAGI System
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <Slider
+              value={magiSystem}
+              onValueChange={setMagiSystem}
+              min={0}
+              max={100}
+              step={1}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm">
+              <span>Offline</span>
+              <Badge variant={magiSystem[0] > 80 ? "default" : "secondary"}>
+                {magiSystem[0]}%
+              </Badge>
+              <span>Online</span>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <Zap className="h-4 w-4 text-purple-500" />
+              EVA Sync Rate
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <Slider
+              value={evaSync}
+              onValueChange={setEvaSync}
+              min={0}
+              max={100}
+              step={0.1}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm">
+              <span>Unstable</span>
+              <Badge variant={evaSync[0] > 70 ? "default" : "destructive"}>
+                {evaSync[0]}%
+              </Badge>
+              <span>Perfect</span>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <Shield className="h-4 w-4 text-blue-500" />
+              AT Field Strength
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <Slider
+              value={atField}
+              onValueChange={setATField}
+              min={0}
+              max={100}
+              step={1}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm">
+              <span>Weak</span>
+              <Badge variant={atField[0] > 85 ? "default" : "secondary"}>
+                {atField[0]}%
+              </Badge>
+              <span>Maximum</span>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm flex items-center gap-2">
+              <Activity className="h-4 w-4 text-orange-500" />
+              Core Temperature
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <Slider
+              value={coreTemp}
+              onValueChange={setCoreTemp}
+              min={0}
+              max={100}
+              step={1}
+              className="w-full"
+            />
+            <div className="flex justify-between text-sm">
+              <span>Cool</span>
+              <Badge variant={coreTemp[0] > 80 ? "destructive" : "default"}>
+                {coreTemp[0]}°C
+              </Badge>
+              <span>Critical</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Range Slider
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { Slider } from "@/components/ui/slider"
+import { Label } from "@/components/ui/label"
+
+function RangeSlider() {
+  const [priceRange, setPriceRange] = useState([100, 500])
+
+  return (
+    <div className="space-y-4">
+      <Label>Price Range Filter</Label>
+      <Slider
+        value={priceRange}
+        onValueChange={setPriceRange}
+        min={0}
+        max={1000}
+        step={10}
+        className="w-full"
+      />
+      <div className="flex justify-between text-sm text-muted-foreground">
+        <span>${priceRange[0]}</span>
+        <span>${priceRange[1]}</span>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Multiple Values
+
+<ComponentPreview>
+```tsx
+import { useState } from "react"
+import { Slider } from "@/components/ui/slider"
+import { Label } from "@/components/ui/label"
+import { Badge } from "@/components/ui/badge"
+
+function MultipleValues() {
+  const [thresholds, setThresholds] = useState([25, 50, 75])
+
+  return (
+    <div className="space-y-4">
+      <Label>Alert Thresholds</Label>
+      <Slider
+        value={thresholds}
+        onValueChange={setThresholds}
+        max={100}
+        step={1}
+        className="w-full"
+      />
+      <div className="flex justify-between text-sm">
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary">Low</Badge>
+          <span>{thresholds[0]}%</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary">Med</Badge>
+          <span>{thresholds[1]}%</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Badge variant="secondary">High</Badge>
+          <span>{thresholds[2]}%</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+## API Reference
+
+### Slider
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number[]` | `undefined` | Controlled value(s) |
+| `defaultValue` | `number[]` | `undefined` | Default value(s) for uncontrolled usage |
+| `onValueChange` | `(value: number[]) => void` | `undefined` | Callback when value changes |
+| `onValueCommit` | `(value: number[]) => void` | `undefined` | Callback when value is committed |
+| `min` | `number` | `0` | Minimum value |
+| `max` | `number` | `100` | Maximum value |
+| `step` | `number` | `1` | Step increment |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation |
+| `disabled` | `boolean` | `false` | Whether the slider is disabled |
+| `inverted` | `boolean` | `false` | Whether to invert the slider |
+| `className` | `string` | `undefined` | Additional CSS classes |
+| `dir` | `"ltr" \| "rtl"` | `undefined` | Text direction |
+
+The Slider component also accepts all standard div HTML attributes.
+
+## Code Examples
+
+### Basic Implementation
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+
+function SimpleSlider() {
+  return (
+    <Slider
+      defaultValue={[50]}
+      max={100}
+      step={1}
+      className="w-[60%]"
+    />
+  )
+}
+```
+
+### Volume Control with Icons
+
+```tsx
+import { useState } from "react"
+import { Slider } from "@/components/ui/slider"
+import { Volume2, VolumeX } from "lucide-react"
+
+function VolumeControl() {
+  const [volume, setVolume] = useState([50])
+
+  return (
+    <div className="flex items-center space-x-4">
+      <VolumeX className="h-4 w-4" />
+      <Slider
+        value={volume}
+        onValueChange={setVolume}
+        max={100}
+        step={1}
+        className="flex-1"
+      />
+      <Volume2 className="h-4 w-4" />
+      <span className="w-12 text-sm">{volume[0]}%</span>
+    </div>
+  )
+}
+```
+
+### Custom Steps and Precision
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+
+function PrecisionSlider() {
+  return (
+    <div className="space-y-6">
+      <div className="space-y-2">
+        <label>Temperature (0.1°C steps)</label>
+        <Slider
+          defaultValue={[22.5]}
+          min={16}
+          max={30}
+          step={0.1}
+          className="w-full"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label>Volume (10% steps)</label>
+        <Slider
+          defaultValue={[50]}
+          min={0}
+          max={100}
+          step={10}
+          className="w-full"
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+## Accessibility
+
+The Slider component follows WAI-ARIA guidelines:
+
+- **Keyboard Navigation**: Full keyboard support for value adjustment
+- **Screen Reader**: Proper ARIA labels and value announcements
+- **Focus Management**: Clear focus indicators and management
+- **Value Communication**: Current values are announced to screen readers
+
+### Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `←` `↓` | Decrease value by step |
+| `→` `↑` | Increase value by step |
+| `Page Down` | Decrease value by larger step |
+| `Page Up` | Increase value by larger step |
+| `Home` | Set to minimum value |
+| `End` | Set to maximum value |
+
+### Accessibility Best Practices
+
+```tsx
+// ✅ Good: Proper labeling
+<Label htmlFor="volume">Volume</Label>
+<Slider id="volume" aria-label="Volume control" />
+
+// ✅ Good: Value description
+<Slider 
+  aria-label="Temperature"
+  aria-valuetext={`${value}°C`}
+/>
+
+// ✅ Good: Range description
+<Slider 
+  aria-label="Price range"
+  aria-valuetext={`$${min} to $${max}`}
+/>
+
+// ❌ Avoid: No accessible name
+<Slider />
+```
+
+## Best Practices
+
+### When to Use Slider
+
+- **Continuous values**: Temperature, volume, brightness settings
+- **Range selection**: Price filters, date ranges, numeric ranges
+- **Visual feedback**: When users need to see immediate visual response
+- **Approximate values**: When exact precision isn't critical
+- **Settings panels**: System preferences and configuration
+
+### Design Guidelines
+
+- **Appropriate range**: Choose meaningful min/max values
+- **Step size**: Use steps that make sense for your data
+- **Visual feedback**: Show current values clearly
+- **Touch targets**: Ensure adequate size for mobile interaction
+- **Consistent styling**: Use consistent slider styles across your app
+
+### Performance Considerations
+
+- **Debouncing**: Use `onValueCommit` for expensive operations
+- **State optimization**: Avoid unnecessary re-renders during dragging
+- **Large ranges**: Consider logarithmic scales for very large ranges
+
+```tsx
+// ✅ Good: Using onValueCommit for expensive operations
+<Slider
+  value={value}
+  onValueChange={setValue}
+  onValueCommit={handleExpensiveOperation}
+/>
+
+// ✅ Good: Debounced updates
+const debouncedUpdate = useMemo(
+  () => debounce(updateValue, 300),
+  []
+)
+
+<Slider onValueChange={debouncedUpdate} />
+```
+
+</ComponentDocsLayout>

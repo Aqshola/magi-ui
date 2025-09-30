@@ -1,0 +1,361 @@
+import { ComponentDocsLayout } from "@/components/documentation/component-docs-layout"
+import { ComponentPreview } from "@/components/documentation/component-preview"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Badge } from "@/components/ui/badge"
+import { 
+  Bold, 
+  Italic, 
+  Underline, 
+  AlignLeft, 
+  AlignCenter, 
+  AlignRight, 
+  AlignJustify,
+  List,
+  ListOrdered,
+  Quote,
+  Grid,
+  List as ListView,
+  BarChart3,
+  PieChart,
+  LineChart,
+  Volume2,
+  VolumeX,
+  Eye,
+  EyeOff
+} from "lucide-react"
+
+<ComponentDocsLayout
+  title="Toggle Group"
+  description="A set of two-state buttons that can be toggled on or off. Perfect for formatting controls and option selection."
+>
+
+## Overview
+
+The Toggle Group component provides a way to group related toggle buttons together, supporting both single and multiple selection modes. Built on top of Radix UI's Toggle Group primitive, it offers excellent accessibility and keyboard navigation.
+
+## Features
+
+- **Single/Multiple Selection**: Support for both exclusive and multi-select modes
+- **Keyboard Navigation**: Full keyboard support with arrow key navigation
+- **Flexible Layout**: Horizontal grouping with seamless visual connection
+- **Variant Support**: Inherits variants from the base Toggle component
+- **Context Sharing**: Automatic variant and size propagation to child items
+- **Accessibility**: Built-in ARIA attributes and screen reader support
+- **Customizable**: Easy to style and extend with custom variants
+
+## Basic Usage
+
+<ComponentPreview>
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Bold, Italic, Underline } from "lucide-react"
+
+function BasicToggleGroup() {
+  return (
+    <ToggleGroup type="multiple" defaultValue={["bold"]}>
+      <ToggleGroupItem value="bold" aria-label="Bold">
+        <Bold className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Italic">
+        <Italic className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="underline" aria-label="Underline">
+        <Underline className="h-4 w-4" />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</ComponentPreview>
+
+## Advanced Examples
+
+### Text Alignment (Single Selection)
+
+<ComponentPreview>
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from "lucide-react"
+
+function TextAlignment() {
+  return (
+    <ToggleGroup type="single" defaultValue="left">
+      <ToggleGroupItem value="left" aria-label="Align left">
+        <AlignLeft className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="center" aria-label="Align center">
+        <AlignCenter className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="right" aria-label="Align right">
+        <AlignRight className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="justify" aria-label="Justify">
+        <AlignJustify className="h-4 w-4" />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</ComponentPreview>
+
+### NERV System Controls
+
+<ComponentPreview>
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Badge } from "@/components/ui/badge"
+import { Volume2, VolumeX, Eye, EyeOff } from "lucide-react"
+
+function NERVControls() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <Badge variant="outline" className="bg-blue-50 dark:bg-blue-950">Audio Systems</Badge>
+        </div>
+        <ToggleGroup type="single" defaultValue="normal">
+          <ToggleGroupItem value="muted" aria-label="Muted">
+            <VolumeX className="h-4 w-4" />
+            <span className="ml-2 text-sm">Mute</span>
+          </ToggleGroupItem>
+          <ToggleGroupItem value="normal" aria-label="Normal volume">
+            <Volume2 className="h-4 w-4" />
+            <span className="ml-2 text-sm">Audio</span>
+          </ToggleGroupItem>
+        </ToggleGroup>
+      </div>
+
+      <div>
+        <div className="flex items-center gap-2 mb-3">
+          <Badge variant="outline" className="bg-purple-50 dark:bg-purple-950">EVA Unit Controls</Badge>
+        </div>
+        <ToggleGroup type="multiple" defaultValue={["unit-01"]}>
+          <ToggleGroupItem value="unit-01" aria-label="EVA Unit-01">
+            <div className="h-3 w-3 rounded-full bg-purple-500 mr-2"></div>
+            <span className="text-sm">Unit-01</span>
+          </ToggleGroupItem>
+          <ToggleGroupItem value="unit-00" aria-label="EVA Unit-00">
+            <div className="h-3 w-3 rounded-full bg-blue-500 mr-2"></div>
+            <span className="text-sm">Unit-00</span>
+          </ToggleGroupItem>
+          <ToggleGroupItem value="unit-02" aria-label="EVA Unit-02">
+            <div className="h-3 w-3 rounded-full bg-red-500 mr-2"></div>
+            <span className="text-sm">Unit-02</span>
+          </ToggleGroupItem>
+        </ToggleGroup>
+      </div>
+    </div>
+  )
+}
+```
+</ComponentPreview>
+
+### Chart Type Selector
+
+<ComponentPreview>
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { BarChart3, PieChart, LineChart } from "lucide-react"
+
+function ChartSelector() {
+  return (
+    <ToggleGroup type="single" defaultValue="bar" variant="outline">
+      <ToggleGroupItem value="bar" aria-label="Bar chart">
+        <BarChart3 className="h-4 w-4" />
+        <span className="ml-2">Bar</span>
+      </ToggleGroupItem>
+      <ToggleGroupItem value="pie" aria-label="Pie chart">
+        <PieChart className="h-4 w-4" />
+        <span className="ml-2">Pie</span>
+      </ToggleGroupItem>
+      <ToggleGroupItem value="line" aria-label="Line chart">
+        <LineChart className="h-4 w-4" />
+        <span className="ml-2">Line</span>
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+</ComponentPreview>
+
+## API Reference
+
+### ToggleGroup
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `type` | `"single" \| "multiple"` | - | Selection mode for the toggle group |
+| `value` | `string \| string[]` | - | Controlled value(s) |
+| `defaultValue` | `string \| string[]` | - | Default value(s) for uncontrolled usage |
+| `onValueChange` | `(value: string \| string[]) => void` | - | Callback when value changes |
+| `disabled` | `boolean` | `false` | Whether the entire group is disabled |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout orientation |
+| `dir` | `"ltr" \| "rtl"` | - | Reading direction |
+| `loop` | `boolean` | `true` | Whether keyboard navigation should loop |
+| `variant` | `"default" \| "outline"` | `"default"` | Visual variant applied to all items |
+| `size` | `"default" \| "sm" \| "lg"` | `"default"` | Size applied to all items |
+
+### ToggleGroupItem
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | - | Unique value for this toggle item |
+| `disabled` | `boolean` | `false` | Whether this item is disabled |
+| `variant` | `"default" \| "outline"` | - | Override group variant for this item |
+| `size` | `"default" \| "sm" \| "lg"` | - | Override group size for this item |
+
+## Code Examples
+
+### Basic Implementation
+
+```tsx
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Bold, Italic, Underline } from "lucide-react"
+
+function TextFormatting() {
+  return (
+    <ToggleGroup type="multiple">
+      <ToggleGroupItem value="bold">
+        <Bold className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="italic">
+        <Italic className="h-4 w-4" />
+      </ToggleGroupItem>
+      <ToggleGroupItem value="underline">
+        <Underline className="h-4 w-4" />
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+
+### Controlled Toggle Group
+
+```tsx
+import { useState } from "react"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Grid, List } from "lucide-react"
+
+function ViewModeSelector() {
+  const [viewMode, setViewMode] = useState("grid")
+
+  return (
+    <ToggleGroup 
+      type="single" 
+      value={viewMode} 
+      onValueChange={setViewMode}
+    >
+      <ToggleGroupItem value="grid">
+        <Grid className="h-4 w-4" />
+        Grid
+      </ToggleGroupItem>
+      <ToggleGroupItem value="list">
+        <List className="h-4 w-4" />
+        List
+      </ToggleGroupItem>
+    </ToggleGroup>
+  )
+}
+```
+
+### Multiple Selection with State
+
+```tsx
+import { useState } from "react"
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Bold, Italic, Underline } from "lucide-react"
+
+function FormattingToolbar() {
+  const [formatting, setFormatting] = useState<string[]>(["bold"])
+
+  return (
+    <div className="space-y-4">
+      <ToggleGroup 
+        type="multiple" 
+        value={formatting} 
+        onValueChange={setFormatting}
+      >
+        <ToggleGroupItem value="bold">
+          <Bold className="h-4 w-4" />
+        </ToggleGroupItem>
+        <ToggleGroupItem value="italic">
+          <Italic className="h-4 w-4" />
+        </ToggleGroupItem>
+        <ToggleGroupItem value="underline">
+          <Underline className="h-4 w-4" />
+        </ToggleGroupItem>
+      </ToggleGroup>
+      
+      <p className="text-sm text-muted-foreground">
+        Active formatting: {formatting.join(", ") || "None"}
+      </p>
+    </div>
+  )
+}
+```
+
+## Accessibility
+
+The Toggle Group component follows WAI-ARIA guidelines:
+
+- **Keyboard Navigation**: Arrow keys navigate between items, Space/Enter toggles
+- **ARIA Attributes**: Uses `role="group"` and proper `aria-pressed` states
+- **Screen Reader Support**: Announces group context and item states
+- **Focus Management**: Maintains focus within the group during navigation
+- **Labels**: Each item should have descriptive `aria-label` or visible text
+
+### Accessibility Best Practices
+
+```tsx
+// ✅ Good: Clear labels for each item
+<ToggleGroup type="single">
+  <ToggleGroupItem value="left" aria-label="Align text left">
+    <AlignLeft className="h-4 w-4" />
+  </ToggleGroupItem>
+  <ToggleGroupItem value="center" aria-label="Align text center">
+    <AlignCenter className="h-4 w-4" />
+  </ToggleGroupItem>
+</ToggleGroup>
+
+// ✅ Good: Descriptive text content
+<ToggleGroup type="multiple">
+  <ToggleGroupItem value="bold">
+    <Bold className="h-4 w-4" />
+    Bold
+  </ToggleGroupItem>
+</ToggleGroup>
+
+// ❌ Avoid: No accessible names
+<ToggleGroup type="single">
+  <ToggleGroupItem value="option1">
+    <SomeIcon className="h-4 w-4" />
+  </ToggleGroupItem>
+</ToggleGroup>
+```
+
+## Best Practices
+
+### When to Use Toggle Group
+
+- **Text formatting toolbars**: Bold, italic, underline controls
+- **View mode selectors**: Grid, list, card view options
+- **Filter controls**: Multiple filter options for data
+- **Chart type selectors**: Different visualization types
+- **Feature toggles**: Related on/off settings
+- **Alignment controls**: Text or element positioning
+
+### Design Guidelines
+
+- **Logical grouping**: Group related functionality together
+- **Clear visual connection**: Items should appear as a cohesive unit
+- **Consistent sizing**: Use the same size for all items in a group
+- **Appropriate selection mode**: Single for exclusive options, multiple for independent features
+- **Icon clarity**: Use clear, recognizable icons with optional text labels
+
+### Performance Considerations
+
+- **Memoization**: Use `React.memo` for groups that don't change frequently
+- **State optimization**: Avoid unnecessary re-renders with proper state management
+- **Icon optimization**: Use consistent icon sizes and consider icon libraries
+
+</ComponentDocsLayout>

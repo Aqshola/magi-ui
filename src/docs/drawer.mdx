@@ -1,0 +1,475 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Menu, Settings, User, Bell, Shield, Zap, Brain, Activity, AlertTriangle, CheckCircle, Music, Play, Pause, Heart, Filter, Search } from 'lucide-react'
+import { useState } from 'react'
+
+<ComponentDocsLayout
+  title="Drawer"
+  description="A mobile-first drawer component that slides up from the bottom of the screen. Built with Vaul for smooth animations and gesture support."
+  category="Overlay Component"
+>
+
+## Overview
+
+The Drawer component provides a mobile-friendly way to display content that slides up from the bottom of the screen. It's built on top of Vaul, which provides smooth animations and gesture support. Perfect for mobile interfaces, settings panels, forms, and any content that needs to be easily accessible but not always visible.
+
+## Features
+
+- **Mobile-First Design**: Optimized for touch interfaces and mobile devices
+- **Gesture Support**: Drag to open/close with smooth animations
+- **Keyboard Navigation**: Full keyboard accessibility support
+- **Flexible Content**: Can contain any type of content including forms, lists, and media
+- **Snap Points**: Support for multiple height positions
+- **Responsive**: Works well on both mobile and desktop devices
+- **Accessible**: Built with accessibility best practices
+
+## Basic Usage
+
+<ComponentPreview
+  title="Simple Drawer"
+  description="Basic drawer with header, content, and footer"
+>
+  <Drawer>
+    <DrawerTrigger asChild>
+      <Button variant="outline">
+        <Menu className="mr-2 h-4 w-4" />
+        Open Drawer
+      </Button>
+    </DrawerTrigger>
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>NERV Terminal Access</DrawerTitle>
+        <DrawerDescription>
+          Access MAGI system controls and monitoring interface.
+        </DrawerDescription>
+      </DrawerHeader>
+      <div className="p-4">
+        <p className="text-muted-foreground">
+          Drawers are perfect for mobile-first designs and can contain any content you need.
+          They slide up from the bottom of the screen and can be dismissed by dragging down.
+        </p>
+      </div>
+      <DrawerFooter>
+        <Button>Connect</Button>
+        <DrawerClose asChild>
+          <Button variant="outline">Cancel</Button>
+        </DrawerClose>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</ComponentPreview>
+
+## Advanced Examples
+
+<ComponentPreview
+  title="Settings Panel"
+  description="Drawer with form controls and settings"
+>
+  <Drawer>
+    <DrawerTrigger asChild>
+      <Button variant="outline">
+        <Settings className="mr-2 h-4 w-4" />
+        NERV Settings
+      </Button>
+    </DrawerTrigger>
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>System Configuration</DrawerTitle>
+        <DrawerDescription>
+          Configure NERV system preferences and security settings.
+        </DrawerDescription>
+      </DrawerHeader>
+      <div className="p-4 space-y-6">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <Label>Security Alerts</Label>
+              <p className="text-sm text-muted-foreground">Receive notifications for security events</p>
+            </div>
+            <Switch defaultChecked />
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <Label>MAGI Sync</Label>
+              <p className="text-sm text-muted-foreground">Enable real-time MAGI system synchronization</p>
+            </div>
+            <Switch />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="sync-interval">Sync Interval (seconds)</Label>
+            <Input id="sync-interval" type="number" defaultValue="30" />
+          </div>
+        </div>
+      </div>
+      <DrawerFooter>
+        <Button>Save Settings</Button>
+        <DrawerClose asChild>
+          <Button variant="outline">Cancel</Button>
+        </DrawerClose>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</ComponentPreview>
+
+<ComponentPreview
+  title="NERV Pilot Status"
+  description="Drawer displaying pilot information and status"
+>
+  <Drawer>
+    <DrawerTrigger asChild>
+      <Button variant="outline">
+        <User className="mr-2 h-4 w-4" />
+        Pilot Status
+      </Button>
+    </DrawerTrigger>
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>Eva Pilot Status</DrawerTitle>
+        <DrawerDescription>
+          Current status and synchronization data for all Eva pilots.
+        </DrawerDescription>
+      </DrawerHeader>
+      <div className="p-4 space-y-4">
+        {[
+          { name: "Shinji Ikari", unit: "Eva Unit 01", status: "Active", syncRatio: 74.2 },
+          { name: "Rei Ayanami", unit: "Eva Unit 00", status: "Standby", syncRatio: 68.9 },
+          { name: "Asuka Langley", unit: "Eva Unit 02", status: "Medical", syncRatio: 52.1 },
+        ].map((pilot, index) => (
+          <div key={index} className="flex items-center gap-4 p-3 border rounded-lg">
+            <Avatar>
+              <AvatarFallback>{pilot.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+            </Avatar>
+            <div className="flex-1">
+              <div className="font-medium">{pilot.name}</div>
+              <div className="text-sm text-muted-foreground">{pilot.unit}</div>
+            </div>
+            <div className="text-right">
+              <Badge variant={pilot.status === 'Active' ? 'default' : pilot.status === 'Standby' ? 'secondary' : 'destructive'}>
+                {pilot.status}
+              </Badge>
+              <div className="text-sm text-muted-foreground mt-1">
+                Sync: {pilot.syncRatio}%
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <DrawerFooter>
+        <Button>Refresh Data</Button>
+        <DrawerClose asChild>
+          <Button variant="outline">Close</Button>
+        </DrawerClose>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</ComponentPreview>
+
+<ComponentPreview
+  title="Media Player"
+  description="Drawer with media controls and playback information"
+>
+  <Drawer>
+    <DrawerTrigger asChild>
+      <Button variant="outline">
+        <Music className="mr-2 h-4 w-4" />
+        Now Playing
+      </Button>
+    </DrawerTrigger>
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>Now Playing</DrawerTitle>
+        <DrawerDescription>
+          Control your music playback
+        </DrawerDescription>
+      </DrawerHeader>
+      <div className="p-4 space-y-6">
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+            <Music className="h-8 w-8 text-white" />
+          </div>
+          <div className="flex-1">
+            <div className="font-medium">Cruel Angel's Thesis</div>
+            <div className="text-sm text-muted-foreground">Yoko Takahashi</div>
+            <div className="text-xs text-muted-foreground">Neon Genesis Evangelion OST</div>
+          </div>
+          <Button variant="ghost" size="sm">
+            <Heart className="h-4 w-4" />
+          </Button>
+        </div>
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm text-muted-foreground">
+            <span>1:23</span>
+            <span>4:07</span>
+          </div>
+          <div className="w-full bg-secondary h-2 rounded-full">
+            <div className="bg-primary h-2 rounded-full w-1/3"></div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <Button variant="ghost" size="sm">
+            <Search className="h-4 w-4" />
+          </Button>
+          <Button variant="ghost" size="sm">
+            <Play className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="sm">
+            <Pause className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="sm">
+            <Filter className="h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+      <DrawerFooter>
+        <Button variant="outline">Share</Button>
+        <DrawerClose asChild>
+          <Button variant="outline">Close</Button>
+        </DrawerClose>
+      </DrawerFooter>
+    </DrawerContent>
+  </Drawer>
+</ComponentPreview>
+
+## API Reference
+
+### Drawer
+
+The root drawer component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `open` | `boolean` | - | Controls the open state (controlled mode) |
+| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
+| `shouldScaleBackground` | `boolean` | `true` | Whether to scale the background when open |
+| `snapPoints` | `(string \| number)[]` | - | Array of snap points for the drawer |
+| `activeSnapPoint` | `string \| number` | - | Currently active snap point |
+| `setActiveSnapPoint` | `(snapPoint: string \| number) => void` | - | Set the active snap point |
+| `children` | `ReactNode` | - | Drawer content |
+
+### DrawerTrigger
+
+The trigger button that opens the drawer.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `asChild` | `boolean` | `false` | Render as child element |
+| `children` | `ReactNode` | - | Trigger content |
+
+### DrawerContent
+
+The main content container of the drawer.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Drawer content |
+
+### DrawerHeader
+
+Header section of the drawer, typically containing title and description.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Header content |
+
+### DrawerTitle
+
+The title of the drawer.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Title content |
+
+### DrawerDescription
+
+The description text of the drawer.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Description content |
+
+### DrawerFooter
+
+Footer section of the drawer, typically containing action buttons.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Footer content |
+
+### DrawerClose
+
+A component that closes the drawer when clicked.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `asChild` | `boolean` | `false` | Render as child element |
+| `children` | `ReactNode` | - | Close trigger content |
+
+## Code Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button"
+
+export function BasicDrawer() {
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button variant="outline">Open Drawer</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Drawer Title</DrawerTitle>
+          <DrawerDescription>
+            This is a simple drawer with basic content.
+          </DrawerDescription>
+        </DrawerHeader>
+        <div className="p-4">
+          <p>Your drawer content goes here.</p>
+        </div>
+        <DrawerFooter>
+          <Button>Confirm</Button>
+          <DrawerClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+```
+
+### Controlled Drawer
+
+```tsx
+import { useState } from "react"
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button"
+
+export function ControlledDrawer() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <DrawerTrigger asChild>
+        <Button variant="outline">Open Drawer</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <div className="p-4">
+          <p>You can control this drawer programmatically.</p>
+          <Button onClick={() => setOpen(false)} className="mt-4">
+            Close Programmatically
+          </Button>
+        </div>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+```
+
+### Snap Points Drawer
+
+```tsx
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
+import { Button } from "@/components/ui/button"
+
+export function SnapPointsDrawer() {
+  return (
+    <Drawer snapPoints={["148px", "355px", 1]} activeSnapPoint="148px">
+      <DrawerTrigger asChild>
+        <Button variant="outline">Open Snap Drawer</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <div className="p-4 space-y-4">
+          <div className="h-32 bg-muted rounded-lg flex items-center justify-center">
+            <p className="text-muted-foreground">Content area</p>
+          </div>
+          <div className="h-32 bg-muted rounded-lg flex items-center justify-center">
+            <p className="text-muted-foreground">More content</p>
+          </div>
+        </div>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+```
+
+## Accessibility
+
+- **Keyboard Navigation**: Full keyboard support with proper focus management
+- **ARIA Attributes**: Proper ARIA labels and roles for screen readers
+- **Focus Trapping**: Focus is trapped within the drawer when open
+- **Escape Key**: Pressing Escape closes the drawer
+- **Screen Reader Support**: Announcements for state changes
+
+### Accessibility Best Practices
+
+```tsx
+// Always provide descriptive titles and descriptions
+<DrawerHeader>
+  <DrawerTitle>Settings Panel</DrawerTitle>
+  <DrawerDescription>
+    Manage your account preferences and application settings
+  </DrawerDescription>
+</DrawerHeader>
+
+// Use semantic HTML elements
+<DrawerContent>
+  <nav aria-label="Main navigation">
+    {/* Navigation items */}
+  </nav>
+</DrawerContent>
+
+// Provide clear close actions
+<DrawerFooter>
+  <DrawerClose asChild>
+    <Button variant="outline" aria-label="Close settings panel">
+      Close
+    </Button>
+  </DrawerClose>
+</DrawerFooter>
+```
+
+## Best Practices
+
+### When to Use Drawers
+
+- **Mobile Navigation**: Primary navigation on mobile devices
+- **Settings Panels**: Configuration and preference screens
+- **Forms**: Contact forms, feedback forms, and data entry
+- **Filters**: Search filters and sorting options
+- **Media Controls**: Music players, video controls
+- **Quick Actions**: Frequently used actions and shortcuts
+
+### Design Guidelines
+
+- Keep content organized and scannable
+- Use clear headings and descriptions
+- Provide obvious close actions
+- Consider snap points for long content
+- Test on mobile devices for gesture support
+- Ensure proper contrast and readability
+
+</ComponentDocsLayout>

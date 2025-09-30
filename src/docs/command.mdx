@@ -1,0 +1,438 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Command, CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from '@/components/ui/command'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Database, Monitor, Activity, Search, Settings, User, FileText, Calendar, Mail, Calculator } from 'lucide-react'
+import { useState } from 'react'
+
+<ComponentDocsLayout
+  title="Command"
+  description="A fast, composable, unstyled command menu for React. Perfect for building search interfaces, command palettes, and quick navigation systems."
+  category="Navigation Component"
+>
+
+## Overview
+
+The Command component provides a powerful search interface with fuzzy matching and keyboard navigation. It's perfect for command palettes, search interfaces, and quick navigation systems, offering fast filtering and an intuitive user experience.
+
+## Features
+
+- **Fast Search**: Optimized search with fuzzy matching and filtering
+- **Keyboard Navigation**: Full keyboard support with arrow keys and shortcuts
+- **Composable**: Modular components for flexible layouts
+- **Dialog Support**: Built-in command dialog for modal interfaces
+- **Accessibility**: ARIA attributes and screen reader support
+- **Customizable**: Easy to style and extend with additional functionality
+- **Empty States**: Built-in empty state handling
+- **Grouping**: Organize commands into logical groups with separators
+
+## Basic Usage
+
+<ComponentPreview
+  title="Simple Command"
+  description="Basic command interface with search and grouped items"
+>
+  <Command className="rounded-lg border shadow-md max-w-md">
+    <CommandInput placeholder="Search MAGI systems..." />
+    <CommandList>
+      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandGroup heading="MAGI Systems">
+        <CommandItem>
+          <Database className="mr-2 h-4 w-4" />
+          <span>MAGI-01 Melchior</span>
+        </CommandItem>
+        <CommandItem>
+          <Monitor className="mr-2 h-4 w-4" />
+          <span>MAGI-02 Balthasar</span>
+        </CommandItem>
+        <CommandItem>
+          <Activity className="mr-2 h-4 w-4" />
+          <span>MAGI-03 Casper</span>
+        </CommandItem>
+      </CommandGroup>
+      <CommandSeparator />
+      <CommandGroup heading="Operations">
+        <CommandItem>
+          <Settings className="mr-2 h-4 w-4" />
+          <span>System Settings</span>
+          <CommandShortcut>⌘S</CommandShortcut>
+        </CommandItem>
+        <CommandItem>
+          <User className="mr-2 h-4 w-4" />
+          <span>User Management</span>
+          <CommandShortcut>⌘U</CommandShortcut>
+        </CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </Command>
+</ComponentPreview>
+
+## Command Dialog
+
+<ComponentPreview
+  title="Command Dialog"
+  description="Command interface in a modal dialog"
+>
+  {() => {
+    const [open, setOpen] = useState(false)
+    
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>
+          <Search className="mr-2 h-4 w-4" />
+          Open Command Palette
+        </Button>
+        <CommandDialog open={open} onOpenChange={setOpen}>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Suggestions">
+              <CommandItem>
+                <Calendar className="mr-2 h-4 w-4" />
+                <span>Calendar</span>
+              </CommandItem>
+              <CommandItem>
+                <Search className="mr-2 h-4 w-4" />
+                <span>Search Emoji</span>
+              </CommandItem>
+              <CommandItem>
+                <Calculator className="mr-2 h-4 w-4" />
+                <span>Calculator</span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Settings">
+              <CommandItem>
+                <User className="mr-2 h-4 w-4" />
+                <span>Profile</span>
+                <CommandShortcut>⌘P</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <Mail className="mr-2 h-4 w-4" />
+                <span>Mail</span>
+                <CommandShortcut>⌘B</CommandShortcut>
+              </CommandItem>
+              <CommandItem>
+                <Settings className="mr-2 h-4 w-4" />
+                <span>Settings</span>
+                <CommandShortcut>⌘S</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
+      </>
+    )
+  }}
+</ComponentPreview>
+
+## NERV Command Interface
+
+<ComponentPreview
+  title="NERV Command Interface"
+  description="Advanced command interface for NERV operations"
+>
+  <Command className="rounded-lg border shadow-md max-w-lg">
+    <CommandInput placeholder="Enter NERV command..." />
+    <CommandList>
+      <CommandEmpty>No matching commands found.</CommandEmpty>
+      <CommandGroup heading="Eva Operations">
+        <CommandItem>
+          <Activity className="mr-2 h-4 w-4" />
+          <span>Launch Eva Unit-01</span>
+          <CommandShortcut>⌘1</CommandShortcut>
+        </CommandItem>
+        <CommandItem>
+          <Monitor className="mr-2 h-4 w-4" />
+          <span>Sync Test Protocol</span>
+          <CommandShortcut>⌘T</CommandShortcut>
+        </CommandItem>
+        <CommandItem>
+          <Database className="mr-2 h-4 w-4" />
+          <span>AT Field Analysis</span>
+          <CommandShortcut>⌘A</CommandShortcut>
+        </CommandItem>
+      </CommandGroup>
+      <CommandSeparator />
+      <CommandGroup heading="MAGI System">
+        <CommandItem>
+          <Database className="mr-2 h-4 w-4" />
+          <span>MAGI Consensus Mode</span>
+          <CommandShortcut>⌘M</CommandShortcut>
+        </CommandItem>
+        <CommandItem>
+          <Settings className="mr-2 h-4 w-4" />
+          <span>System Diagnostics</span>
+          <CommandShortcut>⌘D</CommandShortcut>
+        </CommandItem>
+        <CommandItem>
+          <FileText className="mr-2 h-4 w-4" />
+          <span>Generate Report</span>
+          <CommandShortcut>⌘R</CommandShortcut>
+        </CommandItem>
+      </CommandGroup>
+      <CommandSeparator />
+      <CommandGroup heading="Emergency">
+        <CommandItem className="text-red-600">
+          <Activity className="mr-2 h-4 w-4" />
+          <span>Emergency Shutdown</span>
+          <CommandShortcut>⌘⇧E</CommandShortcut>
+        </CommandItem>
+        <CommandItem className="text-orange-600">
+          <Activity className="mr-2 h-4 w-4" />
+          <span>Alert All Units</span>
+          <CommandShortcut>⌘⇧A</CommandShortcut>
+        </CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </Command>
+</ComponentPreview>
+
+## API Reference
+
+### Command
+
+The root command container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `shouldFilter` | `boolean` | `true` | Whether to filter items based on search |
+| `filter` | `function` | - | Custom filter function |
+| `defaultValue` | `string` | - | Default selected value |
+| `value` | `string` | - | Controlled selected value |
+| `onValueChange` | `function` | - | Callback when value changes |
+
+### CommandInput
+
+Search input for filtering commands.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `placeholder` | `string` | - | Input placeholder text |
+| `value` | `string` | - | Controlled input value |
+| `onValueChange` | `function` | - | Callback when input changes |
+
+### CommandList
+
+Container for command items with scrolling.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### CommandEmpty
+
+Displayed when no items match the search.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### CommandGroup
+
+Groups related command items with optional heading.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `heading` | `string` | - | Group heading text |
+
+### CommandItem
+
+Individual command item.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `value` | `string` | - | Item value for selection |
+| `disabled` | `boolean` | `false` | Whether the item is disabled |
+| `onSelect` | `function` | - | Callback when item is selected |
+
+### CommandSeparator
+
+Visual separator between groups.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### CommandShortcut
+
+Displays keyboard shortcuts for commands.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### CommandDialog
+
+Command interface in a dialog modal.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `open` | `boolean` | `false` | Whether the dialog is open |
+| `onOpenChange` | `function` | - | Callback when open state changes |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+
+function BasicCommand() {
+  return (
+    <Command className="rounded-lg border shadow-md">
+      <CommandInput placeholder="Search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>
+            <span>Calendar</span>
+          </CommandItem>
+          <CommandItem>
+            <span>Search Emoji</span>
+          </CommandItem>
+          <CommandItem>
+            <span>Calculator</span>
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  )
+}
+```
+
+### Command Palette
+
+```tsx
+import { useState } from "react"
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command"
+
+function CommandPalette() {
+  const [open, setOpen] = useState(false)
+
+  // Toggle with Cmd+K
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open) => !open)
+      }
+    }
+    document.addEventListener("keydown", down)
+    return () => document.removeEventListener("keydown", down)
+  }, [])
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>
+            <Calendar className="mr-2 h-4 w-4" />
+            <span>Calendar</span>
+          </CommandItem>
+          <CommandItem>
+            <Search className="mr-2 h-4 w-4" />
+            <span>Search Emoji</span>
+          </CommandItem>
+          <CommandItem>
+            <Calculator className="mr-2 h-4 w-4" />
+            <span>Calculator</span>
+          </CommandItem>
+        </CommandGroup>
+        <CommandSeparator />
+        <CommandGroup heading="Settings">
+          <CommandItem>
+            <User className="mr-2 h-4 w-4" />
+            <span>Profile</span>
+            <CommandShortcut>⌘P</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            <Settings className="mr-2 h-4 w-4" />
+            <span>Settings</span>
+            <CommandShortcut>⌘S</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  )
+}
+```
+
+### With Custom Filtering
+
+```tsx
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+
+function CustomFilterCommand() {
+  const [value, setValue] = useState("")
+
+  const customFilter = (value: string, search: string) => {
+    // Custom scoring logic
+    if (value.toLowerCase().includes(search.toLowerCase())) {
+      return 1
+    }
+    return 0
+  }
+
+  return (
+    <Command filter={customFilter} value={value} onValueChange={setValue}>
+      <CommandInput placeholder="Search with custom filter..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Items">
+          <CommandItem value="item1">Item 1</CommandItem>
+          <CommandItem value="item2">Item 2</CommandItem>
+          <CommandItem value="item3">Item 3</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  )
+}
+```
+
+## Accessibility
+
+- Full keyboard navigation with arrow keys
+- Proper ARIA attributes for screen readers
+- Focus management and announcements
+- Support for screen reader navigation
+
+## Best Practices
+
+1. **Search**: Provide clear placeholder text for search inputs
+2. **Grouping**: Organize commands into logical groups with descriptive headings
+3. **Shortcuts**: Include keyboard shortcuts for frequently used commands
+4. **Performance**: Use virtualization for large command lists
+5. **Empty States**: Provide helpful empty state messages
+
+</ComponentDocsLayout>

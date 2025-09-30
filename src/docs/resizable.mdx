@@ -1,0 +1,305 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
+import { Badge } from '@/components/ui/badge'
+
+<ComponentDocsLayout
+  title="Resizable"
+  description="Accessible resizable panel groups and layouts. Perfect for creating flexible interfaces with draggable dividers."
+  category="Layout Component"
+>
+
+## Overview
+
+The Resizable component provides a flexible way to create resizable panel layouts with draggable dividers. It's perfect for building complex interfaces like code editors, dashboards, or any application that needs adjustable content areas.
+
+## Features
+
+- **Flexible Layouts**: Support for both horizontal and vertical panel arrangements
+- **Drag to Resize**: Intuitive drag handles for resizing panels
+- **Keyboard Accessible**: Full keyboard navigation support
+- **Size Constraints**: Set minimum and maximum sizes for panels
+- **Persistent State**: Remember panel sizes across sessions
+- **Smooth Interactions**: Responsive drag behavior with visual feedback
+- **Nested Layouts**: Support for complex nested panel arrangements
+- **Touch Support**: Works on touch devices
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Horizontal Layout"
+  description="Simple two-panel horizontal layout with resizable divider"
+>
+  <ResizablePanelGroup
+    direction="horizontal"
+    className="min-h-[200px] max-w-md rounded-lg border"
+  >
+    <ResizablePanel defaultSize={50}>
+      <div className="flex h-full items-center justify-center p-6">
+        <span className="font-semibold">Panel One</span>
+      </div>
+    </ResizablePanel>
+    <ResizableHandle />
+    <ResizablePanel defaultSize={50}>
+      <div className="flex h-full items-center justify-center p-6">
+        <span className="font-semibold">Panel Two</span>
+      </div>
+    </ResizablePanel>
+  </ResizablePanelGroup>
+</ComponentPreview>
+
+## Vertical Layout
+
+<ComponentPreview
+  title="Vertical Panel Layout"
+  description="Vertical arrangement of resizable panels"
+>
+  <ResizablePanelGroup
+    direction="vertical"
+    className="min-h-[200px] max-w-md rounded-lg border"
+  >
+    <ResizablePanel defaultSize={25}>
+      <div className="flex h-full items-center justify-center p-6">
+        <span className="font-semibold">Header</span>
+      </div>
+    </ResizablePanel>
+    <ResizableHandle />
+    <ResizablePanel defaultSize={75}>
+      <div className="flex h-full items-center justify-center p-6">
+        <span className="font-semibold">Content</span>
+      </div>
+    </ResizablePanel>
+  </ResizablePanelGroup>
+</ComponentPreview>
+
+## Complex Layout
+
+<ComponentPreview
+  title="MAGI System Interface"
+  description="Complex nested layout simulating a system interface"
+>
+  <ResizablePanelGroup
+    direction="horizontal"
+    className="min-h-[400px] rounded-lg border"
+  >
+    <ResizablePanel defaultSize={25} minSize={20}>
+      <div className="flex h-full flex-col">
+        <div className="flex h-12 items-center justify-center border-b bg-muted/50">
+          <span className="text-sm font-medium">MAGI-01</span>
+        </div>
+        <div className="flex-1 p-4">
+          <div className="space-y-2">
+            <div className="h-4 bg-primary/20 rounded"></div>
+            <div className="h-4 bg-primary/20 rounded w-3/4"></div>
+            <div className="h-4 bg-primary/20 rounded w-1/2"></div>
+          </div>
+        </div>
+      </div>
+    </ResizablePanel>
+    <ResizableHandle />
+    <ResizablePanel defaultSize={50}>
+      <ResizablePanelGroup direction="vertical">
+        <ResizablePanel defaultSize={60}>
+          <div className="flex h-full flex-col">
+            <div className="flex h-12 items-center justify-center border-b bg-muted/50">
+              <span className="text-sm font-medium">Main Terminal</span>
+            </div>
+            <div className="flex-1 p-4 bg-black/5">
+              <div className="font-mono text-sm space-y-1">
+                <div className="text-green-600">$ system.status</div>
+                <div>MAGI System Online</div>
+                <div>All units operational</div>
+                <div className="text-green-600">$ _</div>
+              </div>
+            </div>
+          </div>
+        </ResizablePanel>
+        <ResizableHandle />
+        <ResizablePanel defaultSize={40}>
+          <div className="flex h-full flex-col">
+            <div className="flex h-12 items-center justify-center border-b bg-muted/50">
+              <span className="text-sm font-medium">System Logs</span>
+            </div>
+            <div className="flex-1 p-4">
+              <div className="space-y-1 text-xs">
+                <div className="text-muted-foreground">12:34:56 - System initialized</div>
+                <div className="text-muted-foreground">12:35:01 - MAGI sync complete</div>
+                <div className="text-muted-foreground">12:35:15 - Ready for operations</div>
+              </div>
+            </div>
+          </div>
+        </ResizablePanel>
+      </ResizablePanelGroup>
+    </ResizablePanel>
+    <ResizableHandle />
+    <ResizablePanel defaultSize={25} minSize={20}>
+      <div className="flex h-full flex-col">
+        <div className="flex h-12 items-center justify-center border-b bg-muted/50">
+          <span className="text-sm font-medium">MAGI-02</span>
+        </div>
+        <div className="flex-1 p-4">
+          <div className="space-y-2">
+            <div className="h-4 bg-secondary/20 rounded"></div>
+            <div className="h-4 bg-secondary/20 rounded w-2/3"></div>
+            <div className="h-4 bg-secondary/20 rounded w-4/5"></div>
+          </div>
+        </div>
+      </div>
+    </ResizablePanel>
+  </ResizablePanelGroup>
+</ComponentPreview>
+
+## API Reference
+
+### ResizablePanelGroup
+
+The root container for resizable panels.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `direction` | `"horizontal" \| "vertical"` | `"horizontal"` | Layout direction of panels |
+| `className` | `string` | - | Additional CSS classes |
+| `onLayout` | `(sizes: number[]) => void` | - | Callback when panel sizes change |
+
+### ResizablePanel
+
+Individual resizable panel within a group.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultSize` | `number` | - | Initial size as percentage |
+| `minSize` | `number` | - | Minimum size as percentage |
+| `maxSize` | `number` | - | Maximum size as percentage |
+| `className` | `string` | - | Additional CSS classes |
+| `id` | `string` | - | Unique identifier for the panel |
+
+### ResizableHandle
+
+Draggable handle for resizing panels.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `withHandle` | `boolean` | `false` | Show visual handle indicator |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
+function BasicResizable() {
+  return (
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="min-h-[200px] rounded-lg border"
+    >
+      <ResizablePanel defaultSize={50}>
+        <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Left Panel</span>
+        </div>
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel defaultSize={50}>
+        <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Right Panel</span>
+        </div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```
+
+### With Size Constraints
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
+function ConstrainedResizable() {
+  return (
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="min-h-[200px] rounded-lg border"
+    >
+      <ResizablePanel defaultSize={30} minSize={20} maxSize={40}>
+        <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Sidebar (20-40%)</span>
+        </div>
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel defaultSize={70}>
+        <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Main Content</span>
+        </div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```
+
+### Nested Layout
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
+function NestedResizable() {
+  return (
+    <ResizablePanelGroup
+      direction="horizontal"
+      className="min-h-[400px] rounded-lg border"
+    >
+      <ResizablePanel defaultSize={25}>
+        <div className="flex h-full items-center justify-center p-6">
+          <span className="font-semibold">Sidebar</span>
+        </div>
+      </ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel defaultSize={75}>
+        <ResizablePanelGroup direction="vertical">
+          <ResizablePanel defaultSize={60}>
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Main Content</span>
+            </div>
+          </ResizablePanel>
+          <ResizableHandle />
+          <ResizablePanel defaultSize={40}>
+            <div className="flex h-full items-center justify-center p-6">
+              <span className="font-semibold">Footer</span>
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```
+
+## Accessibility
+
+- Keyboard navigation support with arrow keys
+- Screen reader announcements for size changes
+- Focus management for drag handles
+- ARIA labels for better accessibility
+
+## Best Practices
+
+1. **Set Reasonable Defaults**: Provide sensible default sizes for panels
+2. **Use Size Constraints**: Set minimum and maximum sizes to prevent unusable layouts
+3. **Consider Content**: Ensure panels have enough space for their content
+4. **Responsive Design**: Test layouts on different screen sizes
+5. **Persistent State**: Consider saving panel sizes to localStorage for better UX
+
+</ComponentDocsLayout>

@@ -1,0 +1,464 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { 
+  ContextMenu, 
+  ContextMenuContent, 
+  ContextMenuItem, 
+  ContextMenuTrigger, 
+  ContextMenuSeparator, 
+  ContextMenuSub, 
+  ContextMenuSubContent, 
+  ContextMenuSubTrigger, 
+  ContextMenuCheckboxItem, 
+  ContextMenuRadioGroup, 
+  ContextMenuRadioItem, 
+  ContextMenuLabel, 
+  ContextMenuShortcut 
+} from '@/components/ui/context-menu'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import { Copy, Download, Share, Edit, Trash2, Star, Eye, Settings, Info } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Context Menu"
+  description="A context menu component that appears on right-click, providing contextual actions and options. Built with Radix UI primitives for accessibility and keyboard navigation."
+  category="Overlay Component"
+>
+
+## Overview
+
+The Context Menu component provides a way to display contextual actions when users right-click on elements. It's perfect for file managers, data tables, and any interface where secondary actions need to be easily accessible without cluttering the primary UI.
+
+## Features
+
+- **Right-Click Activation**: Triggered by right-click or long press on touch devices
+- **Keyboard Navigation**: Full keyboard support with arrow keys and shortcuts
+- **Nested Submenus**: Support for hierarchical menu structures
+- **Checkbox & Radio Items**: Interactive menu items with state management
+- **Customizable**: Easy to style and extend with additional functionality
+- **Accessibility**: ARIA attributes and screen reader support
+- **Portal Rendering**: Renders outside the DOM hierarchy to avoid z-index issues
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Context Menu"
+  description="Simple context menu with common actions"
+>
+  <ContextMenu>
+    <ContextMenuTrigger className="flex h-32 w-full items-center justify-center rounded-md border border-dashed text-sm">
+      Right click here to open context menu
+    </ContextMenuTrigger>
+    <ContextMenuContent className="w-64">
+      <ContextMenuItem inset>
+        <Copy className="mr-2 h-4 w-4" />
+        Copy
+        <ContextMenuShortcut>⌘C</ContextMenuShortcut>
+      </ContextMenuItem>
+      <ContextMenuItem inset>
+        Cut
+        <ContextMenuShortcut>⌘X</ContextMenuShortcut>
+      </ContextMenuItem>
+      <ContextMenuItem inset>
+        Paste
+        <ContextMenuShortcut>⌘V</ContextMenuShortcut>
+      </ContextMenuItem>
+      <ContextMenuSeparator />
+      <ContextMenuItem inset>
+        <Download className="mr-2 h-4 w-4" />
+        Download
+      </ContextMenuItem>
+      <ContextMenuItem inset>
+        <Share className="mr-2 h-4 w-4" />
+        Share
+      </ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenu>
+</ComponentPreview>
+
+## With Submenus
+
+<ComponentPreview
+  title="Context Menu with Submenus"
+  description="Context menu with nested submenu options"
+>
+  <ContextMenu>
+    <ContextMenuTrigger className="flex h-32 w-full items-center justify-center rounded-md border border-dashed text-sm">
+      Right click for submenu options
+    </ContextMenuTrigger>
+    <ContextMenuContent className="w-56">
+      <ContextMenuItem>
+        <Eye className="mr-2 h-4 w-4" />
+        View
+      </ContextMenuItem>
+      <ContextMenuItem>
+        <Edit className="mr-2 h-4 w-4" />
+        Edit
+      </ContextMenuItem>
+      <ContextMenuSeparator />
+      <ContextMenuSub>
+        <ContextMenuSubTrigger inset>
+          <Share className="mr-2 h-4 w-4" />
+          Share
+        </ContextMenuSubTrigger>
+        <ContextMenuSubContent className="w-48">
+          <ContextMenuItem>
+            Email Link
+          </ContextMenuItem>
+          <ContextMenuItem>
+            Copy Link
+          </ContextMenuItem>
+          <ContextMenuItem>
+            Social Media
+          </ContextMenuItem>
+        </ContextMenuSubContent>
+      </ContextMenuSub>
+      <ContextMenuSeparator />
+      <ContextMenuItem>
+        <Settings className="mr-2 h-4 w-4" />
+        Properties
+      </ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenu>
+</ComponentPreview>
+
+## With Checkbox and Radio Items
+
+<ComponentPreview
+  title="Interactive Menu Items"
+  description="Context menu with checkbox and radio button items"
+>
+  <ContextMenu>
+    <ContextMenuTrigger className="flex h-32 w-full items-center justify-center rounded-md border border-dashed text-sm">
+      Right click for interactive options
+    </ContextMenuTrigger>
+    <ContextMenuContent className="w-56">
+      <ContextMenuLabel>View Options</ContextMenuLabel>
+      <ContextMenuSeparator />
+      <ContextMenuCheckboxItem checked>
+        <Star className="mr-2 h-4 w-4" />
+        Show Favorites
+      </ContextMenuCheckboxItem>
+      <ContextMenuCheckboxItem>
+        Show Hidden Files
+      </ContextMenuCheckboxItem>
+      <ContextMenuSeparator />
+      <ContextMenuLabel>Sort By</ContextMenuLabel>
+      <ContextMenuSeparator />
+      <ContextMenuRadioGroup value="name">
+        <ContextMenuRadioItem value="name">
+          Name
+        </ContextMenuRadioItem>
+        <ContextMenuRadioItem value="date">
+          Date Modified
+        </ContextMenuRadioItem>
+        <ContextMenuRadioItem value="size">
+          Size
+        </ContextMenuRadioItem>
+      </ContextMenuRadioGroup>
+    </ContextMenuContent>
+  </ContextMenu>
+</ComponentPreview>
+
+## API Reference
+
+### ContextMenu
+
+The root context menu container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### ContextMenuTrigger
+
+The element that triggers the context menu on right-click.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `asChild` | `boolean` | `false` | Render as child element |
+
+### ContextMenuContent
+
+The context menu content container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `sideOffset` | `number` | `4` | Distance from trigger |
+| `alignOffset` | `number` | `0` | Alignment offset |
+
+### ContextMenuItem
+
+Individual context menu item.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `inset` | `boolean` | `false` | Add left padding for alignment |
+| `variant` | `"default" \| "destructive"` | `"default"` | Visual variant |
+| `disabled` | `boolean` | `false` | Whether the item is disabled |
+| `onSelect` | `() => void` | - | Callback when item is selected |
+
+### ContextMenuCheckboxItem
+
+Checkbox menu item with checked state.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `checked` | `boolean` | `false` | Checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | - | Callback when checked state changes |
+
+### ContextMenuRadioGroup
+
+Container for radio menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `value` | `string` | - | Selected value |
+| `onValueChange` | `(value: string) => void` | - | Callback when value changes |
+
+### ContextMenuRadioItem
+
+Radio menu item within a radio group.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `value` | `string` | - | Item value |
+
+### ContextMenuLabel
+
+Label for grouping menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `inset` | `boolean` | `false` | Add left padding for alignment |
+
+### ContextMenuSeparator
+
+Visual separator between menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### ContextMenuShortcut
+
+Displays keyboard shortcuts for menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### ContextMenuSub
+
+Container for submenu functionality.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### ContextMenuSubTrigger
+
+Trigger element for opening submenus.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `inset` | `boolean` | `false` | Add left padding for alignment |
+
+### ContextMenuSubContent
+
+Content container for submenus.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### File Manager Context Menu
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+  ContextMenuSeparator,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+} from "@/components/ui/context-menu"
+import { Copy, Edit, Trash2, Share, Download } from "lucide-react"
+
+function FileContextMenu({ children }) {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>{children}</ContextMenuTrigger>
+      <ContextMenuContent className="w-56">
+        <ContextMenuItem>
+          <Edit className="mr-2 h-4 w-4" />
+          Open
+        </ContextMenuItem>
+        <ContextMenuItem>
+          <Edit className="mr-2 h-4 w-4" />
+          Edit
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem>
+          <Copy className="mr-2 h-4 w-4" />
+          Copy
+        </ContextMenuItem>
+        <ContextMenuItem>
+          Cut
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuSub>
+          <ContextMenuSubTrigger inset>
+            <Share className="mr-2 h-4 w-4" />
+            Share
+          </ContextMenuSubTrigger>
+          <ContextMenuSubContent className="w-48">
+            <ContextMenuItem>Email</ContextMenuItem>
+            <ContextMenuItem>Copy Link</ContextMenuItem>
+            <ContextMenuItem>Social Media</ContextMenuItem>
+          </ContextMenuSubContent>
+        </ContextMenuSub>
+        <ContextMenuItem>
+          <Download className="mr-2 h-4 w-4" />
+          Download
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem variant="destructive">
+          <Trash2 className="mr-2 h-4 w-4" />
+          Delete
+        </ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+```
+
+### Text Selection Context Menu
+
+```tsx
+import { useState } from "react"
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+  ContextMenuSeparator,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+} from "@/components/ui/context-menu"
+
+function TextContextMenu() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>
+        <div className="p-4 border rounded-md">
+          Select this text and right-click for formatting options.
+        </div>
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-56">
+        <ContextMenuItem>
+          <Copy className="mr-2 h-4 w-4" />
+          Copy
+        </ContextMenuItem>
+        <ContextMenuItem>Cut</ContextMenuItem>
+        <ContextMenuItem>Paste</ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuSub>
+          <ContextMenuSubTrigger inset>
+            Format
+          </ContextMenuSubTrigger>
+          <ContextMenuSubContent className="w-48">
+            <ContextMenuItem>
+              <span className="mr-2 font-bold">B</span>
+              Bold
+            </ContextMenuItem>
+            <ContextMenuItem>
+              <span className="mr-2 italic">I</span>
+              Italic
+            </ContextMenuItem>
+            <ContextMenuItem>
+              <span className="mr-2 underline">U</span>
+              Underline
+            </ContextMenuItem>
+          </ContextMenuSubContent>
+        </ContextMenuSub>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+```
+
+### Data Table Context Menu
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+  ContextMenuSeparator,
+  ContextMenuCheckboxItem,
+} from "@/components/ui/context-menu"
+
+function TableRowContextMenu({ children, onEdit, onDelete, onDuplicate }) {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger asChild>{children}</ContextMenuTrigger>
+      <ContextMenuContent className="w-56">
+        <ContextMenuItem onSelect={onEdit}>
+          <Edit className="mr-2 h-4 w-4" />
+          Edit Row
+        </ContextMenuItem>
+        <ContextMenuItem onSelect={onDuplicate}>
+          <Copy className="mr-2 h-4 w-4" />
+          Duplicate
+        </ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuCheckboxItem>
+          Pin Row
+        </ContextMenuCheckboxItem>
+        <ContextMenuCheckboxItem>
+          Hide Row
+        </ContextMenuCheckboxItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem variant="destructive" onSelect={onDelete}>
+          <Trash2 className="mr-2 h-4 w-4" />
+          Delete
+        </ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  )
+}
+```
+
+## Accessibility
+
+- Uses proper ARIA attributes for screen readers
+- Keyboard navigation with arrow keys, Enter, and Escape
+- Focus management when opening and closing menus
+- Supports screen reader announcements for menu state changes
+- Proper semantic markup with role attributes
+
+## Best Practices
+
+1. **Contextual Actions**: Only include actions relevant to the specific element
+2. **Clear Labels**: Use descriptive, action-oriented labels for menu items
+3. **Logical Grouping**: Group related actions together with separators
+4. **Keyboard Shortcuts**: Include shortcuts for frequently used actions
+5. **Destructive Actions**: Use the destructive variant for dangerous actions
+6. **Submenu Depth**: Avoid deep nesting of submenus for better usability
+
+</ComponentDocsLayout>

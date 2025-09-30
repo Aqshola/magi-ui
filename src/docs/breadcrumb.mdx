@@ -1,0 +1,280 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { Breadcrumb, BreadcrumbEllipsis, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
+import { Badge } from '@/components/ui/badge'
+import { Home, ChevronRight } from 'lucide-react'
+
+<ComponentDocsLayout
+  title="Breadcrumb"
+  description="A navigation component that shows the user's location within a website hierarchy. Built with semantic HTML and accessibility in mind."
+  category="Navigation Component"
+>
+
+## Overview
+
+The Breadcrumb component provides a way to show users their current location within a site's hierarchy. It helps users understand where they are and provides an easy way to navigate back to parent pages.
+
+## Features
+
+- **Hierarchical Navigation**: Clear representation of page hierarchy
+- **Customizable Separators**: Use different icons or text as separators
+- **Dropdown Support**: Collapse long paths with dropdown menus
+- **Icon Integration**: Support for icons alongside text
+- **Accessibility**: Proper ARIA labels and semantic markup
+- **Responsive**: Adapts to different screen sizes
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Breadcrumb"
+  description="Simple breadcrumb navigation with text links"
+>
+  <Breadcrumb>
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">NERV</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/magi">MAGI System</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbPage>Terminal Access</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>
+</ComponentPreview>
+
+## With Icons
+
+<ComponentPreview
+  title="Breadcrumb with Icons"
+  description="Breadcrumb navigation enhanced with icons for better visual hierarchy"
+>
+  <Breadcrumb>
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/" className="flex items-center gap-2">
+          <Home className="h-4 w-4" />
+          NERV HQ
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/departments">Departments</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator />
+      <BreadcrumbItem>
+        <BreadcrumbPage>Technical Division</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>
+</ComponentPreview>
+
+## Custom Separator
+
+<ComponentPreview
+  title="Custom Separator"
+  description="Using custom icons as separators between breadcrumb items"
+>
+  <Breadcrumb>
+    <BreadcrumbList>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/">NERV</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator>
+        <ChevronRight className="h-4 w-4" />
+      </BreadcrumbSeparator>
+      <BreadcrumbItem>
+        <BreadcrumbLink href="/eva">Eva Units</BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbSeparator>
+        <ChevronRight className="h-4 w-4" />
+      </BreadcrumbSeparator>
+      <BreadcrumbItem>
+        <BreadcrumbPage>Unit-01</BreadcrumbPage>
+      </BreadcrumbItem>
+    </BreadcrumbList>
+  </Breadcrumb>
+</ComponentPreview>
+
+## API Reference
+
+### Breadcrumb
+
+The root breadcrumb container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### BreadcrumbList
+
+Container for breadcrumb items with proper semantic markup.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### BreadcrumbItem
+
+Individual breadcrumb item container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### BreadcrumbLink
+
+Clickable breadcrumb link for navigation.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `href` | `string` | - | Link destination |
+| `className` | `string` | - | Additional CSS classes |
+
+### BreadcrumbPage
+
+Current page indicator (non-clickable).
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### BreadcrumbSeparator
+
+Visual separator between breadcrumb items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | `/` | Custom separator content |
+
+### BreadcrumbEllipsis
+
+Ellipsis indicator for collapsed breadcrumb sections.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+function BasicBreadcrumb() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Current Page</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```
+
+### With Custom Separator
+
+```tsx
+import { ChevronRight } from "lucide-react"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+function CustomSeparatorBreadcrumb() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator>
+          <ChevronRight className="h-4 w-4" />
+        </BreadcrumbSeparator>
+        <BreadcrumbItem>
+          <BreadcrumbPage>Current Page</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```
+
+### With Icons
+
+```tsx
+import { Home, Folder } from "lucide-react"
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+function IconBreadcrumb() {
+  return (
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/" className="flex items-center gap-2">
+            <Home className="h-4 w-4" />
+            Home
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage className="flex items-center gap-2">
+            <Folder className="h-4 w-4" />
+            Current Page
+          </BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  )
+}
+```
+
+## Accessibility
+
+- Uses proper semantic HTML with `nav` and `ol` elements
+- Includes `aria-label` for screen readers
+- Current page is marked with `aria-current="page"`
+- Keyboard navigation support for all interactive elements
+
+## Best Practices
+
+1. **Keep It Simple**: Don't include too many levels in the breadcrumb
+2. **Current Page**: Always mark the current page clearly
+3. **Consistent Styling**: Use consistent styling across your application
+4. **Mobile Consideration**: Consider truncating or collapsing on mobile devices
+5. **Meaningful Labels**: Use clear, descriptive labels for each breadcrumb item
+
+</ComponentDocsLayout>

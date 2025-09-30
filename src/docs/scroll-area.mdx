@@ -1,0 +1,493 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+
+<ComponentDocsLayout>
+
+# Scroll Area
+
+Augments native scroll functionality for custom, cross-browser styling.
+
+## Overview
+
+The Scroll Area component provides a customizable scrolling container that replaces native browser scrollbars with styled alternatives. Built on Radix UI's ScrollArea primitive, it offers consistent cross-browser behavior and enhanced visual control.
+
+## Features
+
+- **Custom Styling**: Override default browser scrollbars with custom designs
+- **Cross-browser**: Consistent appearance across different browsers  
+- **Keyboard Navigation**: Full keyboard accessibility support
+- **Touch Support**: Optimized for mobile and touch devices
+- **Flexible Sizing**: Support for both vertical and horizontal scrolling
+- **Performance**: Virtualization-ready for large datasets
+
+## Basic Usage
+
+### Simple Scroll Area
+
+<ComponentPreview name="scroll-area-basic">
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+
+const tags = Array.from({ length: 50 }).map(
+  (_, i, a) => `v1.2.0-beta.${a.length - i}`
+)
+
+export function ScrollAreaDemo() {
+  return (
+    <ScrollArea className="h-72 w-48 rounded-md border p-4">
+      <div className="pr-4">
+        <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+        {tags.map((tag) => (
+          <div key={tag}>
+            <div className="text-sm">{tag}</div>
+            <Separator className="my-2" />
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+</ComponentPreview>
+
+### Horizontal Scroll Area
+
+<ComponentPreview name="scroll-area-horizontal">
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+export function HorizontalScrollDemo() {
+  return (
+    <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
+      <div className="flex w-max space-x-4 p-4">
+        {Array.from({ length: 10 }, (_, i) => (
+          <figure key={i} className="shrink-0">
+            <div className="overflow-hidden rounded-md">
+              <div className="h-[150px] w-[150px] bg-gradient-to-br from-blue-500 to-purple-600" />
+            </div>
+            <figcaption className="pt-2 text-xs text-muted-foreground">
+              Photo {i + 1}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+</ComponentPreview>
+
+### NERV System Logs
+
+<ComponentPreview name="scroll-area-nerv-logs">
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+
+const logEntries = [
+  { time: "14:32:15", level: "INFO", message: "NERV System initialization complete" },
+  { time: "14:32:16", level: "WARN", message: "Eva Unit-01 sync ratio below optimal" },
+  { time: "14:32:17", level: "ERROR", message: "Angel detection system offline" },
+  { time: "14:32:18", level: "INFO", message: "Pilot Shinji Ikari standby" },
+  { time: "14:32:19", level: "WARN", message: "AT Field fluctuation detected" },
+  { time: "14:32:20", level: "ERROR", message: "Central Dogma breach attempt" },
+  { time: "14:32:21", level: "INFO", message: "Magi supercomputer online" },
+  { time: "14:32:22", level: "WARN", message: "LCL contamination in Entry Plug" },
+]
+
+export function NERVLogsDemo() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>NERV System Logs</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ScrollArea className="h-80 w-full rounded-md border p-4">
+          <div className="space-y-2 font-mono text-sm">
+            {logEntries.map((entry, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <span className="text-muted-foreground">[{entry.time}]</span>
+                <Badge variant={entry.level === 'ERROR' ? 'destructive' : entry.level === 'WARN' ? 'secondary' : 'default'}>
+                  {entry.level}
+                </Badge>
+                <span>{entry.message}</span>
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+      </CardContent>
+    </Card>
+  )
+}
+```
+
+</ComponentPreview>
+
+### Data Table with Scroll
+
+<ComponentPreview name="scroll-area-data-table">
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+
+const pilots = Array.from({ length: 50 }, (_, i) => ({
+  id: `PILOT-${String(i + 1).padStart(3, '0')}`,
+  name: `Pilot ${i + 1}`,
+  eva: `Unit-${String((i % 3) + 1).padStart(2, '0')}`,
+  syncRatio: Math.floor(Math.random() * 100),
+  status: i % 3 === 0 ? 'Active' : i % 3 === 1 ? 'Standby' : 'Offline'
+}))
+
+export function PilotDataTable() {
+  return (
+    <div className="rounded-md border">
+      <ScrollArea className="h-[400px]">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Pilot ID</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Eva Unit</TableHead>
+              <TableHead>Sync Ratio</TableHead>
+              <TableHead>Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {pilots.map((pilot) => (
+              <TableRow key={pilot.id}>
+                <TableCell className="font-mono">{pilot.id}</TableCell>
+                <TableCell>{pilot.name}</TableCell>
+                <TableCell>{pilot.eva}</TableCell>
+                <TableCell>{pilot.syncRatio}%</TableCell>
+                <TableCell>
+                  <Badge variant={pilot.status === 'Active' ? 'default' : pilot.status === 'Standby' ? 'secondary' : 'destructive'}>
+                    {pilot.status}
+                  </Badge>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </ScrollArea>
+    </div>
+  )
+}
+```
+
+</ComponentPreview>
+
+### File Explorer
+
+<ComponentPreview name="scroll-area-file-explorer">
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Folder, File, FileText, Image, Video } from "lucide-react"
+
+const files = [
+  { name: "NERV Documents", type: "folder", icon: Folder },
+  { name: "Eva Blueprints", type: "folder", icon: Folder },
+  { name: "Angel Analysis", type: "folder", icon: Folder },
+  { name: "pilot_report_001.txt", type: "file", icon: FileText },
+  { name: "eva_unit_01_specs.pdf", type: "file", icon: FileText },
+  { name: "angel_attack_footage.mp4", type: "file", icon: Video },
+  { name: "tokyo3_map.jpg", type: "file", icon: Image },
+  { name: "sync_test_results.json", type: "file", icon: File },
+  { name: "at_field_data.csv", type: "file", icon: File },
+  { name: "magi_backup.db", type: "file", icon: File },
+]
+
+export function FileExplorerDemo() {
+  return (
+    <ScrollArea className="h-[300px] w-[280px] rounded-md border">
+      <div className="p-4 space-y-2">
+        {files.map((item, index) => {
+          const IconComponent = item.icon
+          return (
+            <div key={index} className="flex items-center space-x-2 p-2 hover:bg-muted rounded cursor-pointer">
+              <IconComponent className={`h-4 w-4 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
+              <span className="text-sm">{item.name}</span>
+            </div>
+          )
+        })}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+</ComponentPreview>
+
+### Controlled Scroll Position
+
+<ComponentPreview name="scroll-area-controlled">
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
+import { useRef } from "react"
+
+export function ControlledScrollDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollToTop = () => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const scrollToBottom = () => {
+    scrollRef.current?.scrollTo({ 
+      top: scrollRef.current.scrollHeight, 
+      behavior: 'smooth' 
+    })
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2">
+        <Button onClick={scrollToTop} variant="outline" size="sm">
+          Scroll to Top
+        </Button>
+        <Button onClick={scrollToBottom} variant="outline" size="sm">
+          Scroll to Bottom
+        </Button>
+      </div>
+      <ScrollArea className="h-[200px] w-full rounded-md border p-4" ref={scrollRef}>
+        <div className="space-y-4">
+          {Array.from({ length: 20 }, (_, i) => (
+            <div key={i} className="p-4 border rounded">
+              Content block {i + 1} - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
+    </div>
+  )
+}
+```
+
+</ComponentPreview>
+
+## API Reference
+
+### ScrollArea
+
+The main scroll area component that wraps content with custom scrollbars.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `children` | `ReactNode` | - | Content to be scrolled |
+| `type` | `"auto" \| "always" \| "scroll" \| "hover"` | `"hover"` | When to show scrollbars |
+| `scrollHideDelay` | `number` | `600` | Delay before hiding scrollbars (ms) |
+| `dir` | `"ltr" \| "rtl"` | - | Text direction |
+
+### ScrollBar
+
+Internal component for rendering custom scrollbars.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | Scrollbar orientation |
+| `forceMount` | `boolean` | - | Force mount the scrollbar |
+
+## Code Examples
+
+### Basic Implementation
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+export function BasicScrollArea() {
+  return (
+    <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+      <div className="pr-4">
+        {Array.from({ length: 20 }, (_, i) => (
+          <div key={i} className="py-2">
+            Item {i + 1}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+### Chat Messages
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+
+const messages = [
+  { id: 1, user: "Gendo", message: "Proceed with the operation.", time: "10:30 AM" },
+  { id: 2, user: "Ritsuko", message: "Magi systems are online.", time: "10:32 AM" },
+  { id: 3, user: "Misato", message: "Eva Unit-01 is ready for deployment.", time: "10:35 AM" },
+]
+
+export function ChatMessages() {
+  return (
+    <ScrollArea className="h-[400px] w-full rounded-md border p-4">
+      <div className="space-y-4">
+        {messages.map((msg) => (
+          <div key={msg.id} className="flex items-start space-x-3">
+            <Avatar className="h-8 w-8">
+              <AvatarFallback>{msg.user[0]}</AvatarFallback>
+            </Avatar>
+            <div className="flex-1 space-y-1">
+              <div className="flex items-center space-x-2">
+                <span className="text-sm font-medium">{msg.user}</span>
+                <span className="text-xs text-muted-foreground">{msg.time}</span>
+              </div>
+              <p className="text-sm">{msg.message}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+### Custom Styled Scroll Area
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+export function CustomStyledScrollArea() {
+  return (
+    <ScrollArea className="h-80 w-full rounded-md border bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20">
+      <div className="p-6 space-y-4">
+        {Array.from({ length: 15 }, (_, i) => (
+          <div key={i} className="p-4 bg-white/50 dark:bg-black/20 rounded-lg">
+            Custom styled content item {i + 1}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+### Sidebar Navigation
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
+
+const navItems = [
+  "Dashboard", "Eva Units", "Pilots", "Angels", "Operations", 
+  "Central Dogma", "Magi System", "Reports", "Settings"
+]
+
+export function SidebarNavigation() {
+  return (
+    <ScrollArea className="h-screen w-64 border-r">
+      <nav className="p-4 space-y-2">
+        {navItems.map((item) => (
+          <Button key={item} variant="ghost" className="w-full justify-start">
+            {item}
+          </Button>
+        ))}
+      </nav>
+    </ScrollArea>
+  )
+}
+```
+
+### Modal Content
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+
+export function ModalContent() {
+  return (
+    <ScrollArea className="max-h-[60vh] overflow-y-auto">
+      <div className="p-6 space-y-4">
+        {Array.from({ length: 10 }, (_, i) => (
+          <div key={i} className="p-4 border rounded">
+            Modal content section {i + 1}
+          </div>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+### Performance Optimized List
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { memo } from "react"
+
+const ListItem = memo(({ item }: { item: string }) => (
+  <div className="p-2 border-b">
+    {item}
+  </div>
+))
+
+export function OptimizedList() {
+  const items = Array.from({ length: 1000 }, (_, i) => `Item ${i + 1}`)
+  
+  return (
+    <ScrollArea className="h-96 border rounded-lg">
+      <div className="p-4">
+        {items.map((item) => (
+          <ListItem key={item} item={item} />
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
+```
+
+## Accessibility
+
+The Scroll Area component follows WAI-ARIA guidelines:
+
+- **Keyboard Navigation**: Supports arrow keys, Page Up/Down, Home/End
+- **Screen Reader**: Properly announces scrollable regions
+- **Focus Management**: Maintains focus within scrollable content
+- **ARIA Labels**: Uses appropriate ARIA attributes for accessibility
+
+### Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `↑` `↓` | Scroll vertically |
+| `←` `→` | Scroll horizontally |
+| `Page Up` `Page Down` | Scroll by page |
+| `Home` `End` | Scroll to start/end |
+| `Space` | Scroll down by page |
+
+## Best Practices
+
+### Content Organization
+- Keep scroll areas focused on specific content types
+- Use consistent heights for similar scroll areas
+- Provide clear visual boundaries
+
+### Performance
+- Consider virtualization for large datasets (1000+ items)
+- Implement lazy loading for dynamic content
+- Use React.memo for scroll item components
+
+### User Experience
+- Show scroll indicators when content overflows
+- Provide alternative navigation for long lists
+- Ensure touch-friendly scrolling on mobile
+
+### Styling
+- Maintain consistent scrollbar appearance
+- Use appropriate contrast for scrollbar visibility
+- Consider dark mode scrollbar styling
+
+</ComponentDocsLayout>

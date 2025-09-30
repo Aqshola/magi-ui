@@ -1,0 +1,476 @@
+import { ComponentDocsLayout } from '@/components/documentation/component-docs-layout'
+import { ComponentPreview } from '@/components/documentation/component-preview'
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, NavigationMenuViewport, NavigationMenuIndicator, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu'
+import { Badge } from '@/components/ui/badge'
+
+<ComponentDocsLayout
+  title="Navigation Menu"
+  description="A collection of links for navigating websites with dropdown menus and keyboard support."
+  category="Navigation Component"
+>
+
+## Overview
+
+The Navigation Menu component provides a horizontal navigation interface with dropdown menus for websites. It's perfect for main site navigation, offering rich content areas and smooth animations while maintaining full accessibility.
+
+## Features
+
+- **Horizontal Navigation**: Clean, horizontal layout for website navigation
+- **Dropdown Menus**: Rich content areas with flexible layouts
+- **Keyboard Navigation**: Full keyboard support with arrow keys
+- **Smooth Animations**: Elegant enter/exit animations
+- **Flexible Content**: Support for complex layouts and rich content
+- **Accessibility**: Full ARIA support and screen reader compatibility
+- **Responsive Design**: Adapts to different screen sizes
+- **Customizable**: Flexible styling and theming options
+
+## Basic Usage
+
+<ComponentPreview
+  title="Basic Navigation"
+  description="Simple navigation menu with links and dropdown"
+>
+  <NavigationMenu>
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          Home
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px]">
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/products/web" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">Web Development</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Build modern web applications
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/products/mobile" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">Mobile Apps</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Create native mobile experiences
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          About
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenu>
+</ComponentPreview>
+
+## Rich Content Navigation
+
+<ComponentPreview
+  title="NERV Command Interface"
+  description="Navigation with rich content and complex layouts"
+>
+  <NavigationMenu>
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>MAGI System</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+            <li className="row-span-3">
+              <NavigationMenuLink asChild>
+                <a
+                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                  href="/magi"
+                >
+                  <div className="mb-2 mt-4 text-lg font-medium">
+                    MAGI System
+                  </div>
+                  <p className="text-sm leading-tight text-muted-foreground">
+                    Advanced AI system for tactical analysis and decision making
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/magi/01" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">MAGI-01</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Primary processing unit
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/magi/02" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">MAGI-02</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Secondary analysis core
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/magi/03" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">MAGI-03</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Tertiary backup system
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Operations</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <li className="row-span-3">
+              <NavigationMenuLink asChild>
+                <a
+                  className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                  href="/operations"
+                >
+                  <div className="mb-2 mt-4 text-lg font-medium">
+                    Operations Center
+                  </div>
+                  <p className="text-sm leading-tight text-muted-foreground">
+                    Central command for all NERV operations
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/eva" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">Eva Units</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Manage Evangelion units
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+            <li>
+              <NavigationMenuLink asChild>
+                <a href="/pilots" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                  <div className="text-sm font-medium leading-none">Pilots</div>
+                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    Pilot management system
+                  </p>
+                </a>
+              </NavigationMenuLink>
+            </li>
+          </ul>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          Terminal
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenu>
+</ComponentPreview>
+
+## Compact Navigation
+
+<ComponentPreview
+  title="Compact Navigation"
+  description="Simple navigation without dropdowns"
+>
+  <NavigationMenu>
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          Dashboard
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          Projects
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          Team
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          Settings
+        </NavigationMenuLink>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenu>
+</ComponentPreview>
+
+## API Reference
+
+### NavigationMenu
+
+The root navigation menu container.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Menu orientation |
+
+### NavigationMenuList
+
+Container for navigation menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### NavigationMenuItem
+
+Individual navigation menu item.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### NavigationMenuTrigger
+
+Trigger that opens dropdown content.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `disabled` | `boolean` | `false` | Whether the trigger is disabled |
+
+### NavigationMenuContent
+
+Container for dropdown content.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### NavigationMenuLink
+
+Navigation link component.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+| `asChild` | `boolean` | `false` | Render as child element |
+| `active` | `boolean` | `false` | Whether the link is active |
+
+### NavigationMenuViewport
+
+Viewport for dropdown content positioning.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+### NavigationMenuIndicator
+
+Visual indicator for active menu items.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `className` | `string` | - | Additional CSS classes |
+
+## Examples
+
+### Basic Implementation
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
+function BasicNavigation() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            Home
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px]">
+              <li>
+                <NavigationMenuLink asChild>
+                  <a href="/products/web">
+                    <div className="text-sm font-medium">Web Development</div>
+                    <p className="text-sm text-muted-foreground">
+                      Build modern web applications
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  )
+}
+```
+
+### Website Navigation
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+
+function WebsiteNavigation() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            Home
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/services"
+                  >
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      Our Services
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Comprehensive solutions for your business needs
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a href="/services/consulting">
+                    <div className="text-sm font-medium">Consulting</div>
+                    <p className="text-sm text-muted-foreground">
+                      Strategic business guidance
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a href="/services/development">
+                    <div className="text-sm font-medium">Development</div>
+                    <p className="text-sm text-muted-foreground">
+                      Custom software solutions
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a href="/services/support">
+                    <div className="text-sm font-medium">Support</div>
+                    <p className="text-sm text-muted-foreground">
+                      Ongoing maintenance and support
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <a
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/company"
+                  >
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      About Us
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Learn more about our company and mission
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a href="/team">
+                    <div className="text-sm font-medium">Team</div>
+                    <p className="text-sm text-muted-foreground">
+                      Meet our talented team
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a href="/careers">
+                    <div className="text-sm font-medium">Careers</div>
+                    <p className="text-sm text-muted-foreground">
+                      Join our growing team
+                    </p>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            Contact
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  )
+}
+```
+
+## Accessibility
+
+- Full keyboard navigation with arrow keys
+- Proper ARIA attributes for screen readers
+- Focus management between menu items
+- Screen reader support for dropdown content
+
+## Best Practices
+
+1. **Content**: Use clear, descriptive labels for navigation items
+2. **Performance**: Lazy load dropdown content when possible
+3. **User Experience**: Keep navigation hierarchies shallow and intuitive
+
+</ComponentDocsLayout>
