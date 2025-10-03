@@ -18,8 +18,8 @@ const avatarVariants = cva(
       },
       variant: {
         default: "bg-background",
-        magi: "bg-gradient-to-br from-primary/20 to-secondary/20 border-primary/30",
-        system: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/30",
+        magi: "bg-primary border-primary/90",
+        system: "bg-secondary text-black  border-secondary-500/30 ",
         warning: "bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border-yellow-500/30",
         danger: "bg-gradient-to-br from-red-500/20 to-pink-500/20 border-red-500/30",
       },
@@ -77,10 +77,10 @@ const avatarFallbackVariants = cva(
       },
       variant: {
         default: "bg-muted",
-        magi: "bg-gradient-to-br from-primary/30 to-secondary/30 text-primary-foreground",
-        system: "bg-gradient-to-br from-blue-500/30 to-cyan-500/30 text-blue-50",
-        warning: "bg-gradient-to-br from-yellow-500/30 to-orange-500/30 text-yellow-50",
-        danger: "bg-gradient-to-br from-red-500/30 to-pink-500/30 text-red-50",
+        magi: "bg-primary from-primary/30 to-secondary/30 text-primary-foreground",
+        system: "bg-secondary text-black ",
+        warning: "bg-yellow  text-yellow-50",
+        danger: "bg-danger  text-red-50",
       },
     },
     defaultVariants: {
