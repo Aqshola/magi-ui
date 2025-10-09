@@ -234,21 +234,21 @@ export default function CollapsibleShowcase() {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-3 mt-4">
                   <div className="space-y-2">
-                    <div className="flex items-center justify-between p-2 rounded border-l-4 border-l-red-500 bg-red-50 dark:bg-red-950/20">
+                    <div className="flex items-center justify-between p-2 rounded border-l-4 border-l-red-500  dark:bg-red-950/20">
                       <div className="flex items-center space-x-2">
                         <Eye className="h-4 w-4" />
                         <span className="text-sm">AT Field Analysis</span>
                       </div>
                       <Badge variant="destructive" className="text-xs">Level 5</Badge>
                     </div>
-                    <div className="flex items-center justify-between p-2 rounded border-l-4 border-l-orange-500 bg-orange-50 dark:bg-orange-950/20">
+                    <div className="flex items-center justify-between p-2 rounded border-l-4 border-l-orange-500 dark:bg-orange-950/20">
                       <div className="flex items-center space-x-2">
                         <Zap className="h-4 w-4" />
                         <span className="text-sm">Eva Unit Synchronization</span>
                       </div>
                       <Badge variant="secondary" className="text-xs">Level 3</Badge>
                     </div>
-                    <div className="flex items-center justify-between p-2 rounded border-l-4 border-l-blue-500 bg-blue-50 dark:bg-blue-950/20">
+                    <div className="flex items-center justify-between p-2 rounded border-l-4 border-l-blue-500  dark:bg-blue-950/20">
                       <div className="flex items-center space-x-2">
                         <Users className="h-4 w-4" />
                         <span className="text-sm">Personnel Access Control</span>
@@ -292,36 +292,7 @@ export default function CollapsibleShowcase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold">Usage Guidelines</h2>
-        <Card>
-          <CardContent className="p-6">
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold mb-2">When to Use Collapsible</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>To save space by hiding secondary or optional content</li>
-                  <li>For progressive disclosure of information</li>
-                  <li>In settings panels or configuration interfaces</li>
-                  <li>For FAQ sections or help documentation</li>
-                  <li>To organize related content in expandable sections</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Best Practices</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Use clear and descriptive trigger labels</li>
-                  <li>Include visual indicators (chevron icons) for state</li>
-                  <li>Consider the default state (open/closed) based on content importance</li>
-                  <li>Ensure keyboard accessibility with proper focus management</li>
-                  <li>Use smooth animations for better user experience</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      
     </div>
   )
 }

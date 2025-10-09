@@ -360,34 +360,6 @@ export default function NavigationMenuShowCase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Usage Guidelines</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-green-600">✓ Do</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Use clear, descriptive labels</li>
-              <li>• Group related items logically</li>
-              <li>• Include icons for better recognition</li>
-              <li>• Keep dropdown content focused</li>
-              <li>• Provide keyboard navigation</li>
-              <li>• Use consistent styling</li>
-            </ul>
-          </div>
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-red-600">✗ Don't</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Overcrowd the navigation bar</li>
-              <li>• Use vague or ambiguous labels</li>
-              <li>• Create overly deep menu hierarchies</li>
-              <li>• Mix different interaction patterns</li>
-              <li>• Forget mobile responsiveness</li>
-              <li>• Ignore accessibility requirements</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

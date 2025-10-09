@@ -177,11 +177,11 @@ export default function PaginationShowCase() {
       {/* NERV Command Interface */}
       <Card className="border-orange-200 dark:border-orange-800">
         <CardHeader className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950 dark:to-red-950">
-          <CardTitle className="flex items-center gap-2 text-orange-700 dark:text-orange-300">
+          <CardTitle className="py-3 flex items-center gap-2 text-orange-700 dark:text-orange-300">
             <Database className="h-5 w-5" />
             NERV System Database
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="p-1">
             MAGI System monitoring and control interface.
           </CardDescription>
         </CardHeader>
@@ -493,47 +493,6 @@ export default function PaginationShowCase() {
         </Card>
       </div>
 
-      {/* Usage Guidelines */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Usage Guidelines</CardTitle>
-          <CardDescription>Best practices for implementing pagination.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-4">
-            <div>
-              <h4 className="font-medium mb-2">When to Use Pagination</h4>
-              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-                <li>Large datasets that would impact performance if loaded all at once</li>
-                <li>Search results with many items</li>
-                <li>Data tables with hundreds or thousands of rows</li>
-                <li>Content feeds and article listings</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-medium mb-2">Best Practices</h4>
-              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-                <li>Show total number of items and current range</li>
-                <li>Provide options for items per page</li>
-                <li>Include first/last page navigation for large datasets</li>
-                <li>Use ellipsis (...) to indicate skipped pages</li>
-                <li>Maintain pagination state in URL for bookmarking</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-medium mb-2">Accessibility</h4>
-              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-                <li>Use semantic navigation elements</li>
-                <li>Provide clear labels for screen readers</li>
-                <li>Ensure keyboard navigation works properly</li>
-                <li>Indicate current page clearly</li>
-              </ul>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }

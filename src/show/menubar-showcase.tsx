@@ -388,17 +388,6 @@ export default function MenubarShowCase() {
         </Menubar>
       </div>
 
-      {/* Usage Notes */}
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Usage Guidelines</h3>
-        <div className="rounded-lg border p-4 space-y-2 text-sm">
-          <p><strong>Keyboard Navigation:</strong> Use arrow keys to navigate between menu items</p>
-          <p><strong>Shortcuts:</strong> Display keyboard shortcuts for quick access</p>
-          <p><strong>Grouping:</strong> Use separators to group related menu items</p>
-          <p><strong>Submenus:</strong> Nest related options in submenus for better organization</p>
-          <p><strong>State:</strong> Use checkbox and radio items for toggleable options</p>
-        </div>
-      </div>
     </div>
   )
 }

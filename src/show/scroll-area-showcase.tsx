@@ -1,4 +1,4 @@
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -95,7 +95,7 @@ export default function ScrollAreaShowCase() {
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Horizontal Scroll Area</h2>
         <div className="border rounded-lg p-6 bg-card">
-          <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
+          <ScrollArea  className="w-96 whitespace-nowrap rounded-md border">
             <div className="flex w-max space-x-4 p-4">
               {Array.from({ length: 10 }, (_, i) => (
                 <figure key={i} className="shrink-0">
@@ -110,6 +110,7 @@ export default function ScrollAreaShowCase() {
                 </figure>
               ))}
             </div>
+            <ScrollBar orientation="horizontal"/>
           </ScrollArea>
         </div>
       </div>
@@ -344,34 +345,6 @@ export default function ScrollAreaShowCase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Usage Guidelines</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-green-600">✓ Do</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Use for content that exceeds container height</li>
-              <li>• Provide clear visual boundaries</li>
-              <li>• Consider horizontal scrolling for wide content</li>
-              <li>• Use consistent scrollbar styling</li>
-              <li>• Ensure keyboard navigation works</li>
-              <li>• Add loading states for dynamic content</li>
-            </ul>
-          </div>
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-red-600">✗ Don't</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Make scroll areas too small to be usable</li>
-              <li>• Hide important content below the fold</li>
-              <li>• Use nested scroll areas unnecessarily</li>
-              <li>• Forget to handle empty states</li>
-              <li>• Ignore mobile touch scrolling</li>
-              <li>• Make scrollbars too thin to interact with</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

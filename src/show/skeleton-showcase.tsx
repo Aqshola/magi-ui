@@ -228,17 +228,6 @@ export default function SkeletonShowCase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Usage Guidelines</h3>
-        <div className="rounded-lg border p-4 space-y-2 text-sm">
-          <p><strong>Match Content Structure:</strong> Skeleton should mirror the layout of the actual content</p>
-          <p><strong>Appropriate Timing:</strong> Show skeletons for loading states longer than 300ms</p>
-          <p><strong>Progressive Loading:</strong> Load content progressively rather than all at once</p>
-          <p><strong>Consistent Sizing:</strong> Use consistent skeleton sizes that match your content</p>
-          <p><strong>Animation:</strong> The subtle pulse animation indicates active loading</p>
-        </div>
-      </div>
     </div>
   )
 }

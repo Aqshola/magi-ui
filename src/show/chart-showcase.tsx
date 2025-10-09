@@ -1,5 +1,5 @@
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
@@ -16,15 +16,10 @@ import {
   Shield, 
   Brain,
   Monitor,
-  AlertTriangle,
   CheckCircle,
   BarChart3,
   LineChart,
   PieChart,
-  Calendar,
-  Clock,
-  Users,
-  Target,
   Gauge
 } from "lucide-react"
 import {
@@ -41,7 +36,6 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  ResponsiveContainer,
   Cell,
 } from "recharts"
 
@@ -548,34 +542,6 @@ export default function ChartShowCase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Usage Guidelines</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-green-600">✓ Do</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Choose appropriate chart types for your data</li>
-              <li>• Use consistent color schemes across charts</li>
-              <li>• Provide clear labels and legends</li>
-              <li>• Include tooltips for detailed information</li>
-              <li>• Make charts responsive for different screen sizes</li>
-              <li>• Use animations sparingly and purposefully</li>
-            </ul>
-          </div>
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-red-600">✗ Don't</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Overcomplicate charts with too much data</li>
-              <li>• Use 3D effects unless absolutely necessary</li>
-              <li>• Make charts too small to read clearly</li>
-              <li>• Use too many colors that confuse the data</li>
-              <li>• Forget to handle loading and error states</li>
-              <li>• Ignore accessibility considerations</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

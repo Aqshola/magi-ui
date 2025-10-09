@@ -300,8 +300,8 @@ export default function CarouselShowCase() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-primary text-primary-foreground hover:bg-primary/90" />
-            <CarouselNext className="bg-primary text-primary-foreground hover:bg-primary/90" />
+            <CarouselPrevious  />
+            <CarouselNext />
           </Carousel>
         </div>
       </section>

@@ -720,34 +720,6 @@ export default function DrawerShowCase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Usage Guidelines</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-green-600">✓ Do</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Use drawers for mobile-first navigation</li>
-              <li>• Include clear headers and descriptions</li>
-              <li>• Provide obvious close actions</li>
-              <li>• Keep content organized and scannable</li>
-              <li>• Use appropriate trigger buttons</li>
-              <li>• Consider drawer height for content</li>
-            </ul>
-          </div>
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-red-600">✗ Don't</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Overload drawers with too much content</li>
-              <li>• Use drawers for critical actions on desktop</li>
-              <li>• Forget to handle keyboard navigation</li>
-              <li>• Make drawers too tall for mobile screens</li>
-              <li>• Use multiple drawers simultaneously</li>
-              <li>• Ignore accessibility considerations</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

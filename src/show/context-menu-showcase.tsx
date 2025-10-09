@@ -443,48 +443,6 @@ export default function ContextMenuShowcase() {
         </Card>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold">Usage Guidelines</h2>
-        <Card>
-          <CardContent className="p-6">
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold mb-2">When to Use Context Menus</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>For secondary actions that don't need primary UI space</li>
-                  <li>When actions are contextual to specific content or elements</li>
-                  <li>For power user features and shortcuts</li>
-                  <li>In data-heavy interfaces like file managers or tables</li>
-                  <li>For actions that apply to selected content</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Best Practices</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Keep menu items relevant to the context</li>
-                  <li>Use clear, action-oriented labels</li>
-                  <li>Group related actions with separators</li>
-                  <li>Include keyboard shortcuts for common actions</li>
-                  <li>Use submenus sparingly to avoid deep nesting</li>
-                  <li>Disable unavailable actions rather than hiding them</li>
-                  <li>Consider mobile users who can't right-click</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Accessibility</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Ensure keyboard navigation works properly</li>
-                  <li>Provide alternative access methods for touch devices</li>
-                  <li>Use proper ARIA labels and roles</li>
-                  <li>Test with screen readers</li>
-                  <li>Consider users who may not know about right-click functionality</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
     </div>
   )
 }

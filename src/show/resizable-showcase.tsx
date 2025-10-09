@@ -113,7 +113,7 @@ export default function ResizableShowCase() {
           >
             <ResizablePanel defaultSize={25} minSize={20}>
               <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between p-4 border-b">
+                <div className="flex flex-col items-center justify-between p-4 border-b">
                   <h3 className="font-semibold">MAGI Systems</h3>
                   <Badge variant="outline">3 Active</Badge>
                 </div>
@@ -147,7 +147,7 @@ export default function ResizableShowCase() {
               <ResizablePanelGroup direction="vertical">
                 <ResizablePanel defaultSize={60}>
                   <div className="flex h-full flex-col">
-                    <div className="flex items-center justify-between p-4 border-b">
+                    <div className="flex flex-col items-center justify-between p-4 border-b">
                       <h3 className="font-semibold">System Status</h3>
                       <div className="flex gap-2">
                         <Badge className="bg-green-500">Operational</Badge>
@@ -337,34 +337,6 @@ export default function ResizableShowCase() {
         </CardContent>
       </Card>
 
-      {/* Usage Guidelines */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Usage Guidelines</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Best Practices:</h4>
-            <ul className="space-y-1 text-sm text-muted-foreground">
-              <li>• Set appropriate minimum and maximum sizes for panels</li>
-              <li>• Use meaningful default sizes based on content importance</li>
-              <li>• Consider the user's workflow when designing layouts</li>
-              <li>• Test resizing behavior on different screen sizes</li>
-              <li>• Provide visual feedback during resize operations</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Common Use Cases:</h4>
-            <ul className="space-y-1 text-sm text-muted-foreground">
-              <li>• Code editors with sidebar and terminal</li>
-              <li>• Dashboard layouts with multiple data views</li>
-              <li>• File managers with directory tree and content</li>
-              <li>• Email clients with folder list and message view</li>
-              <li>• Design tools with toolbars and canvas areas</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }
