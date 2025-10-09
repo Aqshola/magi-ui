@@ -69,9 +69,9 @@ export default function SliderShowCase() {
       </div>
 
       {/* Basic Slider */}
-      <div className="space-y-4">
+      <div className="space-y-4 b">
         <h2 className="text-xl font-semibold">Basic Slider</h2>
-        <div className="border rounded-lg p-6 bg-card">
+        <div className="border border-primary rounded-lg p-6 bg-card">
           <div className="space-y-6">
             <div className="space-y-2">
               <Label>Default Slider</Label>
@@ -709,34 +709,7 @@ export default function SliderShowCase() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
-      <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Usage Guidelines</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-green-600">✓ Do</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Use appropriate step values for the data type</li>
-              <li>• Provide clear labels and current values</li>
-              <li>• Use range sliders for min/max selections</li>
-              <li>• Include visual feedback for value changes</li>
-              <li>• Consider keyboard navigation support</li>
-              <li>• Use disabled state for read-only values</li>
-            </ul>
-          </div>
-          <div className="border rounded-lg p-4 bg-card">
-            <h3 className="font-medium mb-2 text-red-600">✗ Don't</h3>
-            <ul className="text-sm space-y-1 text-muted-foreground">
-              <li>• Use sliders for precise numeric input</li>
-              <li>• Make sliders too small to interact with</li>
-              <li>• Use too many decimal places in steps</li>
-              <li>• Forget to show current values</li>
-              <li>• Use sliders for binary choices</li>
-              <li>• Make ranges too large without proper steps</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
     </div>
   )
 }

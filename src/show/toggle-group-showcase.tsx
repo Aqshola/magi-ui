@@ -458,36 +458,6 @@ export default function ToggleGroupShowCase() {
         </CardContent>
       </Card>
 
-      {/* Usage Guidelines */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Usage Guidelines</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Best Practices:</h4>
-            <ul className="space-y-1 text-sm text-muted-foreground">
-              <li>• Use single selection for mutually exclusive options</li>
-              <li>• Use multiple selection for independent toggleable features</li>
-              <li>• Provide clear visual feedback for selected states</li>
-              <li>• Include appropriate ARIA labels for accessibility</li>
-              <li>• Group related functionality together</li>
-              <li>• Consider the logical order of toggle items</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Common Use Cases:</h4>
-            <ul className="space-y-1 text-sm text-muted-foreground">
-              <li>• Text formatting toolbars (bold, italic, underline)</li>
-              <li>• View mode selectors (grid, list, card)</li>
-              <li>• Filter controls for data tables</li>
-              <li>• Media player controls and options</li>
-              <li>• Chart type selectors in dashboards</li>
-              <li>• Feature toggles in settings panels</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }

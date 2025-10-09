@@ -325,7 +325,7 @@ export default function RadioGroupShowcase() {
             <RadioGroup value={accountType} onValueChange={setAccountType} className="grid grid-cols-3 gap-4">
               <div className="flex flex-col items-center space-y-2 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
                 <RadioGroupItem value="personal" id="personal-account" className="sr-only" />
-                <Label htmlFor="personal-account" className="cursor-pointer text-center">
+                <Label htmlFor="personal-account" className="flex flex-col cursor-pointer text-center">
                   <User className="h-8 w-8 mx-auto mb-2 text-blue-600" />
                   <div className="font-medium">Personal</div>
                   <div className="text-xs text-muted-foreground">For individual use</div>
@@ -333,7 +333,7 @@ export default function RadioGroupShowcase() {
               </div>
               <div className="flex flex-col items-center space-y-2 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
                 <RadioGroupItem value="business" id="business-account" className="sr-only" />
-                <Label htmlFor="business-account" className="cursor-pointer text-center">
+                <Label htmlFor="business-account" className="flex flex-col cursor-pointer text-center">
                   <Briefcase className="h-8 w-8 mx-auto mb-2 text-green-600" />
                   <div className="font-medium">Business</div>
                   <div className="text-xs text-muted-foreground">For companies</div>
@@ -341,7 +341,7 @@ export default function RadioGroupShowcase() {
               </div>
               <div className="flex flex-col items-center space-y-2 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
                 <RadioGroupItem value="enterprise" id="enterprise-account" className="sr-only" />
-                <Label htmlFor="enterprise-account" className="cursor-pointer text-center">
+                <Label htmlFor="enterprise-account" className="flex flex-col cursor-pointer text-center">
                   <Building className="h-8 w-8 mx-auto mb-2 text-purple-600" />
                   <div className="font-medium">Enterprise</div>
                   <div className="text-xs text-muted-foreground">For large organizations</div>
@@ -473,75 +473,7 @@ export default function RadioGroupShowcase() {
         </CardContent>
       </Card>
 
-      {/* Usage Guidelines */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Usage Guidelines</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-medium text-green-700 dark:text-green-400 mb-2">✅ When to use Radio Groups</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• When users need to select exactly one option from a list</li>
-              <li>• For mutually exclusive choices (payment methods, shipping options)</li>
-              <li>• When all available options should be visible at once</li>
-              <li>• For settings that require immediate visual feedback</li>
-              <li>• When you have 2-7 options to choose from</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-medium text-red-700 dark:text-red-400 mb-2">❌ When to avoid Radio Groups</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• When users can select multiple options (use checkboxes instead)</li>
-              <li>• For binary choices (use a toggle or switch instead)</li>
-              <li>• When you have many options (use a select dropdown instead)</li>
-              <li>• For actions that should be performed immediately (use buttons instead)</li>
-              <li>• When the default option is obvious and rarely changed</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Best Practices */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Best Practices</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-medium mb-2">Content</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• Use clear, concise labels that describe each option</li>
-              <li>• Provide additional context when helpful (descriptions, prices)</li>
-              <li>• Order options logically (alphabetically, by popularity, or by price)</li>
-              <li>• Use consistent formatting across all options</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-medium mb-2">Accessibility</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• Always associate labels with radio buttons using htmlFor/id</li>
-              <li>• Use fieldset and legend for grouped radio buttons</li>
-              <li>• Ensure sufficient color contrast for all states</li>
-              <li>• Make click targets large enough (minimum 44px)</li>
-              <li>• Provide keyboard navigation support</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-medium mb-2">User Experience</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• Set a sensible default selection when appropriate</li>
-              <li>• Group related options together</li>
-              <li>• Use visual hierarchy to emphasize important options</li>
-              <li>• Provide immediate feedback for selection changes</li>
-              <li>• Consider using cards or borders for complex options</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
+      
     </div>
   )
 }

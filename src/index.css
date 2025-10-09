@@ -48,15 +48,15 @@
   --radius: 0.625rem;
   --background: oklch(0 0 0);
   --foreground: oklch(0.6806 0.1762 47.74);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card: oklch(0 0 0);
+  --card-foreground: oklch(0.6806 0.1762 47.74);
   --popover: oklch(0.6806 0.1762 47.74);
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.6806 0.1762 47.74);
   --primary-foreground: oklch(0 0 0);
   --secondary: oklch(0.8901 0.1872 154.38);
   --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0 0 0);
+  --muted: oklch(0.3246 0 0);
   --muted-foreground: oklch(0.6806 0.1762 47.74/0.7);
   --accent: oklch(0 0 0);
   --accent-foreground: oklch(0.6806 0.1762 47.74);

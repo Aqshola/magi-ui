@@ -554,47 +554,6 @@ export default function ToggleShowcase() {
         </CardContent>
       </Card>
 
-      {/* Usage Guidelines */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Usage Guidelines</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-medium text-green-600 dark:text-green-400 mb-2">✅ When to use Toggle</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• Binary settings and preferences</li>
-              <li>• Text formatting controls (bold, italic, underline)</li>
-              <li>• View mode switches (grid/list, light/dark)</li>
-              <li>• Feature toggles (notifications, auto-save)</li>
-              <li>• Media controls (shuffle, repeat, mute)</li>
-              <li>• Interactive actions (like, bookmark, favorite)</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-medium text-amber-600 dark:text-amber-400 mb-2">⚠️ Best Practices</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• Use clear, descriptive labels or icons</li>
-              <li>• Provide immediate visual feedback for state changes</li>
-              <li>• Group related toggles together</li>
-              <li>• Use consistent sizing within the same context</li>
-              <li>• Consider using outline variant for secondary actions</li>
-              <li>• Ensure sufficient color contrast for accessibility</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-medium text-red-600 dark:text-red-400 mb-2">❌ Avoid</h4>
-            <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-              <li>• Using toggles for actions that navigate or submit</li>
-              <li>• Multiple selection scenarios (use checkboxes instead)</li>
-              <li>• When the state change isn't immediately apparent</li>
-              <li>• Overusing toggles in dense interfaces</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }
