@@ -1,5 +1,24 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "MAGI-UI",
-  "homepage": ""
+  "homepage": "",
+  "items": [
+    {
+      "name": "Button",
+      "title": "Button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "files": [{
+        "type": "registry:ui",
+        "path": "src/components/ui/button.tsx"
+      },
+      {
+        "type": "registry:lib",
+        "path": "src/lib/paint-worklet.js"
+      }
+    ]
+    }
+  ]
 }

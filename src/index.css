@@ -275,6 +275,21 @@
 }
 
 
-/* *{
-  outline: 1px solid red;
-} */
+/* BUTTON POLYGON */
+
+.custom-polygon-button {
+    /* clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
+    --polygon-border-width: 2; */
+
+    --corner-radius: 0 10 0 0;
+    mask: paint(polygon-border);
+}
+
+.custom-polygon-button-outline {
+    /* clip-path: polygon(0% 0%, 90% 0%, 100% 20%, 100% 100%, 0% 100%);
+    --polygon-border-width: 2; */
+
+    --corner-radius: 0 10 0 0;
+
+    border-image: paint(polygon-border) 0 fill !important;
+}
